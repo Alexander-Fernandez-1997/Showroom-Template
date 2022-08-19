@@ -10,6 +10,19 @@ a {
   margin-bottom: 1rem;
 }
 
+.zmdi {
+  display: inline-block;
+  font: normal normal normal 14px/1 "Material-Design-Iconic-Font";
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.zmdi-search:before {
+  content: "\1F50E";
+}
+
 .hamburger-box {
   position: relative;
   display: inline-block;

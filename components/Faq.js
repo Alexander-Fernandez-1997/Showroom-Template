@@ -1,13 +1,6 @@
 import React from "react";
 
 export const Faq = () => {
-  const showFaq = (e) => {
-    const faq = e.currentTarget;
-    const faqDiv = faq.querySelector("div");
-    const faqA = faq.querySelector("a");
-    faqDiv.classList.toggle("show");
-    faqA.classList.toggle("faqBlue");
-  };
   return (
     <section id="faq" className="faq mb-5">
       <div className="container mb-5" data-aos="fade-up">
@@ -17,7 +10,7 @@ export const Faq = () => {
           </h2>
         </div>
         <ul className="faq-list accordion" data-aos="fade-up">
-          <li onClick={showFaq}>
+          <li>
             <a
               data-bs-toggle="collapse"
               className="collapsed"
@@ -37,7 +30,7 @@ export const Faq = () => {
               </p>
             </div>
           </li>
-          <li onClick={showFaq}>
+          <li>
             <a
               data-bs-toggle="collapse"
               data-bs-target="#faq2"
@@ -51,7 +44,7 @@ export const Faq = () => {
               <p>Si, contamos con compras al por menor y al por mayor.</p>
             </div>
           </li>
-          <li onClick={showFaq}>
+          <li>
             <a
               data-bs-toggle="collapse"
               data-bs-target="#faq3"
@@ -69,7 +62,7 @@ export const Faq = () => {
               </p>
             </div>
           </li>
-          <li onClick={showFaq}>
+          <li>
             <a
               data-bs-toggle="collapse"
               data-bs-target="#faq4"
@@ -86,7 +79,7 @@ export const Faq = () => {
               </p>
             </div>
           </li>
-          <li onClick={showFaq}>
+          <li>
             <a
               data-bs-toggle="collapse"
               data-bs-target="#faq5"
@@ -104,7 +97,7 @@ export const Faq = () => {
               </p>
             </div>
           </li>
-          <li onClick={showFaq}>
+          <li>
             <a
               data-bs-toggle="collapse"
               data-bs-target="#faq6"
