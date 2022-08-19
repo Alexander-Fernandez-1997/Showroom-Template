@@ -10,7 +10,7 @@ export const SectionSlide = () => {
             <div
               className="item-slick1"
               style={{
-                backgroundImage: "url(images/bahia/bannerindex.jpg)",
+                backgroundImage: "url(images/bahia/indexbanner2.jpg)",
               }}
             >
               <div className="container h-full">
@@ -20,16 +20,16 @@ export const SectionSlide = () => {
                     data-appear="fadeInDown"
                     data-delay={0}
                   >
-                    {/* <span className="ltext-101 cl0 respon2">Bahia del Sol</span> */}
+                    <span className="ltext-101 cl0 respon2">Bahia del Sol</span>
                   </div>
                   <div
                     className="layer-slick1 animated "
                     data-appear="fadeInUp"
                     data-delay={800}
                   >
-                    {/* <h2 className="ltext-201 cl0 p-t-19 p-b-43 respon1">
+                    <h2 className="ltext-201 cl0 p-t-19 p-b-43 respon1">
                       NUEVA TEMPORADA
-                    </h2> */}
+                    </h2>
                   </div>
                   <div
                     className="layer-slick1 animated "

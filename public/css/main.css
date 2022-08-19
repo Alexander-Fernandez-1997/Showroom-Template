@@ -1222,7 +1222,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
   height: calc(100vh - 40px);
   background-size: cover;
   background-repeat: no-repeat;
-  /* background-position: center center; */
+  background-position: center center;
 }
 
 .rs1-slick1 .item-slick1 {
