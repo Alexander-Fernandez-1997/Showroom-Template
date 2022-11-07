@@ -1,12 +1,11 @@
-import { connectToDatabase } from "../utils/db";
-import { Navbar } from "../components/Navbar";
-import { SectionSlide } from "../components/SectionSlide";
-import { IndexBanner } from "../components/IndexBanner";
-import { IndexCarousel } from "../components/IndexCarousel";
-import { Footer } from "../components/Footer";
-import { BackToTop } from "../components/BackToTop";
+import { Navbar } from "../components/utils/Navbar";
+import { SectionSlide } from "../components/intro/SectionSlide";
+import { IndexBanner } from "../components/intro/IndexBanner";
+import { IndexCarousel } from "../components/utils/IndexCarousel";
+import { Footer } from "../components/utils/Footer";
+import { BackToTop } from "../components/utils/BackToTop";
 
-export default function Home({ clothesJson }) {
+export default function Home({ clothesJson, categoriesJson }) {
   return (
     <>
       {/* Header */}
@@ -15,10 +14,10 @@ export default function Home({ clothesJson }) {
       {/* Slider */}
       <SectionSlide></SectionSlide>
       {/* Banner */}
-      <IndexBanner></IndexBanner>
+      <IndexBanner categorias={categoriesJson}></IndexBanner>
 
       {/* Product */}
-      <IndexCarousel clothesJson={clothesJson}></IndexCarousel>
+      <IndexCarousel clothes={clothesJson}></IndexCarousel>
       {/* Footer */}
       <Footer></Footer>
       {/* Back to top */}
@@ -28,16 +27,13 @@ export default function Home({ clothesJson }) {
 }
 
 export async function getStaticProps(context) {
-  const { db } = await connectToDatabase();
-  const clothes = await db
-    .collection("clothes")
-    .find()
-    .sort({ _id: -1 })
-    .limit(7)
-    .toArray();
-  const clothesJson = JSON.parse(JSON.stringify(clothes));
+  const clothesFetch = await fetch("http://localhost:3000/api/clothes");
+  const clothesJson = await clothesFetch.json();
+
+  const categoriesFetch = await fetch("http://localhost:3000/api/categories");
+  const categoriesJson = await categoriesFetch.json();
   return {
-    props: { clothesJson },
+    props: { clothesJson, categoriesJson },
     revalidate: 120,
   };
 }
