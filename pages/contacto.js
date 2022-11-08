@@ -1,9 +1,9 @@
-import { BackToTop } from "../components/BackToTop";
-import { ContactContent } from "../components/ContactContent";
-import { ContactMap } from "../components/ContactMap";
-import { ContactTittle } from "../components/ContactTittle";
-import { Footer } from "../components/Footer";
-import { Navbar } from "../components/Navbar";
+import { BackToTop } from "../components/utils/BackToTop";
+import { ContactContent } from "../components/contact/ContactContent";
+import { ContactMap } from "../components/contact/ContactMap";
+import { ContactTittle } from "../components/contact/ContactTittle";
+import { Footer } from "../components/utils/Footer";
+import { Navbar } from "../components/utils/Navbar";
 
 export default function Contacto() {
   return (

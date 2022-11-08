@@ -1,8 +1,8 @@
 import Link from "next/link";
 import React from "react";
 
-export const CustomProduct = ({ id, name, category, image, description }) => {
-  console.log(image);
+export const CustomProduct = ({ clothe }) => {
+  const { slug, name, price, image_main, description } = clothe;
   return (
     <>
       <div className="customprision ">
@@ -13,12 +13,12 @@ export const CustomProduct = ({ id, name, category, image, description }) => {
           ></div>
           <div
             className="highlight-window col-10 col-md-5 col-lg-4"
-            style={{ backgroundImage: `url(${image})` }}
+            style={{ backgroundImage: `url(${image_main})` }}
             id="product-img"
           ></div>
           <div className="window col-10 col-md-5 col-lg-4">
             <div className="main-content">
-              <h2 className="h2">{category}</h2>
+              <h2 className="h2">{slug}</h2>
               <h1 className="h1">{name}</h1>
               <h3 className="h3">Para compras mayoristas o minoristas</h3>
               <div className="description2" id="description2">
@@ -28,7 +28,7 @@ export const CustomProduct = ({ id, name, category, image, description }) => {
               <div className="options"></div>
               <div className="divider" />
               <div className="purchase-info">
-                <div className="price">Linea directa</div>
+                <div className="price">${price}</div>
                 <Link href="/contacto">
                   <a className="flex-c-m stext-101 cl0 size-101 bg3 bor1 hov-btn3 p-lr-15 trans-04">
                     Contacto

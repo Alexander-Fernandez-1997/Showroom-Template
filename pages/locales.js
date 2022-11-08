@@ -1,9 +1,9 @@
-import { BackToTop } from "../components/BackToTop";
-import { Footer } from "../components/Footer";
-import { Locales } from "../components/Locales";
-import { LocalesFilter } from "../components/LocalesFilter";
-import { LocalesTittle } from "../components/LocalesTittle";
-import { Navbar } from "../components/Navbar";
+import { BackToTop } from "../components/utils/BackToTop";
+import { Footer } from "../components/utils/Footer";
+import { Locales } from "../components/stores/Locales";
+import { LocalesFilter } from "../components/stores/LocalesFilter";
+import { LocalesTittle } from "../components/stores/LocalesTittle";
+import { Navbar } from "../components/utils/Navbar";
 
 export default function LocalesPage() {
   return (

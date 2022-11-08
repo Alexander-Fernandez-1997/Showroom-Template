@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { connectToDatabase } from "../utils/db";
-import { Navbar } from "../components/Navbar";
-import { ClothesGrid } from "../components/ClothesGrid";
-import { Footer } from "../components/Footer";
-import { BackToTop } from "../components/BackToTop";
+import { Navbar } from "../components/utils/Navbar";
+import { ClothesGrid } from "../components/categories/ClothesGrid";
+import { Footer } from "../components/utils/Footer";
+import { BackToTop } from "../components/utils/BackToTop";
 
 export default function Showroom({ clothesJson }) {
   const [query, setQuery] = useState("");
@@ -22,13 +21,8 @@ export default function Showroom({ clothesJson }) {
 }
 
 export async function getStaticProps(context) {
-  const { db } = await connectToDatabase();
-  const clothes = await db
-    .collection("clothes")
-    .find()
-    .sort({ _id: -1 })
-    .toArray();
-  const clothesJson = JSON.parse(JSON.stringify(clothes));
+  const clothesFetch = await fetch("http://localhost:3000/api/clothes");
+  const clothesJson = await clothesFetch.json();
   return {
     props: { clothesJson },
     revalidate: 120,
