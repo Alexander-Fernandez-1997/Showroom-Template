@@ -1,11 +1,10 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { AdminNav } from "../components/AdminNav";
-import { BackToTop } from "../components/BackToTop";
-import { EditForm } from "../components/EditForm";
-import { GuiaAdmin } from "../components/GuiaAdmin";
 import { useForm } from "../hooks/useForm";
-import { connectToDatabase } from "../utils/db";
+import { AdminNav } from "../components/admin/AdminNav";
+import { EditForm } from "../components/admin/EditForm";
+import { GuiaAdmin } from "../components/admin/GuiaAdmin";
+import { BackToTop } from "../components/utils/BackToTop";
 
 export default function Crear({ clothesJson }) {
   const router = useRouter();
@@ -189,17 +188,17 @@ export default function Crear({ clothesJson }) {
           <div className="row isotope-grid" id="inicioGrid">
             {filteredClothes.map((clothe) => (
               <div
-                key={clothe._id}
+                key={clothe.id}
                 className="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women"
               >
                 {/* Block2 */}
                 <div className="block2">
                   <div className="block2-pic hov-img0">
-                    <img src={clothe.image} alt={clothe.name} />
+                    <img src={clothe.image_main} alt={clothe.name} />
                     <a
                       href={`#${clothe._id}`}
                       className="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1"
-                      onClick={() => showEdit(clothe._id)}
+                      onClick={() => showEdit(clothe.id)}
                     >
                       Editar
                     </a>
@@ -212,7 +211,7 @@ export default function Crear({ clothesJson }) {
                       >
                         {clothe.name}
                       </a>
-                      <span className="stext-105 cl3">{clothe.category}</span>
+                      <span className="stext-105 cl3">{clothe.price}</span>
                     </div>
                     <div className="block2-txt-child2 flex-r p-t-3">
                       <button
@@ -223,13 +222,13 @@ export default function Crear({ clothesJson }) {
                       </button>
                     </div>
                   </div>
-                  <div style={{ display: "none" }} id={clothe._id}>
+                  <div style={{ display: "none" }} id={clothe.id}>
                     <EditForm
-                      id={clothe._id}
+                      id={clothe.id}
                       name={clothe.name}
-                      category={clothe.category}
+                      category={clothe.price}
                       description={clothe.description}
-                      image={clothe.image}
+                      image={clothe.image_main}
                     ></EditForm>
                   </div>
                 </div>
@@ -243,9 +242,9 @@ export default function Crear({ clothesJson }) {
   );
 }
 export async function getServerSideProps(context) {
-  const { db } = await connectToDatabase();
-  const clothes = await db.collection("clothes").find().toArray();
-  const clothesJson = JSON.parse(JSON.stringify(clothes));
+  const clothesFetch = await fetch("http://localhost:3000/api/clothes");
+  const clothesJson = await clothesFetch.json();
+
   return {
     props: { clothesJson },
   };

@@ -1,6 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
-import { useForm } from "../hooks/useForm";
+import { useForm } from "../../hooks/useForm";
 
 export const EditForm = ({ id, name, category, description, image }) => {
   const [values, handleInputChange] = useForm({
