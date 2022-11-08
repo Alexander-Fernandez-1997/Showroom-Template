@@ -1,10 +1,13 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 export const Navbar = ({ query, setQuery }) => {
   const { asPath } = useRouter();
   const [exist, setExist] = useState(false);
+  const { data: session } = useSession();
+  console.log(session);
 
   useEffect(() => {
     if (asPath === "/showroom") {
@@ -82,6 +85,18 @@ export const Navbar = ({ query, setQuery }) => {
                     <i className="zmdi zmdi-search" />
                   </div>
                 ) : null}
+                <ul className="main-menu">
+                  {useSession().status === "authenticated" ? (
+                    <li>
+                      <h5>{session.user.email}</h5>
+                      <a onClick={() => signOut()}>Cerrar Sesión</a>
+                    </li>
+                  ) : (
+                    <li>
+                      <a onClick={signIn}>Iniciar Sesión</a>
+                    </li>
+                  )}
+                </ul>
               </div>
             </nav>
           </div>
