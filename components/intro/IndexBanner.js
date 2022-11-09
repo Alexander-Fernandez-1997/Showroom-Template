@@ -2,13 +2,14 @@ import Link from "next/link";
 import React from "react";
 
 export const IndexBanner = ({ categorias }) => {
+  const activeCategories = categorias.filter((cat) => cat.main_active === true);
   return (
     <>
       <div className="sec-banner bg0 p-t-80 p-b-50">
         <div className="container">
           <div className="row">
             {/* start banner */}
-            {categorias.map((categoria) => (
+            {activeCategories.map((categoria) => (
               <div
                 key={`${categoria.id}${categoria.created_at}`}
                 className="col-md-6 col-xl-4 p-b-30 m-lr-auto"

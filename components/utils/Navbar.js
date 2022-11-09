@@ -7,7 +7,6 @@ export const Navbar = ({ query, setQuery }) => {
   const { asPath } = useRouter();
   const [exist, setExist] = useState(false);
   const { data: session } = useSession();
-  console.log(session);
 
   useEffect(() => {
     if (asPath === "/showroom") {

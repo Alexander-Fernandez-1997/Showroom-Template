@@ -4,7 +4,13 @@ export default async (req, resp) => {
     const seedFetch = () => {
       const url = "http://localhost:3000/api/seed/";
       console.log(url);
-      const seeds = ["categories", "subcategories", "clothes", "variants"];
+      const seeds = [
+        "store",
+        "categories",
+        "subcategories",
+        "clothes",
+        "variants",
+      ];
       const seedFetchs = seeds.map((seed) => {
         console.log(seed);
         return fetch(url + seed).then((res) => res.json());
