@@ -14,8 +14,8 @@ export default function Document() {
           crossOrigin="anonymous"
         ></link>
 
-        <link rel="stylesheet" type="text/css" href="css/util.css" />
-        <link rel="stylesheet" type="text/css" href="css/main.css" />
+        <link rel="stylesheet" type="text/css" href="/css/util.css" />
+        <link rel="stylesheet" type="text/css" href="/css/main.css" />
       </Head>
       <body>
         <Main />

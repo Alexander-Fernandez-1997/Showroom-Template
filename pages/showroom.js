@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { Navbar } from "../components/utils/Navbar";
 import { ClothesGrid } from "../components/categories/ClothesGrid";
-import { Footer } from "../components/utils/Footer";
-import { BackToTop } from "../components/utils/BackToTop";
 
 export default function Showroom({ clothesJson }) {
   const [query, setQuery] = useState("");
@@ -14,8 +12,6 @@ export default function Showroom({ clothesJson }) {
         query={query}
         setQuery={setQuery}
       ></ClothesGrid>
-      <Footer></Footer>
-      <BackToTop />
     </>
   );
 }

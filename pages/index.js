@@ -1,27 +1,16 @@
-import { Navbar } from "../components/utils/Navbar";
 import { SectionSlide } from "../components/intro/SectionSlide";
 import { IndexBanner } from "../components/intro/IndexBanner";
 import { IndexCarousel } from "../components/utils/IndexCarousel";
-import { Footer } from "../components/utils/Footer";
-import { BackToTop } from "../components/utils/BackToTop";
 
 export default function Home({ clothesJson, categoriesJson }) {
   return (
     <>
-      {/* Header */}
-
-      <Navbar></Navbar>
       {/* Slider */}
       <SectionSlide></SectionSlide>
       {/* Banner */}
       <IndexBanner categorias={categoriesJson}></IndexBanner>
-
       {/* Product */}
       <IndexCarousel clothes={clothesJson}></IndexCarousel>
-      {/* Footer */}
-      <Footer></Footer>
-      {/* Back to top */}
-      <BackToTop></BackToTop>
     </>
   );
 }

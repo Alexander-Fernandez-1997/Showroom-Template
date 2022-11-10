@@ -1,15 +1,9 @@
-import { BackToTop } from "../components/utils/BackToTop";
 import { CustomProduct } from "../components/product/CustomProduct";
-import { Footer } from "../components/utils/Footer";
-import { Navbar } from "../components/utils/Navbar";
 
 export default function Ropa({ clothe }) {
   return (
     <>
-      <Navbar></Navbar>
       <CustomProduct clothe={clothe}></CustomProduct>
-      <Footer></Footer>
-      <BackToTop></BackToTop>
     </>
   );
 }

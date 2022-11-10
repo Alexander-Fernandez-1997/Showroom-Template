@@ -1,6 +1,7 @@
 import Script from "next/script";
-import "../styles/globals.css";
+import "/styles/globals.css";
 import { SessionProvider } from "next-auth/react";
+import { Layout } from "../components/utils/Layout";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
@@ -10,7 +11,9 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
       />
       <SessionProvider session={session}>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </SessionProvider>
     </>
   );

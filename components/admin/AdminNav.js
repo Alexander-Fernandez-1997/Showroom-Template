@@ -15,7 +15,7 @@ export const AdminNav = () => {
     <>
       <nav className=" navbar-expand-lg navbar navbar-dark bg-info sticky-top">
         <div className="container-fluid">
-          <Link href="/crear">
+          <Link href="/admin">
             <a className="navbar-brand">Zona Administrativa</a>
           </Link>
 
