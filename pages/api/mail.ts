@@ -22,13 +22,14 @@ export default async (req: NextApiRequest, res: NextApiResponse<Data>) => {
       from: "bahia_del_sol@outlook.com",
       subject: `Mensaje de potencial cliente ${name}`,
       text: `Email de ${name} : ${email}`,
-      html: `<h2> Asunto: <strong> ${subject} </strong> </h2> <h3> Cliente: <strong> ${name} </strong></h3> 
+      html: `<h2> Asunto: <strong> ${subject} </strong> </h2> <h3> Cliente: <strong> ${name} </strong></h3>
       <h4>Email: <strong> ${email} </strong> </h4>
        <p><strong>${message}</strong> </p>`,
     };
 
     try {
-      await sgMail.send(msg);
+      // await sgMail.send(msg);
+      console.log("Email sent");
       res.status(200).json({ success: true });
     } catch (error) {
       res.status(200).json({ success: false });

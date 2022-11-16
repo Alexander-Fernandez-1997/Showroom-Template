@@ -10,6 +10,8 @@ export default async (req, resp) => {
         "subcategories",
         "clothes",
         "variants",
+        "notes",
+        "franchises",
       ];
       const seedFetchs = seeds.map((seed) => {
         console.log(seed);

@@ -1,6 +1,6 @@
 import React from "react";
 
-export const LocalesTittle = () => {
+export const LocalesTittle = ({ names }) => {
   return (
     <>
       <section
