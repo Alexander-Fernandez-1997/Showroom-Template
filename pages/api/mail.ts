@@ -18,8 +18,10 @@ export default async (req: NextApiRequest, res: NextApiResponse<Data>) => {
       req.body;
 
     const msg = {
-      to: "Bahiadelsol_1777@yahoo.com.ar",
-      from: "bahia_del_sol@outlook.com",
+      // to: "Bahiadelsol_1777@yahoo.com.ar",
+      to: "alex97l@hotmail.com",
+      // from: "bahia_del_sol@outlook.com",
+      from: "ace@outlook.com",
       subject: `Mensaje de potencial cliente ${name}`,
       text: `Email de ${name} : ${email}`,
       html: `<h2> Asunto: <strong> ${subject} </strong> </h2> <h3> Cliente: <strong> ${name} </strong></h3>

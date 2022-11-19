@@ -1,7 +1,6 @@
 import React from "react";
 
 export const LocalDiv = ({ local, index }) => {
-  console.log(local);
   const { name, address, image_main, store_hours } = local;
   const activateLocal = (e) => {
     const options = document.querySelectorAll(".option");

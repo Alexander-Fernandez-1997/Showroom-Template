@@ -1,6 +1,8 @@
 import React from "react";
 
-export const ContactMap = () => {
+export const ContactMap = ({ address }) => {
+  const { street, street_number } = address;
+  const addressMap = `${street} ${street_number}`;
   return (
     <>
       <div className="map">
@@ -12,7 +14,7 @@ export const ContactMap = () => {
                 height: "50vh",
               }}
               id="gmap_canvas"
-              src="https://maps.google.com/maps?q=Terrero1777&t=&z=19&ie=UTF8&iwloc=&output=embed"
+              src={`https://maps.google.com/maps?q=${addressMap}&t=&z=13&ie=UTF8&iwloc=&output=embed`}
               frameBorder={0}
               scrolling="no"
               marginHeight={0}
