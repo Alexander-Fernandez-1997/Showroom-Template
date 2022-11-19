@@ -5,8 +5,8 @@ export const Locales = ({ locales }) => {
   return (
     <div className="localesbody mb-5">
       <div className="options">
-        {locales.map((local) => (
-          <LocalDiv key={local.id} local={local}></LocalDiv>
+        {locales.map((local, index) => (
+          <LocalDiv key={local.id} index={index} local={local}></LocalDiv>
         ))}
       </div>
     </div>

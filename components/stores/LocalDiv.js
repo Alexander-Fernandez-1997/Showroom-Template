@@ -1,6 +1,6 @@
 import React from "react";
 
-export const LocalDiv = ({ local }) => {
+export const LocalDiv = ({ local, index }) => {
   console.log(local);
   const { name, address, image_main, store_hours } = local;
   const activateLocal = (e) => {
@@ -12,7 +12,7 @@ export const LocalDiv = ({ local }) => {
   };
   return (
     <div
-      className="option active"
+      className={`option ${index === 0 ? "active" : ""}`}
       onClick={activateLocal}
       style={{
         background: `url(${image_main})`,

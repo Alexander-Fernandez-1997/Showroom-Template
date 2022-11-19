@@ -1,4 +1,3 @@
-import Script from "next/script";
 import React from "react";
 
 export const ContactMap = () => {
@@ -13,7 +12,7 @@ export const ContactMap = () => {
                 height: "50vh",
               }}
               id="gmap_canvas"
-              src="https://maps.google.com/maps?q=Terrero%201777&t=&z=19&ie=UTF8&iwloc=&output=embed"
+              src="https://maps.google.com/maps?q=Terrero1777&t=&z=19&ie=UTF8&iwloc=&output=embed"
               frameBorder={0}
               scrolling="no"
               marginHeight={0}
