@@ -6,7 +6,7 @@ export default function Home({ clothesJson, categoriesJson, storeJson }) {
   return (
     <>
       {/* Slider */}
-      <SectionSlide store={storeJson[0]}></SectionSlide>
+      <SectionSlide store={storeJson}></SectionSlide>
       {/* Banner */}
       <IndexBanner categorias={categoriesJson}></IndexBanner>
       {/* Product */}

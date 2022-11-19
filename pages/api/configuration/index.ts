@@ -5,9 +5,9 @@ import storeKey from "../../../utils/storeKey";
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const query = await conn.query(
-      `SELECT * FROM notes WHERE store_id = ${storeKey}`
+      `SELECT * FROM configuration WHERE store_id = ${storeKey}`
     );
-    const data = query.rows;
+    const data = await query.rows[0];
     res.status(200).json(data);
   } catch (err) {
     console.log(err);

@@ -1,9 +1,10 @@
 import conn from "../../../lib/db";
+import storeKey from "../../../utils/storeKey";
 
 export default async (req, resp) => {
   try {
     const store = {
-      id: 1,
+      id: storeKey,
       name: "Template",
       logo: "https://i.imgur.com/GFS3QSN.png",
       phone_number: "1120635160",

@@ -1,4 +1,5 @@
 import conn from "../../../lib/db";
+import storeKey from "../../../utils/storeKey";
 
 export default async (req, resp) => {
   try {
@@ -9,7 +10,7 @@ export default async (req, resp) => {
         phone: "91 123 45 67",
         image_main: "https://source.unsplash.com/400x600",
         store_hours: "10:00 - 20:00",
-        store_id: 1,
+        store_id: storeKey,
       },
       {
         name: "Pull & Bear",
@@ -17,7 +18,7 @@ export default async (req, resp) => {
         phone: "91 123 45 67",
         image_main: "https://source.unsplash.com/400x600",
         store_hours: "10:00 - 20:00",
-        store_id: 1,
+        store_id: storeKey,
       },
       {
         name: "Stradivarius",
@@ -25,7 +26,7 @@ export default async (req, resp) => {
         phone: "91 123 45 67",
         image_main: "https://source.unsplash.com/400x600",
         store_hours: "10:00 - 20:00",
-        store_id: 1,
+        store_id: storeKey,
       },
       {
         name: "Bershka",
@@ -33,7 +34,7 @@ export default async (req, resp) => {
         phone: "91 123 45 67",
         image_main: "https://source.unsplash.com/400x600",
         store_hours: "10:00 - 20:00",
-        store_id: 1,
+        store_id: storeKey,
       },
       {
         name: "H&M",
@@ -41,7 +42,7 @@ export default async (req, resp) => {
         phone: "91 123 45 67",
         image_main: "https://source.unsplash.com/400x600",
         store_hours: "10:00 - 20:00",
-        store_id: 1,
+        store_id: storeKey,
       },
     ];
     //create franchises
