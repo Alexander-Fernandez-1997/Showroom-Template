@@ -1,4 +1,5 @@
 import { CustomProduct } from "../components/product/CustomProduct";
+import { simpleFetch } from "../utils/simpleFetch";
 
 export default function Ropa({ clothe }) {
   return (
@@ -9,8 +10,8 @@ export default function Ropa({ clothe }) {
 }
 
 export const getStaticPaths = async (ctx) => {
-  const clothesFetch = await fetch("http://localhost:3000/api/clothes");
-  const clothesJson = await clothesFetch.json();
+  const clothesJson = await simpleFetch("clothes");
+
   return {
     fallback: "blocking",
     paths: clothesJson.map((clothe) => ({
@@ -21,8 +22,8 @@ export const getStaticPaths = async (ctx) => {
 
 export const getStaticProps = async ({ params }) => {
   const { id } = params;
-  const clotheFetch = await fetch("http://localhost:3000/api/clothes/" + id);
-  const clothe = await clotheFetch.json();
+  const clothe = await simpleFetch(`clothes/${id}`);
+
   return {
     props: {
       clothe,

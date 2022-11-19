@@ -1,6 +1,7 @@
 import { AboutContent } from "../components/about/AboutContent";
 import { Banner } from "../components/utils/Banner";
 import { Faq } from "../components/about/Faq";
+import { simpleFetch } from "../utils/simpleFetch";
 
 export default function Nosotros({ notes, configuration }) {
   const { about_banner, about_slogan, about_html } = configuration;
@@ -15,13 +16,8 @@ export default function Nosotros({ notes, configuration }) {
 
 // Incremental Static Regeneration (ISR)
 export async function getStaticProps() {
-  const notesFetch = await fetch("http://localhost:3000/api/notes");
-  const notes = await notesFetch.json();
-
-  const configurationFetch = await fetch(
-    "http://localhost:3000/api/configuration"
-  );
-  const configuration = await configurationFetch.json();
+  const notes = await simpleFetch("notes");
+  const configuration = await simpleFetch("configuration");
 
   return {
     props: {

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Navbar } from "../components/utils/Navbar";
 import { ClothesGrid } from "../components/categories/ClothesGrid";
+import { simpleFetch } from "../utils/simpleFetch";
 
 export default function Showroom({ clothesJson }) {
   const [query, setQuery] = useState("");
@@ -17,8 +18,8 @@ export default function Showroom({ clothesJson }) {
 }
 
 export async function getStaticProps(context) {
-  const clothesFetch = await fetch("http://localhost:3000/api/clothes");
-  const clothesJson = await clothesFetch.json();
+  const clothesJson = await simpleFetch("clothes");
+
   return {
     props: { clothesJson },
     revalidate: 120,

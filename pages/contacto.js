@@ -1,6 +1,7 @@
+import { Banner } from "../components/utils/Banner";
 import { ContactContent } from "../components/contact/ContactContent";
 import { ContactMap } from "../components/contact/ContactMap";
-import { Banner } from "../components/utils/Banner";
+import { simpleFetch } from "../utils/simpleFetch";
 
 export default function Contacto({ store, configuration }) {
   const { contact_banner, contact_slogan } = configuration;
@@ -15,13 +16,8 @@ export default function Contacto({ store, configuration }) {
 
 // Incremental Static Regeneration (ISR)
 export async function getStaticProps() {
-  const storeFetch = await fetch("http://localhost:3000/api/store");
-  const store = await storeFetch.json();
-
-  const configurationFetch = await fetch(
-    "http://localhost:3000/api/configuration"
-  );
-  const configuration = await configurationFetch.json();
+  const store = await simpleFetch("store");
+  const configuration = await simpleFetch("configuration");
 
   return {
     props: {
