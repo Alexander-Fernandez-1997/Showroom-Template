@@ -2,7 +2,6 @@ import React from "react";
 import { Questions } from "./Questions";
 
 export const Faq = ({ notes }) => {
-  console.log(notes);
   return (
     <section id="faq" className="faq mb-5">
       <div className="container mb-5" data-aos="fade-up">
