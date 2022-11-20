@@ -1,8 +1,14 @@
 import React from "react";
 
-export const Stars = () => {
+export const Stars = ({ setRating }) => {
+  // when click on star change rating
+  const changeRating = ({ target }) => {
+    const stat = target.value;
+    setRating((prev) => ({ ...prev, rating: stat }));
+  };
+
   return (
-    <div className="ratingControl">
+    <div className="ratingControl" onClick={(e) => changeRating(e)}>
       <input type="radio" id="rating-5" name="rating" defaultValue={5} />
       <label
         className="ratingControl-stars ratingControl-stars--5"

@@ -2,11 +2,11 @@ import { CustomProduct } from "../components/product/CustomProduct";
 import { Reviews } from "../components/product/Reviews";
 import { simpleFetch } from "../utils/simpleFetch";
 
-export default function Ropa({ clothe }) {
+export default function Ropa({ clothe, id }) {
   return (
     <>
       <CustomProduct clothe={clothe}></CustomProduct>
-      <Reviews reviews={clothe[2].rows}></Reviews>
+      <Reviews reviews={clothe[2].rows} product={id}></Reviews>
     </>
   );
 }
@@ -29,6 +29,7 @@ export const getStaticProps = async ({ params }) => {
   return {
     props: {
       clothe,
+      id,
     },
   };
 };
