@@ -1209,6 +1209,8 @@ a {
   }
 }
 
+/* ------------------------------------ */
+
 .coloresContainer {
   margin-top: 5px;
   display: flex;
@@ -1230,10 +1232,76 @@ a {
   border: 1px solid #17a2b8;
   color: #17a2b8;
 }
+.colorEsfera.active {
+  /* // check icon on the middle */
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white' width='18px' height='18px'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E")
+    no-repeat center;
+}
 
 .tallaEsfera {
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1rem;
+}
+
+/* ------------------------------------ */
+._boxzoom .zoom-thumb {
+  width: 90px;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 0px;
+}
+._boxzoom .zoom-thumb ul.piclist {
+  padding-left: 0px;
+  top: 0px;
+}
+._boxzoom ._product-images {
+  width: 80%;
+  display: inline-block;
+}
+._boxzoom ._product-images .picZoomer {
+  width: 100%;
+}
+._boxzoom ._product-images .picZoomer .picZoomer-pic-wp img {
+  left: 0px;
+}
+._boxzoom ._product-images .picZoomer img.my_img {
+  width: 100%;
+}
+
+.picZoomer {
+  position: relative;
+}
+.picZoomer-pic-wp {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.my_img {
+  vertical-align: middle;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 100%;
+}
+.piclist li {
+  display: inline-block;
+  width: 90px;
+  height: 114px;
+  border: 1px solid #eee;
+}
+.piclist li img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* ------------------------------------ */
+
+.old-price {
+  text-decoration: line-through;
+  color: #666;
 }
