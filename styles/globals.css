@@ -1208,3 +1208,32 @@ a {
     right: 15px;
   }
 }
+
+.coloresContainer {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+.colorEsfera,
+.tallaEsfera {
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+  border: 1px solid #666;
+  padding: 1rem;
+}
+
+.colorEsfera.active,
+.tallaEsfera.active {
+  border: 1px solid #17a2b8;
+  color: #17a2b8;
+}
+
+.tallaEsfera {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+}

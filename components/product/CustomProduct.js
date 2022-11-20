@@ -25,7 +25,17 @@ export const CustomProduct = ({ clothe }) => {
             <div className="main-content">
               <h2 className="h2">{slug}</h2>
               <h1 className="h1">{name}</h1>
-              <h3 className="h3">Colores</h3>
+              <h3 className="h3">Colores:</h3>
+              <div className="coloresContainer">
+                <div
+                  className="colorEsfera"
+                  style={{ backgroundColor: `red` }}
+                ></div>
+              </div>
+              <h3 className="h3 mt-3">Tallas:</h3>
+              <div className="coloresContainer">
+                <h5 className="tallaEsfera">S</h5>
+              </div>
               <div className="description2" id="description2">
                 {description}
               </div>
