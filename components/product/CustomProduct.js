@@ -20,11 +20,12 @@ export const CustomProduct = ({ clothe }) => {
             style={{ backgroundImage: `url(${image_main})` }}
             id="product-img"
           ></div>
+          {/* Cubo derecho */}
           <div className="window col-10 col-md-5 col-lg-4">
             <div className="main-content">
               <h2 className="h2">{slug}</h2>
               <h1 className="h1">{name}</h1>
-              <h3 className="h3">Para compras mayoristas o minoristas</h3>
+              <h3 className="h3">Colores</h3>
               <div className="description2" id="description2">
                 {description}
               </div>

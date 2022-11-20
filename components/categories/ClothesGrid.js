@@ -166,7 +166,9 @@ export const ClothesGrid = ({ clothesJson, query, setQuery }) => {
           </div>
           <div className="row isotope-grid">
             {filteredClothes.map((clothe) => (
-              <ClotheCard key={clothe.slug} clothe={clothe} />
+              <div className="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+                <ClotheCard key={clothe.slug} clothe={clothe} />
+              </div>
             ))}
           </div>
           {/* Load more */}
