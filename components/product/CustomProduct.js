@@ -2,7 +2,11 @@ import Link from "next/link";
 import React from "react";
 
 export const CustomProduct = ({ clothe }) => {
-  const { slug, name, price, image_main, description } = clothe;
+  const product = clothe[0].rows[0];
+  const variant = clothe[1].rows;
+  const { slug, name, price, image_main, description } = product;
+  console.log(product);
+  console.log(variant);
   return (
     <>
       <div className="customprision ">
