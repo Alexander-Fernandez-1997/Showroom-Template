@@ -1,10 +1,12 @@
 import { CustomProduct } from "../components/product/CustomProduct";
+import { Reviews } from "../components/product/Reviews";
 import { simpleFetch } from "../utils/simpleFetch";
 
 export default function Ropa({ clothe }) {
   return (
     <>
       <CustomProduct clothe={clothe}></CustomProduct>
+      <Reviews reviews={clothe[2].rows}></Reviews>
     </>
   );
 }

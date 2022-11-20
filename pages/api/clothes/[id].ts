@@ -8,7 +8,7 @@ export default async function handler(
 ) {
   try {
     const id = req.query.id;
-    const query = `SELECT * FROM clothes WHERE id = ${id} AND store_id = ${storeKey}; SELECT * FROM variants WHERE clothes_id = ${id};`;
+    const query = `SELECT * FROM clothes WHERE id = ${id} AND store_id = ${storeKey}; SELECT * FROM variants WHERE clothes_id = ${id};SELECT * FROM reviews WHERE clothes_id = ${id};`;
     const data = await conn.query(query);
     res.status(200).json(data);
   } catch (err) {

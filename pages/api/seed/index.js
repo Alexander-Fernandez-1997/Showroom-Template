@@ -13,6 +13,7 @@ export default async (req, resp) => {
         "notes",
         "franchises",
         "configuration",
+        "reviews",
       ];
       const seedFetchs = seeds.map((seed) => {
         console.log(seed);
