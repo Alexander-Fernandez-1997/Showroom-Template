@@ -21,13 +21,6 @@ export const ClothesGrid = ({ clothesJson }) => {
 
   const filteredClothes = getFilteredClothes(query, clothes);
 
-  const SelectCategory = (cat) => {
-    setQuery("");
-    setCateg(cat);
-    document.querySelector(".barraReset").value = "";
-    document.querySelector(".litte-bar").style.display = "none";
-  };
-
   return (
     <>
       <section className="bg0 p-t-23 p-b-140">
@@ -44,13 +37,15 @@ export const ClothesGrid = ({ clothesJson }) => {
               <div className="flex-w flex-sb-m p-b-52">
                 <GridFilter setCateg={setCateg} categ={categ} />
                 <SearchButton></SearchButton>
-
                 <GridSearch setQuery={setQuery}></GridSearch>
               </div>
               <div className="row isotope-grid">
                 {filteredClothes.map((clothe) => (
-                  <div className="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
-                    <ClotheCard key={clothe.slug} clothe={clothe} />
+                  <div
+                    key={clothe.slug}
+                    className="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women"
+                  >
+                    <ClotheCard clothe={clothe} />
                   </div>
                 ))}
               </div>
