@@ -3,14 +3,9 @@ import { ClothesGrid } from "../components/categories/ClothesGrid";
 import { simpleFetch } from "../utils/simpleFetch";
 
 export default function Showroom({ clothesJson }) {
-  const [query, setQuery] = useState("");
   return (
     <>
-      <ClothesGrid
-        clothesJson={clothesJson}
-        query={query}
-        setQuery={setQuery}
-      ></ClothesGrid>
+      <ClothesGrid clothesJson={clothesJson}></ClothesGrid>
     </>
   );
 }
