@@ -2,32 +2,15 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
+import { SearchBar } from "./SearchBar";
 
 export const Navbar = ({ query, setQuery }) => {
   const { asPath } = useRouter();
-  const [exist, setExist] = useState(false);
+
   const { data: session } = useSession();
-
-  useEffect(() => {
-    if (asPath === "/showroom") {
-      setExist(true);
-    }
-  }, []);
-
-  const lfclothes = (e) => {
-    e.preventDefault();
-    let search = document.querySelector(".plh3");
-    setQuery(search.value);
-    document.querySelector(".bigsearch").classList.remove("show-modal-search");
-    search.value = "";
-  };
 
   const showSearch = () => {
     document.querySelector(".bigsearch").classList.add("show-modal-search");
-  };
-
-  const CloseSearch = () => {
-    document.querySelector(".bigsearch").classList.remove("show-modal-search");
   };
 
   const mobileMenu = () => {
@@ -74,14 +57,13 @@ export const Navbar = ({ query, setQuery }) => {
               {/* Icon header */}
 
               <div className="wrap-icon-header flex-w flex-r-m">
-                {exist === true ? (
-                  <div
-                    onClick={showSearch}
-                    className="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search"
-                  >
-                    <i className="zmdi zmdi-search" />
-                  </div>
-                ) : null}
+                <div
+                  onClick={showSearch}
+                  className="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search"
+                >
+                  <i className="zmdi zmdi-search" />
+                </div>
+
                 <ul className="main-menu">
                   {useSession().status === "authenticated" ? (
                     <li>
@@ -109,14 +91,12 @@ export const Navbar = ({ query, setQuery }) => {
           {/* Icon header */}
 
           <div className="wrap-icon-header flex-w flex-r-m m-r-15">
-            {exist === true ? (
-              <div
-                onClick={showSearch}
-                className="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search"
-              >
-                <i className="zmdi zmdi-search" />
-              </div>
-            ) : null}
+            <div
+              onClick={showSearch}
+              className="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search"
+            >
+              <i className="zmdi zmdi-search" />
+            </div>
           </div>
           {/* Button show menu */}
           <div
@@ -149,31 +129,7 @@ export const Navbar = ({ query, setQuery }) => {
           </ul>
         </div>
         {/* Modal Search */}
-        <div className="modal-search-header flex-c-m trans-04 js-hide-modal-search bigsearch">
-          <div className="container-search-header">
-            <button
-              onClick={CloseSearch}
-              className="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search "
-            >
-              <img src="images/icons/icon-close2.png" alt="CLOSE" />
-            </button>
-            <form
-              onSubmit={lfclothes}
-              className="wrap-search-header flex-w p-l-15"
-            >
-              <button className="flex-c-m trans-04">
-                <i className="zmdi zmdi-search" />
-              </button>
-              <input
-                className="plh3"
-                type="text"
-                name="search"
-                placeholder="Buscar..."
-                autoComplete="off"
-              />
-            </form>
-          </div>
-        </div>
+        <SearchBar></SearchBar>
       </header>
     </>
   );
