@@ -1,9 +1,13 @@
-import Link from "next/link";
 import React, { useState } from "react";
-import useCart from "../../store/store";
 import { groupBy } from "../../utils/groupBy";
+import { AddToCartFicha } from "./AddToCartFicha";
+import { Colores } from "./details/Colores";
+import { Description } from "./details/Description";
+import { Price } from "./details/Price";
+import { Size } from "./details/Size";
 import { DinamicImgs } from "./DinamicImgs";
 import { MobileImgs } from "./MobileImgs";
+import { NoDisponible } from "./NoDisponible";
 
 export const CustomProduct = ({ clothe }) => {
   const { name, price, description } = clothe[0].rows[0];
@@ -37,20 +41,6 @@ export const CustomProduct = ({ clothe }) => {
         : ActiveVariant.price || price
       : price;
 
-  //cart logic
-  const addTocart = useCart((state) => state.addTocart);
-  const updatecart = useCart((state) => state.updatecart);
-  const mycart = useCart((state) => state.cartContent);
-  const addProduct = (params) => {
-    const product = mycart.findIndex((item) => item.id === params.id);
-    if (product !== -1) {
-      mycart[product].quantity++;
-      updatecart({ params, mycart });
-    } else {
-      addTocart(params);
-    }
-  };
-
   if (ActiveVariant !== undefined) {
     return (
       <>
@@ -62,73 +52,32 @@ export const CustomProduct = ({ clothe }) => {
             <div className="col-12 col-md-5 col-lg-5">
               <div className="main-content">
                 <h2 className="h2">{name}</h2>
-                {/* <h1 className="h1">{name}</h1> */}
-                <h3 className="h3">Colores:</h3>
-                <div className="coloresContainer">
-                  {colors.map((color, i) => (
-                    <div
-                      key={i + color}
-                      className={`colorEsfera ${
-                        colorActive === color ? "active" : ""
-                      }`}
-                      style={{ backgroundColor: `${color}` }}
-                      onClick={() => setColor(color)}
-                    ></div>
-                  ))}
-                </div>
-                <h3 className="h3 mt-2">Tallas:</h3>
-                <div className="coloresContainer">
-                  {variants[colorActive].map((size, i) => (
-                    <h5
-                      key={i + size.size}
-                      className={`tallaEsfera ${
-                        sizeActive === size.size ? "active" : ""
-                      }`}
-                      onClick={() => setSize(size.size)}
-                    >
-                      {size.size}
-                    </h5>
-                  ))}
-                </div>
-                <div className="description2" id="description2">
-                  {description}
-                </div>
+                <Colores
+                  colors={colors}
+                  colorActive={colorActive}
+                  setColor={setColor}
+                />
+                <Size
+                  variants={variants}
+                  colorActive={colorActive}
+                  sizeActive={sizeActive}
+                  setSize={setSize}
+                ></Size>
+                <Description description={description} />
 
-                <div className="options"></div>
-                <div className="divider" />
                 <div className="purchase-info">
-                  <div className="price">
-                    <span
-                      className={
-                        ActiveVariant.discount ? "old-price" : "d-none"
-                      }
-                    >
-                      ${ActiveVariant.price || price}
-                    </span>{" "}
-                    ${activePrice}
-                  </div>
-                  {/* <Link
-                    href="/contacto"
-                    className="flex-c-m stext-101 cl0 size-101 bg3 bor1 hov-btn3 p-lr-15 trans-04"
-                  >
-                    Contacto
-                  </Link> */}
-                  <Link
-                    onClick={() =>
-                      addProduct({
-                        id: ActiveVariant.id,
-                        name: name,
-                        color: ActiveVariant.color,
-                        size: ActiveVariant.size,
-                        price: activePrice,
-                        quantity: 1,
-                      })
-                    }
-                    href="#"
-                    className="flex-c-m stext-101 cl0 size-101 bg3 bor1 hov-btn3 p-lr-15 trans-04"
-                  >
-                    Agregar al carrito
-                  </Link>
+                  <Price
+                    ActiveVariant={ActiveVariant}
+                    activePrice={activePrice}
+                  />
+                  <AddToCartFicha
+                    id={ActiveVariant.id}
+                    name={name}
+                    color={ActiveVariant.color}
+                    size={ActiveVariant.size}
+                    price={activePrice}
+                    quantity={1}
+                  ></AddToCartFicha>
                 </div>
               </div>
             </div>
@@ -137,15 +86,6 @@ export const CustomProduct = ({ clothe }) => {
       </>
     );
   } else {
-    return (
-      <div className="pt-5 pb-5 container ">
-        <div className="row pt-5 pb-5 justify-content-center">
-          <div className="container">
-            <h1>Producto no disponible</h1>
-            <Link href="/showroom">Regresar al showroom</Link>
-          </div>
-        </div>
-      </div>
-    );
+    return <NoDisponible></NoDisponible>;
   }
 };
