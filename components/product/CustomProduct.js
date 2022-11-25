@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React, { useState } from "react";
+import useCart from "../../store/store";
 import { groupBy } from "../../utils/groupBy";
 import { DinamicImgs } from "./DinamicImgs";
 import { MobileImgs } from "./MobileImgs";
@@ -27,12 +28,28 @@ export const CustomProduct = ({ clothe }) => {
       ? variants[colorActive].find((v) => v.size === sizeActive)
       : undefined;
 
+  console.log(ActiveVariant);
+
   let activePrice =
     colors.length > 0
       ? ActiveVariant.discount
         ? ActiveVariant.discount_price
         : ActiveVariant.price || price
       : price;
+
+  //cart logic
+  const addTocart = useCart((state) => state.addTocart);
+  const updatecart = useCart((state) => state.updatecart);
+  const mycart = useCart((state) => state.cartContent);
+  const addProduct = (params) => {
+    const product = mycart.findIndex((item) => item.id === params.id);
+    if (product !== -1) {
+      mycart[product].quantity++;
+      updatecart({ params, mycart });
+    } else {
+      addTocart(params);
+    }
+  };
 
   if (ActiveVariant !== undefined) {
     return (
@@ -90,11 +107,27 @@ export const CustomProduct = ({ clothe }) => {
                     </span>{" "}
                     ${activePrice}
                   </div>
-                  <Link
+                  {/* <Link
                     href="/contacto"
                     className="flex-c-m stext-101 cl0 size-101 bg3 bor1 hov-btn3 p-lr-15 trans-04"
                   >
                     Contacto
+                  </Link> */}
+                  <Link
+                    onClick={() =>
+                      addProduct({
+                        id: ActiveVariant.id,
+                        name: name,
+                        color: ActiveVariant.color,
+                        size: ActiveVariant.size,
+                        price: activePrice,
+                        quantity: 1,
+                      })
+                    }
+                    href="#"
+                    className="flex-c-m stext-101 cl0 size-101 bg3 bor1 hov-btn3 p-lr-15 trans-04"
+                  >
+                    Agregar al carrito
                   </Link>
                 </div>
               </div>

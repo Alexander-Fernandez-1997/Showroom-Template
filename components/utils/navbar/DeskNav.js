@@ -1,5 +1,6 @@
 import React from "react";
 import { AuthBtn } from "./AuthBtn";
+import { CartIcon } from "./CartIcon";
 import { MobileLink } from "./MobileLink";
 import { NavLogo } from "./NavLogo";
 
@@ -14,6 +15,7 @@ export const DeskNav = ({ directions }) => {
               {directions.map((direction) => (
                 <MobileLink key={direction + direction} direction={direction} />
               ))}
+              <CartIcon></CartIcon>
             </ul>
           </div>
           <div className="wrap-icon-header flex-w flex-r-m">
