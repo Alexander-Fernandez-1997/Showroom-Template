@@ -2,7 +2,15 @@ import Link from "next/link";
 import React from "react";
 import useCart from "../../store/store";
 
-export const AddToCartFicha = ({ id, name, color, size, price, quantity }) => {
+export const AddToCartFicha = ({
+  id,
+  name,
+  color,
+  size,
+  price,
+  quantity,
+  img,
+}) => {
   const addTocart = useCart((state) => state.addTocart);
   const updatecart = useCart((state) => state.updatecart);
   const mycart = useCart((state) => state.cartContent);
@@ -25,6 +33,7 @@ export const AddToCartFicha = ({ id, name, color, size, price, quantity }) => {
           size: size,
           price: price,
           quantity: quantity,
+          img: img,
         })
       }
       href="#"

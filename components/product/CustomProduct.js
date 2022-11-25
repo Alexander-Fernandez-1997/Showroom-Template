@@ -77,6 +77,7 @@ export const CustomProduct = ({ clothe }) => {
                     size={ActiveVariant.size}
                     price={activePrice}
                     quantity={1}
+                    img={ActiveVariant.image[0]}
                   ></AddToCartFicha>
                 </div>
               </div>
