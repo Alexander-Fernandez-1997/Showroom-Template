@@ -46,7 +46,7 @@ export default function Crear({ clothesJson }) {
       },
     });
     const dataJson = await response.json();
-    console.log(dataJson);
+
     reset();
     router.push("/crear");
   };

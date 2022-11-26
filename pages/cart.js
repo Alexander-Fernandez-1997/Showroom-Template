@@ -5,7 +5,6 @@ import { Product } from "../components/cart/Product";
 export default function Home() {
   const total = useCart((state) => state.total);
   const cart = useCart((state) => state.cartContent);
-  const removeFromCart = useCart((state) => state.removeFromCart);
   const [mycart, setCart] = useState([]);
   const [mytotal, setTotal] = useState();
   useEffect(() => {
@@ -41,11 +40,7 @@ export default function Home() {
                     </thead>
                     <tbody>
                       {mycart.map((item, key) => (
-                        <Product
-                          key={key}
-                          item={item}
-                          remove={removeFromCart}
-                        ></Product>
+                        <Product key={key} item={item}></Product>
                       ))}
                     </tbody>
                   </table>

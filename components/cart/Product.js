@@ -1,10 +1,10 @@
 import React from "react";
+import useCart from "../../store/store";
 
-export const Product = ({ item, remove }) => {
+export const Product = ({ item }) => {
   const { id, name, color, size, price, quantity, img } = item;
-  const updateQuantity = (e) => {
-    console.log(e.target.value);
-  };
+  const remove = useCart((state) => state.removeFromCart);
+  const update = useCart((state) => state.updateQty);
 
   return (
     <tr>
@@ -21,10 +21,10 @@ export const Product = ({ item, remove }) => {
             <h4>{name}</h4>
             <p className="font-weight-light p-color">
               Color:
-              <div
+              <span
                 className="colorEsfera"
                 style={{ backgroundColor: `${color}` }}
-              ></div>
+              ></span>
             </p>
             <p className="font-weight-light">Talle: {size}</p>
           </div>
@@ -36,17 +36,12 @@ export const Product = ({ item, remove }) => {
           type="number"
           className="form-control form-control-lg text-center"
           defaultValue={quantity}
-          onChange={updateQuantity}
+          onChange={(e) => update({ qty: e.target.value, id })}
+          min="0"
         />
       </td>
       <td className="actions" data-th="">
         <div className="text-right">
-          <button className="btn btn-white border-secondary bg-white btn-md mb-2">
-            <i className="fas fa-sync" />
-          </button>
-          {/* <button className="btn btn-white border-secondary bg-white btn-md mb-2">
-            <i className="fas fa-trash" />
-          </button> */}
           <button
             className="p-2 bg-slate-200"
             onClick={() =>

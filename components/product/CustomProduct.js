@@ -32,8 +32,6 @@ export const CustomProduct = ({ clothe }) => {
       ? variants[colorActive].find((v) => v.size === sizeActive)
       : undefined;
 
-  console.log(ActiveVariant);
-
   let activePrice =
     colors.length > 0
       ? ActiveVariant.discount

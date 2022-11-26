@@ -2,7 +2,6 @@ import React from "react";
 
 export const DinamicImgs = ({ imgs }) => {
   const picZoomer = ({ target }) => {
-    console.log(target);
     document.querySelector(".picZoomer img").src = target.src;
   };
 
