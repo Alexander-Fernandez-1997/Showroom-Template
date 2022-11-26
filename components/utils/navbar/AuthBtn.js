@@ -6,7 +6,6 @@ import { CartIcon } from "./CartIcon";
 
 export const AuthBtn = () => {
   const { data: session } = useSession();
-  console.log(session);
   const sign = useSession().status === "authenticated" ? signOut : signIn;
 
   return (

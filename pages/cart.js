@@ -10,7 +10,7 @@ export default function Home() {
   useEffect(() => {
     setCart(cart);
     setTotal(total);
-  }, [cart]);
+  }, [cart, total]);
   return (
     <>
       <div className="pt-5 pb-5 container ">

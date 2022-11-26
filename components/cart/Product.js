@@ -30,7 +30,9 @@ export const Product = ({ item }) => {
           </div>
         </div>
       </td>
-      <td data-th="Price">${price}</td>
+      <td data-th="Price">
+        <h4 className="mt-2">${price}</h4>
+      </td>
       <td data-th="Quantity">
         <input
           type="number"
