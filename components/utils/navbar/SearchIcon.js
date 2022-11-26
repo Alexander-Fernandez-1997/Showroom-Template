@@ -1,16 +1,10 @@
 import React from "react";
+import { FiSearch } from "react-icons/fi";
 
 export const SearchIcon = () => {
   const showSearch = () => {
     document.querySelector(".bigsearch").classList.add("show-modal-search");
   };
 
-  return (
-    <div
-      onClick={showSearch}
-      className="icon-header-item cl2 hov-cl1 trans-04  js-show-modal-search"
-    >
-      <i className="zmdi zmdi-search" />
-    </div>
-  );
+  return <FiSearch size={"1.2rem"} onClick={showSearch} />;
 };

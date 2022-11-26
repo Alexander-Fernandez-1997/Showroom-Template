@@ -3,25 +3,23 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import useCart from "../../../store/store";
 import { useRouter } from "next/router";
+import { FiShoppingBag } from "react-icons/fi";
 
 export const CartIcon = () => {
   const { asPath } = useRouter();
-
-  const total = useCart((state) => state.total);
   const totalqty = useCart((state) => state.totalqty);
-  const clearCart = useCart((state) => state.clearCart);
-
-  const [mytotal, setTotal] = useState();
   const [mytotalqty, setTotalqty] = useState();
 
   useEffect(() => {
-    setTotal(total);
     setTotalqty(totalqty);
-  }, [total]);
+  }, [totalqty]);
 
   return (
     <li className={asPath === "/cart" ? "active-menu" : null}>
-      <Link href="/cart">{`Cart : $${mytotal} / ${mytotalqty}`}</Link>
+      <Link href="/cart">
+        <FiShoppingBag size={"1.2rem"} />
+        <span className="badge">{mytotalqty > 0 ? mytotalqty : null}</span>
+      </Link>
     </li>
   );
 };

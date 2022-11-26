@@ -10,19 +10,6 @@ a {
   margin-bottom: 1rem;
 }
 
-.zmdi {
-  display: inline-block;
-  font: normal normal normal 14px/1 "Material-Design-Iconic-Font";
-  font-size: inherit;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.zmdi-search:before {
-  content: "\1F50E";
-}
-
 .hamburger-box {
   position: relative;
   display: inline-block;
@@ -1430,4 +1417,28 @@ input:checked ~ .ratingControl-stars:active {
   width: 0.5rem;
   height: 0.5rem;
   padding: 0.4rem;
+}
+
+.badge {
+  background-color: #138496;
+  border-radius: 15px;
+  color: white;
+  font-size: 0.5rem;
+  line-height: 1;
+  white-space: nowrap;
+  position: absolute;
+  top: 25%;
+  left: 40%;
+}
+
+.user-badge {
+  background-color: #138496;
+  border-radius: 15px;
+  color: white;
+  font-size: 0.6rem;
+  line-height: 1;
+  white-space: nowrap;
+  position: absolute;
+  top: 70%;
+  left: -200%;
 }

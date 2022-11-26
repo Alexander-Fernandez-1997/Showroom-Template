@@ -17,6 +17,7 @@
     "pg": "^8.8.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.6.0",
     "sweetalert2": "^11.4.14",
     "zustand": "^4.1.4"
   },

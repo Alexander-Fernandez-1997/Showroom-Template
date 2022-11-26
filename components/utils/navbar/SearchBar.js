@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import React from "react";
+import { FiSearch } from "react-icons/fi";
 
 export const SearchBar = () => {
   const router = useRouter();
@@ -26,7 +27,7 @@ export const SearchBar = () => {
         </button>
         <form onSubmit={lfclothes} className="wrap-search-header flex-w p-l-15">
           <button className="flex-c-m trans-04">
-            <i className="zmdi zmdi-search" />
+            <FiSearch />
           </button>
           <input
             className="plh3"
