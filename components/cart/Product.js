@@ -19,9 +19,14 @@ export const Product = ({ item, remove }) => {
           </div>
           <div className="col-md-4 text-left mt-sm-2">
             <h4>{name}</h4>
-            <p className="font-weight-light">
-              {color} &amp; {size}
+            <p className="font-weight-light p-color">
+              Color:
+              <div
+                className="colorEsfera"
+                style={{ backgroundColor: `${color}` }}
+              ></div>
             </p>
+            <p className="font-weight-light">Talle: {size}</p>
           </div>
         </div>
       </td>

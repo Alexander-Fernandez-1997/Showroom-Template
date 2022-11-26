@@ -1419,3 +1419,15 @@ input:checked ~ .ratingControl-stars:active {
     right: -25px;
   }
 }
+
+.p-color {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+}
+
+.p-color .colorEsfera {
+  width: 0.5rem;
+  height: 0.5rem;
+  padding: 0.4rem;
+}
