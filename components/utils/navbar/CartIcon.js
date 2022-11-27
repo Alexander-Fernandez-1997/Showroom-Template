@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import useCart from "../../../store/store";
 import { useRouter } from "next/router";
 import { FiShoppingBag } from "react-icons/fi";
+import { CartModal } from "../CartModal";
 
 export const CartIcon = () => {
   const { asPath } = useRouter();
@@ -16,10 +17,16 @@ export const CartIcon = () => {
 
   return (
     <li className={asPath === "/cart" ? "active-menu" : null}>
-      <Link href="/cart">
+      <Link
+        data-bs-toggle="offcanvas"
+        href="#offcanvasCart"
+        role="button"
+        aria-controls="offcanvasCart"
+      >
         <FiShoppingBag size={"1.2rem"} />
         <span className="badge">{mytotalqty > 0 ? mytotalqty : null}</span>
       </Link>
+      <CartModal></CartModal>
     </li>
   );
 };

@@ -1,13 +1,10 @@
 import React from "react";
-import { useSession, signIn, signOut } from "next-auth/react";
 import { SearchIcon } from "./SearchIcon";
 import { FiUser } from "react-icons/fi";
 import { CartIcon } from "./CartIcon";
+import { AccountModal } from "../AccountModal";
 
 export const AuthBtn = () => {
-  const { data: session } = useSession();
-  const sign = useSession().status === "authenticated" ? signOut : signIn;
-
   return (
     <ul className="main-menu">
       <li>
@@ -16,14 +13,15 @@ export const AuthBtn = () => {
         </a>
       </li>
       <li>
-        <a>
-          <FiUser size={"1.2rem"} onClick={sign} />
-          {/* <span className="user-badge">
-            {useSession().status === "authenticated"
-              ? session.user.email
-              : null}
-          </span> */}
+        <a
+          data-bs-toggle="offcanvas"
+          href="#offcanvasExample"
+          role="button"
+          aria-controls="offcanvasExample"
+        >
+          <FiUser size={"1.2rem"} />
         </a>
+        <AccountModal></AccountModal>
       </li>
       <CartIcon />
     </ul>

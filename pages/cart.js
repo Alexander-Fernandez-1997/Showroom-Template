@@ -1,6 +1,7 @@
 import useCart from "../store/store";
 import { useEffect, useState } from "react";
 import { Product } from "../components/cart/Product";
+import Link from "next/link";
 
 export default function Home() {
   const total = useCart((state) => state.total);
@@ -32,9 +33,9 @@ export default function Home() {
                   >
                     <thead>
                       <tr>
-                        <th style={{ width: "60%" }}>Product</th>
-                        <th style={{ width: "12%" }}>Price</th>
-                        <th style={{ width: "10%" }}>Quantity</th>
+                        <th style={{ width: "60%" }}>Producto</th>
+                        <th style={{ width: "12%" }}>Precio</th>
+                        <th style={{ width: "10%" }}>Cantidad</th>
                         <th style={{ width: "16%" }} />
                       </tr>
                     </thead>
@@ -50,20 +51,13 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="row mt-4 d-flex align-items-center">
-                <div className="col-sm-6 order-md-2 text-right">
-                  <a
-                    href="catalog.html"
-                    className="btn btn-primary mb-4 btn-lg pl-5 pr-5"
-                  >
-                    Checkout
-                  </a>
-                </div>
-                <div className="col-sm-6 mb-3 mb-m-1 order-md-1 text-md-left">
-                  <a href="catalog.html">
-                    <i className="fas fa-arrow-left mr-2" /> Continue Shopping
-                  </a>
-                </div>
+              <div className="d-flex align-content-center justify-content-between mt-3">
+                <Link href="/" className="btn btn-secondary ">
+                  Seguir comprando
+                </Link>
+                <Link href="/cart" className="btn btn-dark ">
+                  Ir al carrito
+                </Link>
               </div>
             </section>
           </div>

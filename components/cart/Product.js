@@ -1,4 +1,5 @@
 import React from "react";
+import { BiTrash } from "react-icons/bi";
 import useCart from "../../store/store";
 
 export const Product = ({ item }) => {
@@ -58,7 +59,7 @@ export const Product = ({ item }) => {
               })
             }
           >
-            X
+            <BiTrash></BiTrash>
           </button>
         </div>
       </td>
