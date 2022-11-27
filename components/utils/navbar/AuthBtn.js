@@ -2,7 +2,6 @@ import React from "react";
 import { SearchIcon } from "./SearchIcon";
 import { FiUser } from "react-icons/fi";
 import { CartIcon } from "./CartIcon";
-import { AccountModal } from "../AccountModal";
 
 export const AuthBtn = () => {
   return (
@@ -21,7 +20,6 @@ export const AuthBtn = () => {
         >
           <FiUser size={"1.2rem"} />
         </a>
-        <AccountModal></AccountModal>
       </li>
       <CartIcon />
     </ul>
