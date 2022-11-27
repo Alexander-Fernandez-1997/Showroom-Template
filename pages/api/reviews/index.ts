@@ -2,7 +2,6 @@ import { NextApiRequest, NextApiResponse } from "next";
 import conn from "../../../lib/db";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  // method post is used to create a new review
   if (req.method === "POST") {
     try {
       const { clothes_id, review, rating, reviewer } = req.body;

@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import conn from "../../../lib/db";
-import storeKey from "../../../utils/storeKey";
 
 export default async function handler(
   req: NextApiRequest,
@@ -8,7 +7,8 @@ export default async function handler(
 ) {
   try {
     const { term } = req.query;
-    const query = `SELECT * FROM clothes WHERE LOWER(name) LIKE '%${term}%' AND store_id = ${storeKey}`;
+    const storeId = req.headers["store-id"];
+    const query = `SELECT * FROM clothes WHERE LOWER(name) LIKE '%${term}%' AND store_id = ${storeId}`;
     const result = await conn.query(query);
     res.status(200).json(result.rows);
   } catch (err) {

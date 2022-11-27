@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import conn from "../../../lib/db";
-import storeKey from "../../../utils/storeKey";
 
 export default async function handler(
   req: NextApiRequest,
@@ -8,7 +7,8 @@ export default async function handler(
 ) {
   try {
     const id = req.query.id;
-    const query = `SELECT * FROM clothes WHERE id = ${id} AND store_id = ${storeKey}; SELECT * FROM variants WHERE clothes_id = ${id};SELECT * FROM reviews WHERE clothes_id = ${id};`;
+    const storeId = req.headers["store-id"];
+    const query = `SELECT * FROM clothes WHERE id = ${id} AND store_id = ${storeId}; SELECT * FROM variants WHERE clothes_id = ${id};SELECT * FROM reviews WHERE clothes_id = ${id};`;
     const data = await conn.query(query);
     res.status(200).json(data);
   } catch (err) {
