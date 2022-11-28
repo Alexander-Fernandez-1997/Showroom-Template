@@ -13,6 +13,7 @@ export const SearchBar = () => {
     e.preventDefault();
     let search = document.querySelector(".plh3");
     router.push(`/search/${search.value}`);
+    search.value = "";
     CloseSearch();
   };
 
@@ -23,7 +24,7 @@ export const SearchBar = () => {
           onClick={CloseSearch}
           className="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search "
         >
-          <img src="images/icons/icon-close2.png" alt="CLOSE" />
+          <img src="/images/icons/icon-close2.png" alt="CLOSE" />
         </button>
         <form onSubmit={lfclothes} className="wrap-search-header flex-w p-l-15">
           <button className="flex-c-m trans-04">

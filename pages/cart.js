@@ -56,7 +56,7 @@ export default function Home() {
                   Seguir comprando
                 </Link>
                 <Link href="/cart" className="btn btn-dark ">
-                  Ir al carrito
+                  Ir al Checkout
                 </Link>
               </div>
             </section>
