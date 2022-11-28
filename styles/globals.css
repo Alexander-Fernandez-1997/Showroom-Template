@@ -1442,3 +1442,7 @@ input:checked ~ .ratingControl-stars:active {
   top: 70%;
   left: -200%;
 }
+
+footer ul {
+  padding-left: 0;
+}
