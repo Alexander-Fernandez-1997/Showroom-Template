@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { ClothesGrid } from "../components/categories/ClothesGrid";
 import { simpleFetch } from "../utils/simpleFetch";
 

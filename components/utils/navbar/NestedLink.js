@@ -4,14 +4,14 @@ import { SubCategLink } from "./SubCategLink";
 
 export const NestedLink = ({ categ }) => {
   const { name, slug, subCategs } = categ;
-  console.log("sub", categ);
+
   if (subCategs.length === 0) {
     return (
       <li>
         <Link
           className="dropdown
         -item"
-          href={`/${slug}`}
+          href={`/categorias/${slug}`}
         >
           {name}
         </Link>
