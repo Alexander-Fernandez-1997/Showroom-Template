@@ -1,30 +1,32 @@
 import { ClothesGrid } from "../../../components/categories/ClothesGrid";
 import { simpleFetch } from "../../../utils/simpleFetch";
 
-export default function Showroom({ clothesJson }) {
+export default function Showroom({ categJson }) {
+  console.log(categJson);
   return (
     <>
-      <ClothesGrid clothesJson={clothesJson}></ClothesGrid>
+      <ClothesGrid clothesJson={categJson.clothes}></ClothesGrid>
     </>
   );
 }
 
 export const getStaticPaths = async (ctx) => {
-  const clothesJson = await simpleFetch("categories");
+  const categJson = await simpleFetch("categories");
 
   return {
     fallback: "blocking",
-    paths: clothesJson.map((clothe) => ({
+    paths: categJson.map((clothe) => ({
       params: { slug: clothe.slug.toString() },
     })),
   };
 };
 
 export async function getStaticProps(context) {
-  const clothesJson = await simpleFetch("clothes");
+  const { slug } = context.params;
+  const categJson = await simpleFetch("categories/main/" + slug);
 
   return {
-    props: { clothesJson },
+    props: { categJson },
     revalidate: 120,
   };
 }

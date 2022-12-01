@@ -20,6 +20,13 @@ const useCart = create(
           cartContent: mycart,
         }));
       },
+      reloadCart: () => {
+        set((state) => ({
+          totalqty: state.totalqty,
+          total: state.total,
+          cartContent: state.cartContent,
+        }));
+      },
       clearCart: () => set({ totalqty: 0, total: 0, cartContent: [] }),
       removeFromCart: (params) =>
         set((state) => ({
@@ -29,6 +36,7 @@ const useCart = create(
             (item) => item.id !== params.id
           ),
         })),
+
       updateQty: ({ qty, id }) => {
         const mycart = get().cartContent;
         const index = mycart.findIndex((item) => item.id === id);

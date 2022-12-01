@@ -24,6 +24,7 @@ export const ModalProduct = ({ item }) => {
           defaultValue={quantity}
           onChange={(e) => update({ qty: e.target.value, id })}
           min="0"
+          value={quantity}
         />
       </td>
 

@@ -41,6 +41,7 @@ export const Product = ({ item }) => {
           defaultValue={quantity}
           onChange={(e) => update({ qty: e.target.value, id })}
           min="0"
+          value={quantity}
         />
       </td>
       <td className="actions" data-th="">

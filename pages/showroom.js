@@ -2,6 +2,7 @@ import { ClothesGrid } from "../components/categories/ClothesGrid";
 import { simpleFetch } from "../utils/simpleFetch";
 
 export default function Showroom({ clothesJson }) {
+  console.log(clothesJson);
   return (
     <>
       <ClothesGrid clothesJson={clothesJson}></ClothesGrid>

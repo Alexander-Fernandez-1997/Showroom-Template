@@ -28,7 +28,7 @@ export const ClothesGrid = ({ clothesJson }) => {
           <div className="p-b-10">
             <h3 className="ltext-103 cl5">Productos</h3>
           </div>
-          {filteredClothes.length === 0 ? (
+          {filteredClothes === undefined || filteredClothes.length === 0 ? (
             <div className="container mt-5 pt-5">
               <h1>No disponemos productos con ese nombre</h1>
             </div>

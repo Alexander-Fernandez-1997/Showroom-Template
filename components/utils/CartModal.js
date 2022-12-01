@@ -13,6 +13,7 @@ export const CartModal = () => {
     setCart(cart);
     setTotal(total);
   }, [cart, total]);
+
   return (
     <div
       className="offcanvas offcanvas-end"

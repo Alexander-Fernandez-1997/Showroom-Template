@@ -35,6 +35,7 @@ export const NestedLink = ({ categ }) => {
                 <SubCategLink
                   key={subCateg.id + subCateg.name}
                   subCateg={subCateg}
+                  mainSlug={slug}
                 ></SubCategLink>
               );
             })}
