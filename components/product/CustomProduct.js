@@ -29,15 +29,19 @@ export const CustomProduct = ({ clothe }) => {
 
   const ActiveVariant =
     colors.length > 0
-      ? variants[colorActive].find((v) => v.size === sizeActive)
+      ? variants[colorActive].find((v) => v.size === sizeActive) ||
+        variants[colorActive][0]
       : undefined;
 
-  let activePrice =
-    colors.length > 0
-      ? ActiveVariant.discount
-        ? ActiveVariant.discount_price
-        : ActiveVariant.price || price
-      : price;
+  ActiveVariant.size !== sizeActive ? setSize(ActiveVariant.size) : null;
+
+  let colorPrice = colors.length > 0 ? true : false;
+  let discount_price =
+    ActiveVariant.discount === true
+      ? ActiveVariant.discount_price
+      : ActiveVariant.price;
+
+  let activePrice = colorPrice && discount_price ? discount_price : price;
 
   if (ActiveVariant !== undefined) {
     return (
