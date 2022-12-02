@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import Flicking from "@egjs/react-flicking";
 import "@egjs/react-flicking/dist/flicking.css";
@@ -31,7 +31,11 @@ export const IndexCarousel = ({ clothes }) => {
                         <div className="wrap-slick2">
                           <div className="slick2">
                             <div className="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-                              <ClotheCard clothe={clothe} />
+                              <ClotheCard
+                                variant={clothe.variants}
+                                path={clothe.id}
+                                name={clothe.name}
+                              />
                             </div>
                           </div>
                         </div>

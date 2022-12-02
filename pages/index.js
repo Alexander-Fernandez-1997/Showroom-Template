@@ -14,7 +14,7 @@ export default function Home({ clothesJson, categoriesJson, storeJson }) {
 }
 
 export async function getStaticProps(context) {
-  const clothesJson = await simpleFetch("clothes");
+  const clothesJson = await simpleFetch("clothes/limit");
   const categoriesJson = await simpleFetch("categories");
   const storeJson = await simpleFetch("store");
 

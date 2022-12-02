@@ -40,14 +40,20 @@ export const ClothesGrid = ({ clothesJson }) => {
                 <GridSearch setQuery={setQuery}></GridSearch>
               </div>
               <div className="row isotope-grid">
-                {filteredClothes.map((clothe) => (
-                  <div
-                    key={clothe.slug}
-                    className="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women"
-                  >
-                    <ClotheCard clothe={clothe} />
-                  </div>
-                ))}
+                {filteredClothes.map((clothe) =>
+                  clothe.variants.map((variant) => (
+                    <div
+                      key={variant.sku}
+                      className="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women"
+                    >
+                      <ClotheCard
+                        variant={variant}
+                        path={clothe.id}
+                        name={clothe.name}
+                      />
+                    </div>
+                  ))
+                )}
               </div>
             </>
           )}
