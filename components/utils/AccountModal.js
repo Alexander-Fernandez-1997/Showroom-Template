@@ -3,6 +3,7 @@ import { useSession, signIn, signOut } from "next-auth/react";
 
 export const AccountModal = () => {
   const { data: session } = useSession();
+  console.log("6", session);
 
   if (useSession().status === "authenticated") {
     return (

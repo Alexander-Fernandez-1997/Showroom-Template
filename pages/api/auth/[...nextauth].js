@@ -1,5 +1,7 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import storeKey from "../../../utils/storeKey";
+import simpleLogin from "../../../utils/simpleLogin";
 
 export const authOptions = {
   // Configure one or more authentication providers
@@ -22,24 +24,69 @@ export const authOptions = {
       },
       async authorize(credentials, req) {
         // Add logic here to look up the user from the credentials supplied
-        const user = {
-          id: "1",
+        let client = {
+          store_id: storeKey,
           email: credentials.email,
           password: credentials.password,
         };
 
-        if (user) {
-          // Any object returned will be saved in `user` property of the JWT
-          return user;
-        } else {
-          // If you return null then an error will be displayed advising the user to check their details.
-          return null;
+        const response = await simpleLogin(client);
+        const data = await response.json();
 
-          // You can also Reject this callback with an Error thus the user will be sent to the error page with the error message as a query parameter
+        if (response.status === 200 && data !== null) {
+          return { email: data.email, store_id: data.store_id };
+        } else {
+          return null;
         }
       },
     }),
   ],
+
+  // Custom Pages
+  // pages: {
+  //   signIn: '/auth/login',
+  //   newUser: '/auth/register'
+  // },
+
+  // Callbacks
+
+  session: {
+    maxAge: 2592000, /// 30d
+    strategy: "jwt",
+    updateAge: 86400, // cada día
+  },
+
+  callbacks: {
+    async jwt({ token, account, user }) {
+      if (account) {
+        token.accessToken = account.access_token;
+
+        switch (account.type) {
+          case "oauth":
+            token.user = await dbUsers.oAUthToDbUser(
+              user?.email || "",
+              user?.name || ""
+            );
+            break;
+
+          case "credentials":
+            token.user = user;
+            break;
+        }
+      }
+
+      return token;
+    },
+
+    async session({ session, token, user }) {
+      // console.log({ session, token, user });
+
+      session.accessToken = token.accessToken;
+      session.user = token.user;
+
+      return session;
+    },
+  },
 };
 
 export default NextAuth(authOptions);
