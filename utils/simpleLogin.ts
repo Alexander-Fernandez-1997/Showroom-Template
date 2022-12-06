@@ -1,12 +1,12 @@
-interface User {
+export interface User {
   email: string;
   password: string;
   store_id: number;
 }
 
-const simpleLogin = async (client: User) => {
+const simpleLogin = async (client: User, url: string) => {
   try {
-    const res = await fetch("http://localhost:3000/api/clients", {
+    const res = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

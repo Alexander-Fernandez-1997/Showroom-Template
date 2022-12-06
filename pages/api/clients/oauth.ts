@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import conn from "../../../lib/db";
-import { hashPass, isSamePass } from "../../../utils/bcrypt";
 
 export default async function handler(
   req: NextApiRequest,
@@ -13,18 +12,10 @@ export default async function handler(
       `SELECT * FROM clients WHERE store_id = ${store_id} AND email = '${email}'`
     );
     let clientData = query.rows.length > 0 ? query.rows[0] : null;
-    if (clientData !== null) {
-      // check password
-      const isSame = isSamePass(password, clientData.password); // returns true or false
-      if (!isSame) {
-        clientData = null;
-        return res.status(200).json(clientData);
-      }
-    } else {
+    if (clientData == null) {
       // create new client
-      const hashedPass = hashPass(password);
       const newClient = await conn.query(
-        `INSERT INTO clients (store_id, email, password) VALUES (${store_id}, '${email}', '${hashedPass}') RETURNING *`
+        `INSERT INTO clients (store_id, email, password) VALUES (${store_id}, '${email}', '${password}') RETURNING *`
       );
       clientData = newClient.rows[0];
     }

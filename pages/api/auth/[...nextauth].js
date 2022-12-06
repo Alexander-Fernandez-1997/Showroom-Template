@@ -30,7 +30,10 @@ export const authOptions = {
           password: credentials.password,
         };
 
-        const response = await simpleLogin(client);
+        const response = await simpleLogin(
+          client,
+          "http://localhost:3000/api/clients"
+        );
         const data = await response.json();
 
         if (response.status === 200 && data !== null) {
@@ -63,9 +66,15 @@ export const authOptions = {
 
         switch (account.type) {
           case "oauth":
-            token.user = await dbUsers.oAUthToDbUser(
-              user?.email || "",
-              user?.name || ""
+            let client = {
+              store_id: storeKey,
+              email: user?.email,
+              password: "",
+            };
+
+            token.user = await simpleLogin(
+              client,
+              "http://localhost:3000/api/clients/oauth"
             );
             break;
 
@@ -79,8 +88,6 @@ export const authOptions = {
     },
 
     async session({ session, token, user }) {
-      // console.log({ session, token, user });
-
       session.accessToken = token.accessToken;
       session.user = token.user;
 
