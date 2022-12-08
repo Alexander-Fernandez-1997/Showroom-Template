@@ -1,5 +1,6 @@
 import React from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
+import { AccountSingIn } from "./AccountSingIn";
 
 export const AccountModal = () => {
   const { data: session } = useSession();
@@ -40,10 +41,10 @@ export const AccountModal = () => {
         tabIndex="-1"
         id="offcanvasExample"
       >
-        <div className="offcanvas-header">
-          <h5 className="offcanvas-title" id="offcanvasExampleLabel">
+        <div className="offcanvas-header justify-content-end">
+          {/* <h5 className="offcanvas-title" id="offcanvasExampleLabel">
             Ingresar a la cuenta
-          </h5>
+          </h5> */}
           <button
             type="button"
             className="btn-close text-reset"
@@ -52,11 +53,12 @@ export const AccountModal = () => {
           ></button>
         </div>
         <div className="offcanvas-body">
-          <ul className="list-group">
+          {/* <ul className="list-group">
             <li className="list-group-item">
               <a onClick={signIn}>Iniciar sesión</a>
             </li>
-          </ul>
+          </ul> */}
+          <AccountSingIn></AccountSingIn>
         </div>
       </div>
     );
