@@ -1,13 +1,37 @@
 import React from "react";
+import { signIn } from "next-auth/react";
+import { useForm } from "../../hooks/useForm";
 
 export const AccountSingIn = () => {
+  const [formValues, handleInputChange] = useForm({
+    email: "",
+    password: "",
+  });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await signIn("credentials", {
+      redirect: false,
+      email: formValues.email,
+      password: formValues.password,
+    });
+    if (response.error) {
+      const errorPass = document.querySelector(".errorPass");
+      errorPass.classList.remove("d-none");
+      setTimeout(() => {
+        errorPass.classList.add("d-none");
+      }, 3000);
+      console.log("Usuario o contraseña incorrectos");
+    }
+  };
+
   return (
     <>
       <div className="p-2">
         <h4 className="mb-4">Iniciar Sesion / Registrarse </h4>
-        <form action="#" className="signin-form">
+        <form onSubmit={handleSubmit} noValidate className="signin-form">
           <div className="form-group mb-3">
-            <label className="label text-dark" htmlFor="name">
+            <label className="label text-dark" htmlFor="email">
               Email
             </label>
             <input
@@ -15,6 +39,8 @@ export const AccountSingIn = () => {
               className="form-control"
               placeholder="Email"
               required=""
+              name="email"
+              onChange={handleInputChange}
             />
           </div>
           <div className="form-group mb-3">
@@ -26,8 +52,14 @@ export const AccountSingIn = () => {
               className="form-control"
               placeholder="Contraseña"
               required=""
+              name="password"
+              onChange={handleInputChange}
             />
           </div>
+          {/* // Error message goes here in red with bootstrap text-danger*/}
+          <p className="text-danger text-center errorPass d-none">
+            La contraseña es incorrecta
+          </p>
           <div className="form-group">
             <button
               type="submit"
