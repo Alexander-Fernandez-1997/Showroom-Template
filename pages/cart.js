@@ -2,8 +2,9 @@ import useCart from "../store/store";
 import { useEffect, useState } from "react";
 import { Product } from "../components/cart/Product";
 import Link from "next/link";
+import { simpleFetch } from "../utils/simpleFetch";
 
-export default function Home() {
+export default function Home({ store }) {
   const total = useCart((state) => state.total);
   const cart = useCart((state) => state.cartContent);
   const [mycart, setCart] = useState([]);
@@ -65,4 +66,14 @@ export default function Home() {
       </div>
     </>
   );
+}
+export async function getStaticProps() {
+  const store = await simpleFetch("store");
+
+  return {
+    props: {
+      store,
+    },
+    revalidate: 600,
+  };
 }

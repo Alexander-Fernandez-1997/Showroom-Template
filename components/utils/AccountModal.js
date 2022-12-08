@@ -4,9 +4,8 @@ import { AccountSingIn } from "./AccountSingIn";
 
 export const AccountModal = () => {
   const { data: session } = useSession();
-  console.log("6", session);
 
-  if (useSession().status === "authenticated") {
+  if (useSession().status === "authenticated" && session !== undefined) {
     return (
       <div
         className="offcanvas offcanvas-end"

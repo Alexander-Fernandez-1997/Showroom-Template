@@ -38,7 +38,6 @@ export const Product = ({ item }) => {
         <input
           type="number"
           className="form-control form-control-lg text-center"
-          defaultValue={quantity}
           onChange={(e) => update({ qty: e.target.value, id })}
           min="0"
           value={quantity}
