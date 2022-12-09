@@ -12,12 +12,16 @@ export default async function handler(
       `SELECT * FROM clients WHERE store_id = ${store_id} AND email = '${email}'`
     );
     let clientData = query.rows.length > 0 ? query.rows[0] : null;
+    clientData !== null && clientData.password !== password
+      ? (clientData = null)
+      : null;
     if (clientData == null) {
       // create new client
       const newClient = await conn.query(
         `INSERT INTO clients (store_id, email, password) VALUES (${store_id}, '${email}', '${password}') RETURNING *`
       );
       clientData = newClient.rows[0];
+      console.log("new client created", clientData);
     }
     res.status(200).json(clientData);
   } catch (err) {

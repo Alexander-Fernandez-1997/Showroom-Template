@@ -80,13 +80,28 @@ export const AccountSingIn = () => {
           <hr></hr>
 
           <div className="form-group d-flex gap-2 flex-column">
-            <button className="form-control btn btn-danger rounded submit px-3">
+            <button
+              className="form-control btn btn-danger rounded submit px-3"
+              onClick={(e) => {
+                signIn("google");
+              }}
+            >
               Iniciar Sesion con Google
             </button>
-            <button className="form-control btn btn-primary rounded submit px-3">
+            <button
+              className="form-control btn btn-primary rounded submit px-3"
+              onClick={(e) => {
+                signIn("facebook");
+              }}
+            >
               Iniciar Sesion con Facebook
             </button>
-            <button className="form-control btn btn-info text-light rounded submit px-3">
+            <button
+              className="form-control btn btn-info text-light rounded submit px-3"
+              onClick={(e) => {
+                signIn("twitter");
+              }}
+            >
               Iniciar Sesion con Twitter
             </button>
           </div>
