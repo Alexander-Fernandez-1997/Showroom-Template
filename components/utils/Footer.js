@@ -1,4 +1,3 @@
-import Link from "next/link";
 import React from "react";
 import { FooterCateg } from "./footer/FooterCateg";
 import { FooterCompras } from "./footer/FooterCompras";
