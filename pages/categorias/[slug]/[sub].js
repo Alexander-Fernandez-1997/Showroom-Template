@@ -4,7 +4,9 @@ import { simpleFetch } from "../../../utils/simpleFetch";
 export default function Showroom({ categJson }) {
   console.log("5", categJson);
   return (
-    <>{/* <ClothesGrid clothesJson={categJson.clothes}></ClothesGrid> */}</>
+    <>
+      <ClothesGrid clothesJson={categJson.clothes}></ClothesGrid>
+    </>
   );
 }
 
