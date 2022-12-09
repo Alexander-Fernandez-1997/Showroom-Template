@@ -21,11 +21,17 @@ export default async function handler(
     const clothesData = await conn.query(clothesQuery);
     const clothesRows = clothesData.map((info) => info.rows);
 
+    const clothesWithVariants = clothesRows[0].map((clothe) => {
+      const variantsOfClothe = clothesRows[1].filter(
+        (variant) => variant.clothes_id === clothe.id
+      );
+      return { ...clothe, variants: variantsOfClothe };
+    });
+
     const finalData = {
       category: rows[0][0],
       subcategories: rows[1],
-      clothes: clothesRows[0],
-      variants: clothesRows[1],
+      clothes: clothesWithVariants,
     };
 
     res.status(200).json(finalData);
