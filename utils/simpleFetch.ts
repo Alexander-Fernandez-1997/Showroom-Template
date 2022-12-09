@@ -10,7 +10,8 @@ export const simpleFetch = async (data: string) => {
       },
     };
 
-    const response = await fetch(`http://localhost:3000/api/${data}`, options);
+    const url = process.env.APK_URL;
+    const response = await fetch(`${url}/api/${data}`, options);
     const resData = await response.json();
     return resData;
   } catch (error) {

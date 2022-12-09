@@ -30,7 +30,7 @@ export const authOptions = {
 
         const response = await simpleLogin(
           client,
-          "http://localhost:3000/api/clients"
+          `${process.env.APK_URL}/api/clients`
         );
         const data = await response.json();
 
@@ -85,7 +85,7 @@ export const authOptions = {
             console.log("client 75", client);
             const clientInfo = await simpleLogin(
               client,
-              "http://localhost:3000/api/clients/oauth"
+              `${process.env.APK_URL}/api/clients/oauth`
             );
             const dataParsed = await clientInfo.json();
             token.user = dataParsed;

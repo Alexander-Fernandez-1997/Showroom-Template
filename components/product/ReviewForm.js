@@ -35,7 +35,7 @@ export const ReviewForm = ({ product }) => {
       },
       body: JSON.stringify(values),
     };
-    fetch("http://localhost:3000/api/reviews", options)
+    fetch(`${process.env.APK_URL}/api/reviews`, options)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

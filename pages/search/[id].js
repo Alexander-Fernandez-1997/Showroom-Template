@@ -1,26 +1,20 @@
-// import { ClothesGrid } from "../../components/categories/ClothesGrid";
-// import { simpleFetch } from "../../utils/simpleFetch";
+import { ClothesGrid } from "../../components/categories/ClothesGrid";
+import { simpleFetch } from "../../utils/simpleFetch";
 
-// export default function Showroom({ clothesJson }) {
-//   return (
-//     <>
-//       <ClothesGrid clothesJson={clothesJson}></ClothesGrid>
-//     </>
-//   );
-// }
-export default function Showroom() {
+export default function Showroom({ clothesJson }) {
   return (
     <>
-      <h1>hola</h1>
+      <ClothesGrid clothesJson={clothesJson}></ClothesGrid>
     </>
   );
 }
-// // server side props (SSR)
-// export async function getServerSideProps(context) {
-//   const { id } = context.query;
-//   const clothesJson = await simpleFetch(`search/${id}`);
 
-//   return {
-//     props: { clothesJson },
-//   };
-// }
+// server side props (SSR)
+export async function getServerSideProps(context) {
+  const { id } = context.query;
+  const clothesJson = await simpleFetch(`search/${id}`);
+
+  return {
+    props: { clothesJson },
+  };
+}
