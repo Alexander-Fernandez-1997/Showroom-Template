@@ -10,7 +10,13 @@
 //     </>
 //   );
 // }
-
+export default function Showroom() {
+  return (
+    <>
+      <h1>hola</h1>
+    </>
+  );
+}
 // export const getStaticPaths = async (ctx) => {
 //   const clothesJson = await simpleFetch("clothes");
 

@@ -8,7 +8,13 @@
 //     </>
 //   );
 // }
-
+export default function Showroom() {
+  return (
+    <>
+      <h1>hola</h1>
+    </>
+  );
+}
 // // server side props (SSR)
 // export async function getServerSideProps(context) {
 //   const { id } = context.query;

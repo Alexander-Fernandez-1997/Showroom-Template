@@ -11,7 +11,13 @@
 
 // export const getStaticPaths = async (ctx) => {
 //   const categJson = await simpleFetch("categories");
-
+export default function Showroom() {
+  return (
+    <>
+      <h1>hola</h1>
+    </>
+  );
+}
 //   return {
 //     fallback: "blocking",
 //     paths: categJson.map((clothe) => ({

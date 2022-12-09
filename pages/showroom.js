@@ -12,7 +12,13 @@
 
 // export async function getStaticProps(context) {
 //   const clothesJson = await simpleFetch("clothes");
-
+export default function Showroom() {
+  return (
+    <>
+      <h1>hola</h1>
+    </>
+  );
+}
 //   return {
 //     props: { clothesJson },
 //     revalidate: 120,

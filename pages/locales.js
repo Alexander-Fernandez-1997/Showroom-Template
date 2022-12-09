@@ -20,7 +20,13 @@
 // export async function getStaticProps() {
 //   const locales = await simpleFetch("franchises");
 //   const configuration = await simpleFetch("configuration");
-
+export default function Showroom() {
+  return (
+    <>
+      <h1>hola</h1>
+    </>
+  );
+}
 //   return {
 //     props: {
 //       locales,

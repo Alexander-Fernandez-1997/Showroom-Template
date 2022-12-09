@@ -18,7 +18,13 @@
 //   const clothesJson = await simpleFetch("clothes/limit");
 //   const categoriesJson = await simpleFetch("categories");
 //   const storeJson = await simpleFetch("store");
-
+export default function Showroom() {
+  return (
+    <>
+      <h1>hola</h1>
+    </>
+  );
+}
 //   return {
 //     props: { clothesJson, categoriesJson, storeJson },
 //     revalidate: 120,

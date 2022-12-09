@@ -9,7 +9,13 @@
 //     </>
 //   );
 // }
-
+export default function Showroom() {
+  return (
+    <>
+      <h1>hola</h1>
+    </>
+  );
+}
 // export const getStaticPaths = async (ctx) => {
 //   const categJson = await simpleFetch("categories");
 //   const subcategJson = await simpleFetch("categories/subcategories");

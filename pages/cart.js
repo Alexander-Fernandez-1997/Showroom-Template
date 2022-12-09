@@ -69,7 +69,13 @@
 // }
 // export async function getStaticProps() {
 //   const store = await simpleFetch("store");
-
+export default function Showroom() {
+  return (
+    <>
+      <h1>hola</h1>
+    </>
+  );
+}
 //   return {
 //     props: {
 //       store,
