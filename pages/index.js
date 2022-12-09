@@ -4,6 +4,7 @@ import { IndexCarousel } from "../components/utils/IndexCarousel";
 import { simpleFetch } from "../utils/simpleFetch";
 
 export default function Home({ clothesJson, categoriesJson, storeJson }) {
+  console.log(clothesJson + " " + categoriesJson + " " + storeJson);
   return (
     <>
       <SectionSlide store={storeJson}></SectionSlide>
