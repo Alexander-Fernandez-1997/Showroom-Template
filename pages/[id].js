@@ -1,35 +1,35 @@
-import { CustomProduct } from "../components/product/CustomProduct";
-import { Reviews } from "../components/product/Reviews";
-import { simpleFetch } from "../utils/simpleFetch";
+// import { CustomProduct } from "../components/product/CustomProduct";
+// import { Reviews } from "../components/product/Reviews";
+// import { simpleFetch } from "../utils/simpleFetch";
 
-export default function Ropa({ clothe, id }) {
-  return (
-    <>
-      <CustomProduct clothe={clothe}></CustomProduct>
-      <Reviews reviews={clothe[2].rows} product={id}></Reviews>
-    </>
-  );
-}
+// export default function Ropa({ clothe, id }) {
+//   return (
+//     <>
+//       <CustomProduct clothe={clothe}></CustomProduct>
+//       <Reviews reviews={clothe[2].rows} product={id}></Reviews>
+//     </>
+//   );
+// }
 
-export const getStaticPaths = async (ctx) => {
-  const clothesJson = await simpleFetch("clothes");
+// export const getStaticPaths = async (ctx) => {
+//   const clothesJson = await simpleFetch("clothes");
 
-  return {
-    fallback: "blocking",
-    paths: clothesJson.map((clothe) => ({
-      params: { id: clothe.id.toString() },
-    })),
-  };
-};
+//   return {
+//     fallback: "blocking",
+//     paths: clothesJson.map((clothe) => ({
+//       params: { id: clothe.id.toString() },
+//     })),
+//   };
+// };
 
-export const getStaticProps = async ({ params }) => {
-  const { id } = params;
-  const clothe = await simpleFetch(`clothes/${id}`);
+// export const getStaticProps = async ({ params }) => {
+//   const { id } = params;
+//   const clothe = await simpleFetch(`clothes/${id}`);
 
-  return {
-    props: {
-      clothe,
-      id,
-    },
-  };
-};
+//   return {
+//     props: {
+//       clothe,
+//       id,
+//     },
+//   };
+// };
