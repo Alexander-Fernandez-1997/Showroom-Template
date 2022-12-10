@@ -54,7 +54,7 @@ export const ReviewForm = ({ product }) => {
           Clickea en una estrella para cambiar tu rating 1 - 5, donde 5 = es
           genial and 1 = es muy malo
         </span>
-        <div className="form-group">
+        <div className="form-group mt-4">
           <label className="control-label" htmlFor="review">
             <strong>Tu Review:</strong>
           </label>

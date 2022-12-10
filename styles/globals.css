@@ -1490,3 +1490,31 @@ footer ul {
 .btn-caracteristic.active {
   border: 1px solid black;
 }
+
+/* tabs de producto */
+
+.carousel-nav a {
+  color: #999;
+  padding: 20px;
+  text-align: center;
+  display: inline-block;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.carousel-nav a.active {
+  color: #000;
+  border-bottom: 1px solid #000 !important;
+}
+
+.tab-description {
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  max-width: 24rem;
+}

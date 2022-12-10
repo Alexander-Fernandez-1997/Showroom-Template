@@ -3,6 +3,7 @@ import { groupBy } from "../../utils/groupBy";
 import { AddToCartFicha } from "./AddToCartFicha";
 import { Colores } from "./details/Colores";
 import { Description } from "./details/Description";
+import { Info } from "./details/Info";
 import { Price } from "./details/Price";
 import { Size } from "./details/Size";
 import { DinamicImgs } from "./DinamicImgs";
@@ -11,6 +12,8 @@ import { NoDisponible } from "./NoDisponible";
 
 export const CustomProduct = ({ clothe }) => {
   const { name, price, description } = clothe[0].rows[0];
+
+  console.log(clothe[0].rows[0]);
   const variant = clothe[1].rows;
   const variantsGrouped = groupBy(variant, "color");
   const variants = Object.keys(variantsGrouped).reduce((acc, key) => {
@@ -82,6 +85,7 @@ export const CustomProduct = ({ clothe }) => {
                   img={ActiveVariant.image[0]}
                 ></AddToCartFicha>
                 {/* </div> */}
+                <Info></Info>
               </div>
             </div>
           </div>
