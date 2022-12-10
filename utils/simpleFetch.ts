@@ -1,3 +1,4 @@
+import { fetchUrl } from "./fetchUrl";
 import storeKey from "./storeKey";
 
 export const simpleFetch = async (data: string) => {
@@ -10,7 +11,10 @@ export const simpleFetch = async (data: string) => {
       },
     };
 
-    const url = process.env.APK_URL;
+    let url = fetchUrl;
+    if (typeof window !== "undefined") {
+      url = window.location.origin;
+    }
     const response = await fetch(`${url}/api/${data}`, options);
     const resData = await response.json();
     return resData;

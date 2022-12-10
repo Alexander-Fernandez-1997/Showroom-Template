@@ -6,8 +6,12 @@ import { simpleFetch } from "../../utils/simpleFetch";
 export const Reviews = ({ reviews, product }) => {
   const [reviewsReset, setReviewsReset] = useState(reviews);
   const reviewResetStart = async () => {
-    const clothe = await simpleFetch(`clothes/${product}`);
-    setReviewsReset(clothe[2].rows);
+    try {
+      const clothe = await simpleFetch(`clothes/${product}`);
+      setReviewsReset(clothe[2].rows);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (

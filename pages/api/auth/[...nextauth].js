@@ -5,6 +5,7 @@ import FacebookProvider from "next-auth/providers/facebook";
 import GoogleProvider from "next-auth/providers/google";
 import storeKey from "../../../utils/storeKey";
 import simpleLogin from "../../../utils/simpleLogin";
+import { fetchUrl } from "../../../utils/fetchUrl";
 
 export const authOptions = {
   // Configure one or more authentication providers
@@ -28,10 +29,7 @@ export const authOptions = {
           password: credentials.password,
         };
 
-        const response = await simpleLogin(
-          client,
-          `${process.env.APK_URL}/api/clients`
-        );
+        const response = await simpleLogin(client, `${fetchUrl}/api/clients`);
         const data = await response.json();
 
         if (response.status === 200 && data !== null) {
@@ -85,7 +83,7 @@ export const authOptions = {
             console.log("client 75", client);
             const clientInfo = await simpleLogin(
               client,
-              `${process.env.APK_URL}/api/clients/oauth`
+              `${fetchUrl}/api/clients/oauth`
             );
             const dataParsed = await clientInfo.json();
             token.user = dataParsed;

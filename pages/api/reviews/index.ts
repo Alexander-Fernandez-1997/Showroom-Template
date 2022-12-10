@@ -13,7 +13,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       res.status(200).json({ message: "Review created" });
     } catch (err) {
       console.log(err);
-      res.status(500).json({ message: "Internal Server Error" });
+      res.status(500).json({ message: err.message });
     }
   }
 };

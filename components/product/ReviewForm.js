@@ -28,6 +28,7 @@ export const ReviewForm = ({ product }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const url = `${window.location.origin}/api/reviews`;
     const options = {
       method: "POST",
       headers: {
@@ -35,7 +36,7 @@ export const ReviewForm = ({ product }) => {
       },
       body: JSON.stringify(values),
     };
-    fetch(`${process.env.APK_URL}/api/reviews`, options)
+    fetch(url, options)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -63,7 +64,7 @@ export const ReviewForm = ({ product }) => {
             placeholder="Review"
             name="review"
             id="review"
-            defaultValue={""}
+            value={values.review}
             onChange={handleInputChange}
           />
         </div>
@@ -77,7 +78,7 @@ export const ReviewForm = ({ product }) => {
             placeholder="Nombre"
             name="reviewer"
             id="reviewer"
-            defaultValue=""
+            value={values.reviewer}
             onChange={handleInputChange}
           />
         </div>

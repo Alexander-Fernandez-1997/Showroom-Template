@@ -3,6 +3,7 @@ import { Reviews } from "../components/product/Reviews";
 import { simpleFetch } from "../utils/simpleFetch";
 
 export default function Ropa({ clothe, id }) {
+  console.log(clothe);
   return (
     <>
       <CustomProduct clothe={clothe}></CustomProduct>
