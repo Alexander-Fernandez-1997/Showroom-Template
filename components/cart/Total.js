@@ -11,7 +11,7 @@ export const Total = () => {
   }, [total]);
 
   return (
-    <div className="bg-white p-4 ">
+    <div className="bor10 p-4 ">
       <div className="d-flex flex-column gap-3">
         <div className="text-caracteristic ">
           <div className="d-flex justify-content-between mb-2">
