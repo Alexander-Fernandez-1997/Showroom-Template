@@ -54,6 +54,7 @@ export const CustomProduct = ({ clothe }) => {
             <div className="col-12 col-md-5 col-lg-5">
               <div className="main-content">
                 <h2 className="h2">{name}</h2>
+                <Description description={description} />
                 <Colores
                   colors={colors}
                   colorActive={colorActive}
@@ -65,23 +66,22 @@ export const CustomProduct = ({ clothe }) => {
                   sizeActive={sizeActive}
                   setSize={setSize}
                 ></Size>
-                <Description description={description} />
 
-                <div className="purchase-info">
-                  <Price
-                    ActiveVariant={ActiveVariant}
-                    activePrice={activePrice}
-                  />
-                  <AddToCartFicha
-                    id={ActiveVariant.id}
-                    name={name}
-                    color={ActiveVariant.color}
-                    size={ActiveVariant.size}
-                    price={activePrice}
-                    quantity={1}
-                    img={ActiveVariant.image[0]}
-                  ></AddToCartFicha>
-                </div>
+                {/* <div className="purchase-info"> */}
+                <Price
+                  ActiveVariant={ActiveVariant}
+                  activePrice={activePrice}
+                />
+                <AddToCartFicha
+                  id={ActiveVariant.id}
+                  name={name}
+                  color={ActiveVariant.color}
+                  size={ActiveVariant.size}
+                  price={activePrice}
+                  quantity={1}
+                  img={ActiveVariant.image[0]}
+                ></AddToCartFicha>
+                {/* </div> */}
               </div>
             </div>
           </div>

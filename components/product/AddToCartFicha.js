@@ -37,7 +37,7 @@ export const AddToCartFicha = ({
         })
       }
       href="#"
-      className="flex-c-m stext-101 cl0 size-101 bg3 bor1 hov-btn3 p-lr-15 trans-04"
+      className="flex-c-m stext-101 cl0 size-101 bg3 hov-btn3 p-lr-15 trans-04"
     >
       Agregar al carrito
     </Link>
