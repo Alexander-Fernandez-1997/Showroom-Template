@@ -12,8 +12,6 @@ import { NoDisponible } from "./NoDisponible";
 
 export const CustomProduct = ({ clothe }) => {
   const { name, price, description } = clothe[0].rows[0];
-
-  console.log(clothe[0].rows[0]);
   const variant = clothe[1].rows;
   const variantsGrouped = groupBy(variant, "color");
   const variants = Object.keys(variantsGrouped).reduce((acc, key) => {
