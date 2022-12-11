@@ -39,7 +39,7 @@ export const ContactForm = () => {
     }
   }
   return (
-    <form onSubmit={handleOnSubmit}>
+    <form onSubmit={handleOnSubmit} className="form-recto">
       <div className="row">
         <div className="col form-group">
           <input

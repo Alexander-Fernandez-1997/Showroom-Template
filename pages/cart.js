@@ -19,14 +19,6 @@ export default function Home({ store }) {
 
                 <MoneyInfo></MoneyInfo>
               </div>
-              {/* <div className="d-flex align-content-center justify-content-between mt-3">
-                <Link href="/" className="btn btn-secondary ">
-                  Seguir comprando
-                </Link>
-                <Link href="/cart" className="btn btn-dark ">
-                  Ir al Checkout
-                </Link>
-              </div> */}
             </section>
           </div>
         </div>

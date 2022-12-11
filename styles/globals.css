@@ -1518,3 +1518,7 @@ footer ul {
   line-height: 1.25rem;
   max-width: 24rem;
 }
+
+.form-recto .form-control {
+  border-radius: 0px !important;
+}
