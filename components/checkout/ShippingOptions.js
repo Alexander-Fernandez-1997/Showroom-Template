@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { ShippingOption } from "./ShippingOption";
 
 export const ShippingOptions = () => {
   const providers = [
@@ -28,19 +29,22 @@ export const ShippingOptions = () => {
       type: "standard",
     },
   ];
+  const [service, setService] = useState(providers[0]);
   return (
-    <div className="row gap-2">
-      {providers.map((provider) => (
-        <div className="col-12 ">
-          <div className="bor10 p-3">
-            <h2 className="mb-3">{provider.name}</h2>
-            <hr />
-            <p className="mb-3">Price: ${provider.price}</p>
-            <p className="mb-3">Type: {provider.type}</p>
-            <p className="">Delivery time: 2-3 days</p>
-          </div>
-        </div>
-      ))}
-    </div>
+    <>
+      <div className="row gap-2 d-none shippingList">
+        {providers.map((provider) => (
+          <ShippingOption
+            key={provider.name}
+            provider={provider}
+            setService={setService}
+            service={service}
+          />
+        ))}
+      </div>
+      <button className="flex-c-m stext-101 cl0 size-101 bg3 hov-btn3 p-lr-15 trans-04 mt-5">
+        Continuar a metodo de pago
+      </button>
+    </>
   );
 };
