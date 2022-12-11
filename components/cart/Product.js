@@ -11,15 +11,15 @@ export const Product = ({ item }) => {
     <tr>
       <td data-th="Product">
         <div className="row">
-          <div className="col-md-2 text-left">
+          <div className="col-md-4 text-left">
             <img
               src={img}
               alt=""
               className="img-fluid d-none d-md-block rounded mb-2 shadow "
             />
           </div>
-          <div className="col-md-4 text-left mt-sm-2">
-            <h4>{name}</h4>
+          <div className="col-md-8 text-left mt-sm-2">
+            <h5>{name}</h5>
             <p className="font-weight-light p-color">
               Color:
               <span
