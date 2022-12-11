@@ -1,17 +1,16 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import conn from "../../../lib/db";
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const storeId = req.headers["store-id"];
     const query = await conn.query(
       `SELECT * FROM address WHERE store_id = ${storeId}`
     );
-    res.status(200).json(query.rows);
+    const data = query.rows;
+    res.status(200).json(data);
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    console.log(err);
+    res.status(500).json({ message: "Internal Server Error" });
   }
-}
+};
