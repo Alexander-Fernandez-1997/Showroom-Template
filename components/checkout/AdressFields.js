@@ -48,7 +48,7 @@ export const AdressFields = () => {
       <div className="col-12 col-md-4">
         <input
           type="text"
-          className="form-control"
+          className="form-control cp-provider"
           placeholder="Código postal"
         ></input>
       </div>

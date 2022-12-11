@@ -11,7 +11,7 @@ export const Discount = () => {
         <input
           name="discount_code"
           placeholder="Cupon"
-          className="form-control border-secondary border"
+          className="form-control  rounded-0"
         />
 
         <button className="flex-c-m stext-101 cl0 size-80 bg3 hov-btn3 p-lr-15 trans-04">
