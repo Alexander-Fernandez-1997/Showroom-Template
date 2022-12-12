@@ -1,11 +1,8 @@
 import React from "react";
 
 export const ShippingOption = ({ provider, setService, service }) => {
-  const setSelf = () => {
-    setService(provider);
-  };
   return (
-    <div className="col-12 " onClick={() => setSelf()}>
+    <div className="col-12 " onClick={() => setService(provider)}>
       <div
         className={`p-3 bor10 ${
           service.name === provider.name ? "border-dark border" : ""

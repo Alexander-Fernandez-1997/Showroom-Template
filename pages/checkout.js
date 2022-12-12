@@ -9,6 +9,7 @@ import { simpleFetch } from "../utils/simpleFetch";
 
 export default function Checkout() {
   const [same, setSame] = useState(false);
+  // usar 1 form para shipping form , otro para billing form  , luego 1 state para el provider seleccionado; los otros 2 datos se pueden pasar por props
   return (
     <>
       <div className="pt-5 pb-5 container ">

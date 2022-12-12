@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import useOrderInfo from "../../store/orderInfo";
 import { PaymentBtn } from "./PaymentBtn";
 import { ShippingOption } from "./ShippingOption";
 
@@ -31,6 +32,12 @@ export const ShippingOptions = () => {
     },
   ];
   const [service, setService] = useState(providers[0]);
+  const setProvider = useOrderInfo((state) => state.setProvider);
+
+  useEffect(() => {
+    setProvider(service);
+  }, [service]);
+
   return (
     <div className="d-none shippingList">
       <div className="row gap-2 ">
