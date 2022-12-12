@@ -1,6 +1,20 @@
 import React from "react";
+import useOrderInfo from "../../store/orderInfo";
+import useCart from "../../store/store";
 
 export const PaymentBtn = () => {
+  const shippingAddress = useOrderInfo((state) => state.shipping_address);
+  const billingAddress = useOrderInfo((state) => state.billing_address);
+  const provider = useOrderInfo((state) => state.provider);
+  const cartItems = useCart((state) => state.cartContent);
+  const money = useCart((state) => state.total);
+
+  console.log(shippingAddress);
+  console.log(billingAddress);
+  console.log(provider);
+  console.log(cartItems);
+  console.log(money);
+
   const handlePayment = () => {
     const url = `${window.location.origin}/api/orders/create`;
     const options = {
