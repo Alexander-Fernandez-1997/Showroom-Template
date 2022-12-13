@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import React from "react";
 import useOrderInfo from "../../store/orderInfo";
 import useCart from "../../store/store";
@@ -9,6 +10,10 @@ export const PaymentBtn = () => {
   const provider = useOrderInfo((state) => state.provider);
   const cartItems = useCart((state) => state.cartContent);
   const money = useCart((state) => state.total);
+
+  const reset = useOrderInfo((state) => state.reset);
+  const clearCart = useCart((state) => state.clearCart);
+  const router = useRouter();
 
   const handlePayment = () => {
     const url = `${window.location.origin}/api/orders/create`;
@@ -35,6 +40,9 @@ export const PaymentBtn = () => {
         anchor.target = "_blank";
         anchor.click();
         anchor.remove();
+        reset();
+        clearCart();
+        router.push("/");
       })
       .catch((err) => console.log(err));
   };

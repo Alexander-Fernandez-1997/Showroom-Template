@@ -17,7 +17,12 @@ const useOrderInfo = create(
     {
       name: "orderInfo",
       getStorage: () => localStorage,
-    }
+    },
+    // set everything to {}
+    (set, get) => ({
+      reset: () =>
+        set({ shipping_address: {}, billing_address: {}, provider: {} }),
+    })
   )
 );
 export default useOrderInfo;
