@@ -36,7 +36,7 @@ export const PaymentBtn = () => {
       .then((res) => res.json())
       .then((data) => {
         const anchor = document.createElement("a");
-        anchor.href = `https://paylinkplus.vercel.app/${data.slug}`;
+        anchor.href = `https://paylinkplus.vercel.app/orders/${data.slug}`;
         anchor.target = "_blank";
         anchor.click();
         anchor.remove();
