@@ -9,9 +9,15 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       `SELECT * FROM orders WHERE  slug = '${slug}'`
     );
     const data = query.rows[0];
+    const id = data.id;
+    const orderItems = await conn.query(
+      `SELECT * FROM orders_items WHERE order_id = ${id}`
+    );
+    data.order_items = orderItems.rows;
+
     res.status(200).json(data);
   } catch (err) {
     console.log(err);
-    res.status(500).json({ message: "Internal Server Error" });
+    res.status(500).json({ message: err.message });
   }
 };
