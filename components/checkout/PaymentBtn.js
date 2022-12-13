@@ -28,7 +28,7 @@ export const PaymentBtn = () => {
         items: cartItems,
         provider: provider,
         money: money,
-        client: client,
+        client: "",
       }),
     };
     fetch(url, options)
