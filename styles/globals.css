@@ -1522,3 +1522,31 @@ footer ul {
 .form-recto .form-control {
   border-radius: 0px !important;
 }
+
+/* ============ Megamenu ============ */
+.megamenu {
+  padding: 1rem;
+}
+
+.megamenu .title {
+  font-family: Poppins-Medium;
+  font-size: 14px;
+  color: #138496;
+  padding: 5px 0px;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+}
+
+@media all and (min-width: 992px) {
+  .has-megamenu {
+    position: static !important;
+  }
+  .megamenu {
+    left: 0;
+    right: 0;
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+/* ============ Megamenu end ============ */
