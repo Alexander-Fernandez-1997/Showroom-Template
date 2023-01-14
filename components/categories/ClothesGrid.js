@@ -3,6 +3,7 @@ import { ClotheCard } from "./ClotheCard";
 import { GridFilter } from "./GridFilter";
 import { GridSearch } from "./GridSearch";
 import { SearchButton } from "./SearchButton";
+import { SortBy } from "./SortBy";
 
 export const ClothesGrid = ({ clothesJson }) => {
   const [clothes, setClothes] = useState(clothesJson);
@@ -19,7 +20,32 @@ export const ClothesGrid = ({ clothesJson }) => {
     }
   };
 
+  const sortByPrice = (clothes, sort) => {
+    if (sort === "Mayor precio") {
+      return clothes
+        .sort((a, b) => b.variants[0].price - a.variants[0].price)
+        .map((clothe) => {
+          return {
+            ...clothe,
+            variants: clothe.variants.sort((a, b) => b.price - a.price),
+          };
+        });
+    } else if (sort === "Menor precio") {
+      return clothes
+        .sort((a, b) => a.variants[0].price - b.variants[0].price)
+        .map((clothe) => {
+          return {
+            ...clothe,
+            variants: clothe.variants.sort((a, b) => a.price - b.price),
+          };
+        });
+    } else {
+      return clothes;
+    }
+  };
+
   const filteredClothes = getFilteredClothes(query, clothes);
+  const sortedClothes = sortByPrice(filteredClothes, categ);
 
   return (
     <>
@@ -30,16 +56,17 @@ export const ClothesGrid = ({ clothesJson }) => {
           </div>
 
           <div className="flex-w flex-sb-m p-b-52">
-            <GridFilter setCateg={setCateg} categ={categ} />
+            <SortBy setCateg={setCateg} categ={categ} />
+            {/* <GridFilter setCateg={setCateg} categ={categ} /> */}
             <SearchButton></SearchButton>
             <GridSearch setQuery={setQuery}></GridSearch>
           </div>
           <div className="row isotope-grid">
-            {filteredClothes === undefined || filteredClothes.length === 0 ? (
+            {sortedClothes === undefined || sortedClothes.length === 0 ? (
               <h1>No disponemos productos con ese nombre</h1>
             ) : (
               <>
-                {filteredClothes.map((clothe) =>
+                {sortedClothes.map((clothe) =>
                   clothe.variants.map((variant) => (
                     <div
                       key={variant.sku}
