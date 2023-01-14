@@ -3,12 +3,14 @@ import "/styles/globals.css";
 import { SessionProvider } from "next-auth/react";
 import { Layout } from "../components/utils/Layout";
 import { simpleFetch } from "../utils/simpleFetch";
+import { useRouter } from "next/router";
 
 function MyApp({
   Component,
   pageProps: { session, ...pageProps },
   initialData,
 }) {
+  const router = useRouter();
   return (
     <>
       <Script
@@ -17,7 +19,7 @@ function MyApp({
       />
       <SessionProvider session={session}>
         <Layout initialData={initialData}>
-          <Component {...pageProps} />
+          <Component {...pageProps} key={router.asPath} />
         </Layout>
       </SessionProvider>
     </>
