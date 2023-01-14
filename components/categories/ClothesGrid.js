@@ -12,12 +12,14 @@ export const ClothesGrid = ({ clothesJson }) => {
 
   const filteredClothes = getFilteredClothes(query, clothes) || [];
   const variants =
-    filteredClothes.map((clothe) =>
-      clothe.variants.map((variant) => ({
-        ...variant,
-        clotheName: clothe.name,
-      }))
-    ) || [];
+    filteredClothes !== []
+      ? filteredClothes.map((clothe) =>
+          clothe.variants.map((variant) => ({
+            ...variant,
+            clotheName: clothe.name,
+          }))
+        )
+      : [];
   const sortedClothes = sortByPrice(variants.flat(), categ) || [];
 
   return (
