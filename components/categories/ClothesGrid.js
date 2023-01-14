@@ -10,13 +10,14 @@ export const ClothesGrid = ({ clothesJson }) => {
   const [categ, setCateg] = useState("");
   const [query, setQuery] = useState("");
 
-  const filteredClothes = getFilteredClothes(query, clothes);
-  const variants = filteredClothes.map((clothe) =>
-    clothe.variants.map((variant) => ({
-      ...variant,
-      clotheName: clothe.name,
-    }))
-  );
+  const filteredClothes = getFilteredClothes(query, clothes) || [];
+  const variants =
+    filteredClothes.map((clothe) =>
+      clothe.variants.map((variant) => ({
+        ...variant,
+        clotheName: clothe.name,
+      }))
+    ) || [];
   const sortedClothes = sortByPrice(variants.flat(), categ) || [];
 
   return (
