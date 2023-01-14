@@ -17,7 +17,7 @@ export const ClothesGrid = ({ clothesJson }) => {
       clotheName: clothe.name,
     }))
   );
-  const sortedClothes = sortByPrice(variants.flat(), categ);
+  const sortedClothes = sortByPrice(variants.flat(), categ) || [];
 
   return (
     <>

@@ -1,11 +1,10 @@
 import { ClothesGrid } from "../../../components/categories/ClothesGrid";
 import { simpleFetch } from "../../../utils/simpleFetch";
 
-export default function Showroom({ categJson }) {
-  console.log("5", categJson);
+export default function Showroom({ categJson = {} }) {
   return (
     <>
-      <ClothesGrid clothesJson={categJson.clothes}></ClothesGrid>
+      <ClothesGrid clothesJson={categJson.clothes || {}}></ClothesGrid>
     </>
   );
 }
