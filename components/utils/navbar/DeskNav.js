@@ -1,6 +1,5 @@
 import React from "react";
 import { AuthBtn } from "./AuthBtn";
-import { CategLink } from "./CategLink";
 import { MegaMenu } from "./MegaMenu";
 import { MobileLink } from "./MobileLink";
 import { NavLogo } from "./NavLogo";
@@ -14,7 +13,6 @@ export const DeskNav = ({ directions }) => {
           <div className="menu-desktop">
             <ul className="main-menu">
               <MegaMenu></MegaMenu>
-              {/* <CategLink></CategLink> */}
               {directions.map((direction) => (
                 <MobileLink key={direction + direction} direction={direction} />
               ))}

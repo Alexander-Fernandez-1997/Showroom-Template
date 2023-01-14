@@ -28,18 +28,17 @@ export const ClothesGrid = ({ clothesJson }) => {
           <div className="p-b-10">
             <h3 className="ltext-103 cl5">Productos</h3>
           </div>
-          {filteredClothes === undefined || filteredClothes.length === 0 ? (
-            <div className="container mt-5 pt-5">
+
+          <div className="flex-w flex-sb-m p-b-52">
+            <GridFilter setCateg={setCateg} categ={categ} />
+            <SearchButton></SearchButton>
+            <GridSearch setQuery={setQuery}></GridSearch>
+          </div>
+          <div className="row isotope-grid">
+            {filteredClothes === undefined || filteredClothes.length === 0 ? (
               <h1>No disponemos productos con ese nombre</h1>
-            </div>
-          ) : (
-            <>
-              <div className="flex-w flex-sb-m p-b-52">
-                <GridFilter setCateg={setCateg} categ={categ} />
-                <SearchButton></SearchButton>
-                <GridSearch setQuery={setQuery}></GridSearch>
-              </div>
-              <div className="row isotope-grid">
+            ) : (
+              <>
                 {filteredClothes.map((clothe) =>
                   clothe.variants.map((variant) => (
                     <div
@@ -54,9 +53,9 @@ export const ClothesGrid = ({ clothesJson }) => {
                     </div>
                   ))
                 )}
-              </div>
-            </>
-          )}
+              </>
+            )}
+          </div>
         </div>
       </section>
     </>
