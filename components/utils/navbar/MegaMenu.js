@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import useDetails from "../../../store/details";
 import { MegaOption } from "./MegaOption";
 
-export const MegaMenu = () => {
+export const MegaMenu = (activeLink) => {
   const { categories, subcategories } = useDetails();
   const [nestedCateg, setNestedCateg] = useState([]);
 
@@ -21,7 +21,7 @@ export const MegaMenu = () => {
   }, [categories]);
 
   return (
-    <li className="nav-item dropdown has-megamenu">
+    <li className={`nav-item dropdown has-megamenu ${activeLink.activeLink()}`}>
       <a
         className="nav-link dropdown-toggle"
         href="#"

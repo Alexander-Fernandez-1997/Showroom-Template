@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { useRouter } from "next/router";
+import { MegaMenu } from "./MegaMenu";
 
 export const MobileLink = ({ direction }) => {
   const { asPath } = useRouter();
@@ -14,6 +15,8 @@ export const MobileLink = ({ direction }) => {
       return "active-menu";
     } else if (asPath === `/${direction}`) {
       return "active-menu";
+    } else if (direction === "showroom" && asPath.includes("categorias")) {
+      return "active-menu";
     } else {
       return null;
     }
@@ -22,9 +25,12 @@ export const MobileLink = ({ direction }) => {
   const customDir =
     direction !== "" ? capitalizarPrimeraLetra(direction) : "Inicio";
 
-  return (
-    <li className={activeLink()}>
-      <Link href={`/${direction}`}>{customDir}</Link>
-    </li>
-  );
+  if (direction === "showroom") {
+    return <MegaMenu activeLink={activeLink}></MegaMenu>;
+  } else
+    return (
+      <li className={activeLink()}>
+        <Link href={`/${direction}`}>{customDir}</Link>
+      </li>
+    );
 };
