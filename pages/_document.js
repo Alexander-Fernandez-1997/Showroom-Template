@@ -1,6 +1,7 @@
 import { Html, Head, Main, NextScript } from "next/document";
 import Script from "next/script";
 
+// I have to migrate this to next 13.2.0
 export default function Document() {
   return (
     <Html>
