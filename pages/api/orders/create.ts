@@ -39,22 +39,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const billingAddressId = await checkAddress(billing_adress);
     console.log("41", billingAddressId);
 
-    // Items is an array of objects  that looks like this:
-    // `CREATE TABLE IF NOT EXISTS orders_items (
-    //     id SERIAL PRIMARY KEY,
-    //     order_id INTEGER NOT NULL,
-    //     name VARCHAR(255) NOT NULL,
-    //     variant_id INTEGER NOT NULL,
-    //     img VARCHAR(255) NOT NULL,
-    //     quantity INTEGER NOT NULL,
-    //     price INTEGER NOT NULL,
-    //     currency VARCHAR(255) NOT NULL,
-    //     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    //     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    //     FOREIGN KEY (order_id) REFERENCES orders(id),
-    //     FOREIGN KEY (variant_id) REFERENCES variants(id)
-    //   );`
-
     const Order = {
       store_id: storeId,
       client_id: client ? client : null,
