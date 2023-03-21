@@ -12,9 +12,7 @@ export default async function handler(
       password: "123456",
     };
     const { store_id, email, password } = client;
-    console.log("store_id: ", store_id);
-    console.log("email: ", email);
-    console.log("password ", password);
+
     //create a new client
     const query = await conn.query(
       `INSERT INTO clients (store_id, email, password) VALUES (${store_id}, '${email}', '${password}')`
