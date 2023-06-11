@@ -1,0 +1,41 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1686113404265,
+      "tag": "0000_crazy_archangel",
+      "breakpoints": false
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1686113914876,
+      "tag": "0001_low_sandman",
+      "breakpoints": false
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1686456877413,
+      "tag": "0002_skinny_abomination",
+      "breakpoints": false
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1686457388156,
+      "tag": "0003_noisy_greymalkin",
+      "breakpoints": false
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1686459900990,
+      "tag": "0004_steep_zarda",
+      "breakpoints": false
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import conn from "../../../lib/db";
-import { hashPass, isSamePass } from "../../../utils/bcrypt";
+import conn from "../../../src/lib/db";
+import { hashPass, isSamePass } from "../../../src/utils/bcrypt";
 
 export default async function handler(
   req: NextApiRequest,
