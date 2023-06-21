@@ -1,7 +1,7 @@
 import { simpleFetch } from "../utils/simpleFetch";
 
 export default async function Home() {
-  const clothesJson = await simpleFetch("clothes/limit");
+  const clothesJson = await simpleFetch("clothes/limit", "ssr");
   // const categoriesJson = await simpleFetch("categories");
   // const storeJson = await simpleFetch("store");
   return (
