@@ -1,7 +1,7 @@
-import { db } from "../../../../lib/db/index";
+import { db } from "@/lib/db";
 import { NextResponse } from "next/server";
 import { clothes, variants } from "../../../../lib/db/schema";
-import { eq, inArray } from "drizzle-orm";
+import { eq } from "drizzle-orm";
 
 export async function GET(request: Request) {
   try {

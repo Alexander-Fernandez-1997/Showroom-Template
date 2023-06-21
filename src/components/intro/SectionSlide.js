@@ -2,7 +2,8 @@ import Link from "next/link";
 import React from "react";
 
 export const SectionSlide = ({ store }) => {
-  const { name, slogan, main_banner } = store;
+  console.log("store", store);
+  const { name, slogan, mainBanner } = store;
   return (
     <>
       <section className="section-slide">
@@ -11,7 +12,7 @@ export const SectionSlide = ({ store }) => {
             <div
               className="item-slick1"
               style={{
-                backgroundImage: `url(${main_banner})`,
+                backgroundImage: `url(${mainBanner})`,
               }}
             >
               <div className="container h-full">

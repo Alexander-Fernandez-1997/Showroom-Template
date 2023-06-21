@@ -1,5 +1,8 @@
 // import Layout from "@/components/layout/Layout";
-import "./globals.css";
+import "./v2.css";
+import "@/styles/globals.css";
+import "@/styles/util.css";
+import "@/styles/main.css";
 import Script from "next/script";
 
 export default function RootLayout({
