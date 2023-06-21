@@ -36,6 +36,20 @@
       "when": 1686459900990,
       "tag": "0004_steep_zarda",
       "breakpoints": false
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1687373943798,
+      "tag": "0005_organic_grim_reaper",
+      "breakpoints": false
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1687374909885,
+      "tag": "0006_rich_black_tarantula",
+      "breakpoints": false
     }
   ]
 }

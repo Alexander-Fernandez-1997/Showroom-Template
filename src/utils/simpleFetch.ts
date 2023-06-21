@@ -9,6 +9,7 @@ export const simpleFetch = async (data: string) => {
         "Content-Type": "application/json",
         "store-id": storeKey,
       },
+      cache: "no-store",
     };
 
     let url = fetchUrl;

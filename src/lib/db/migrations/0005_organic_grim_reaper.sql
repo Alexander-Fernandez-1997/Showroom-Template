@@ -1,0 +1,13 @@
+DROP TABLE "clothes";
+DROP TABLE "orders";
+DROP TABLE "orders_items";
+DROP TABLE "address";
+DROP TABLE "franchises";
+DROP TABLE "configuration";
+DROP TABLE "notes";
+DROP TABLE "reviews";
+DROP TABLE "variants";
+DROP TABLE "categories";
+DROP TABLE "subcategories";
+DROP TABLE "stores";
+DROP TABLE "clients";
