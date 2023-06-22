@@ -3,8 +3,8 @@ import React from "react";
 import useCart from "../../store/store";
 
 export const ClotheCard = ({ variant, path, name }) => {
-  const { image, price, discount, discount_price, size, color } = variant;
-  const finalPrice = discount ? discount_price : price;
+  const { image, price, discount, discountPrice, size, color } = variant;
+  const finalPrice = discount ? discountPrice : price;
   const addTocart = useCart((state) => state.addTocart);
   const updatecart = useCart((state) => state.updatecart);
   const mycart = useCart((state) => state.cartContent);
