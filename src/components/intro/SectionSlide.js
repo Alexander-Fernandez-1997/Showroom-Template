@@ -2,7 +2,6 @@ import Link from "next/link";
 import React from "react";
 
 export const SectionSlide = ({ store }) => {
-  console.log("store", store);
   const { name, slogan, mainBanner } = store;
   return (
     <>

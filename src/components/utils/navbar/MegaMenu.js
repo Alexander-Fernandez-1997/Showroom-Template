@@ -16,9 +16,9 @@ export const MegaMenu = (activeLink) => {
     setNestedCateg(nestedCategories);
   };
 
-  useEffect(() => {
-    getNestedCateg(categories, subcategories);
-  }, [categories]);
+  // useEffect(() => {
+  // getNestedCateg(categories, subcategories);
+  // }, [categories]);
 
   return (
     <li className={`nav-item dropdown has-megamenu ${activeLink.activeLink()}`}>

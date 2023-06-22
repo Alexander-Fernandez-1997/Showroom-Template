@@ -3,6 +3,7 @@ import "./v2.css";
 import "@/styles/globals.css";
 import "@/styles/util.css";
 import "@/styles/main.css";
+import { Layout } from "@/components/utils/Layout";
 import Script from "next/script";
 
 export default function RootLayout({
@@ -22,9 +23,7 @@ export default function RootLayout({
       </head>
 
       <body>
-        {/* <Layout> */}
-        {children}
-        {/* </Layout> */}
+        <Layout>{children}</Layout>
         <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></Script>
       </body>
     </html>

@@ -6,7 +6,8 @@ export const NavLogo = () => {
   const { store } = useDetails();
   const [logo, setlogo] = useState("");
   useEffect(() => {
-    setlogo(store.logo);
+    console.log("this is the store", store);
+    // setlogo(store.logo);
   }, [store]);
 
   return (

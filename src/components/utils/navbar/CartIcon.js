@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { FiShoppingBag } from "react-icons/fi";
 
 export const CartIcon = () => {
-  const { asPath } = useRouter();
+  // const { asPath } = useRouter();
   const totalqty = useCart((state) => state.totalqty);
   const [mytotalqty, setTotalqty] = useState();
 
@@ -15,7 +15,8 @@ export const CartIcon = () => {
   }, [totalqty]);
 
   return (
-    <li className={asPath === "/cart" ? "active-menu" : null}>
+    // <li className={asPath === "/cart" ? "active-menu" : null}>
+    <li className={null}>
       <Link
         data-bs-toggle="offcanvas"
         href="#offcanvasCart"

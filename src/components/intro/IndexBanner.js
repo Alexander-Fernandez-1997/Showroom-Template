@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 
 export const IndexBanner = ({ categorias }) => {
-  const activeCategories = categorias.filter((cat) => cat.main_active === true);
+  const activeCategories = categorias.filter((cat) => cat.mainActive === true);
   return (
     <>
       <div className="sec-banner bg0 p-t-80 p-b-50">
@@ -11,12 +11,12 @@ export const IndexBanner = ({ categorias }) => {
             {/* start banner */}
             {activeCategories.map((categoria) => (
               <div
-                key={`${categoria.id}${categoria.created_at}`}
+                key={`${categoria.id}${categoria.createdAt}`}
                 className="col-md-6 col-xl-4 p-b-30 m-lr-auto"
               >
                 {/* Block1 */}
                 <div className="block1 wrap-pic-w">
-                  <img src={categoria.banner_image} alt={categoria.name} />
+                  <img src={categoria.bannerImage} alt={categoria.name} />
                   <Link
                     href={`/categorias/${categoria.slug}`}
                     className="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3"

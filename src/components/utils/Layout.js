@@ -1,19 +1,27 @@
+"use client";
 import React, { useEffect } from "react";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
 import { BackToTop } from "./BackToTop";
 import useDetails from "../../store/details";
+import { simpleFetch } from "utils/simpleFetch";
 
-export const Layout = ({ children, initialData }) => {
-  const { setStore, setCategories, setSubCategories } = useDetails();
+export const Layout = ({ children }) => {
+  // const { setStore, setCategories, setSubCategories } = useDetails();
 
-  useEffect(() => {
-    if (initialData) {
-      setStore(initialData[0][0]);
-      setCategories(initialData[1]);
-      setSubCategories(initialData[2]);
-    }
-  }, []);
+  // useEffect(() => {
+  // const initialData = simpleFetch("details", "ssr");
+  // const initialData = [];
+  // if (initialData) {
+  // console.log("this is the initialData", initialData);
+  // setStore(initialData.stores);
+  // setCategories(initialData.categories);
+  // setSubCategories(initialData.subcategories);
+  // setStore([]);
+  // setCategories([]);
+  // setSubCategories([]);
+  // }
+  // }, []);
 
   return (
     <>

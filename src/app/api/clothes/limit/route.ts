@@ -14,7 +14,14 @@ export async function GET(request: Request) {
       .limit(10)
       .leftJoin(variants, eq(clothes.id, variants.clothesId));
 
-    return NextResponse.json(clothes_with_variants);
+    const clothes_array = clothes_with_variants.map((clothes) => {
+      return {
+        ...clothes.clothes,
+        variants: clothes.variants,
+      };
+    });
+
+    return NextResponse.json(clothes_array);
   } catch (error) {
     console.log(error);
     return NextResponse.json([]);
