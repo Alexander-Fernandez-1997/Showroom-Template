@@ -1,8 +1,8 @@
 import React from "react";
 
 export const ContactMap = ({ address }) => {
-  const { street, street_number } = address;
-  const addressMap = `${street} ${street_number}`;
+  const { street, streetNumber } = address;
+  const addressMap = `${street} ${streetNumber}`;
   return (
     <>
       <div className="map">
