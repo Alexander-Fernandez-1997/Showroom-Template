@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import { groupBy } from "../../utils/groupBy";
 import { AddToCartFicha } from "./AddToCartFicha";
@@ -11,8 +12,8 @@ import { MobileImgs } from "./MobileImgs";
 import { NoDisponible } from "./NoDisponible";
 
 export const CustomProduct = ({ clothe }) => {
-  const { name, price, description } = clothe[0].rows[0];
-  const variant = clothe[1].rows;
+  const { name, price, description } = clothe;
+  const variant = clothe.variants;
   const variantsGrouped = groupBy(variant, "color");
   const variants = Object.keys(variantsGrouped).reduce((acc, key) => {
     const filtered = variantsGrouped[key].filter((item) => item.quantity > 0);
@@ -39,7 +40,7 @@ export const CustomProduct = ({ clothe }) => {
   let colorPrice = colors.length > 0 ? true : false;
   let discount_price =
     ActiveVariant.discount === true
-      ? ActiveVariant.discount_price
+      ? ActiveVariant.discountPrice
       : ActiveVariant.price;
 
   let activePrice = colorPrice && discount_price ? discount_price : price;

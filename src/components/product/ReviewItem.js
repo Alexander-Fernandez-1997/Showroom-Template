@@ -1,7 +1,7 @@
 import React from "react";
 
 export const ReviewItem = ({ singlereview }) => {
-  const { review, reviewer, rating, created_at } = singlereview;
+  const { review, reviewer, rating, createdAt } = singlereview;
 
   const createStars = (rating) => {
     let stars = "";
@@ -21,7 +21,7 @@ export const ReviewItem = ({ singlereview }) => {
       <span>{createStars(rating)}</span>
       <p>{review}</p>
       <cite>
-        {reviewer} - {created_at.slice(0, 10)}
+        {reviewer} - {createdAt.slice(0, 10)}
       </cite>
     </blockquote>
   );
