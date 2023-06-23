@@ -1,3 +1,17 @@
+import { simpleFetch } from "utils/simpleFetch";
+import { Banner } from "@/components/utils/Banner";
+import { AboutContent } from "@/components/about/AboutContent";
+import { Faq } from "@/components/about/Faq";
+
 export default async function Home() {
-  return <h1>Hola mundo</h1>;
+  const { configuration, notes } = await simpleFetch("about", "ssr");
+  const { aboutBanner, aboutSlogan, aboutHtml } = configuration;
+
+  return (
+    <>
+      <Banner banner_url={aboutBanner} text={aboutSlogan}></Banner>
+      <AboutContent content={aboutHtml}></AboutContent>
+      <Faq notes={notes}></Faq>
+    </>
+  );
 }
