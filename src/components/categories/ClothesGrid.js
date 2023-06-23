@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import { ConditionalGrid } from "./ConditionalGrid";
 import { GridSearch } from "./GridSearch";
@@ -11,6 +12,7 @@ export const ClothesGrid = ({ clothesJson }) => {
   const [query, setQuery] = useState("");
 
   const filteredClothes = getFilteredClothes(query, clothes) || [];
+
   const variants =
     filteredClothes !== []
       ? filteredClothes.map((clothe) =>

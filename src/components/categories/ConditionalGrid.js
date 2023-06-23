@@ -15,7 +15,7 @@ export const ConditionalGrid = ({ sortedClothes }) => {
             >
               <ClotheCard
                 variant={variant}
-                path={variant.clothes_id}
+                path={variant.clothesId}
                 name={variant.clotheName}
               />
             </div>
