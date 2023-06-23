@@ -1,7 +1,8 @@
+"use client";
 import React from "react";
 
 export const LocalDiv = ({ local, index }) => {
-  const { name, address, image_main, store_hours } = local;
+  const { name, address, imageMain, storeHours } = local;
   const activateLocal = (e) => {
     const options = document.querySelectorAll(".option");
     options.forEach((option) => {
@@ -14,7 +15,7 @@ export const LocalDiv = ({ local, index }) => {
       className={`option ${index === 0 ? "active" : ""}`}
       onClick={activateLocal}
       style={{
-        background: `url(${image_main})`,
+        background: `url(${imageMain})`,
       }}
     >
       <div className="shadow" />
@@ -22,7 +23,7 @@ export const LocalDiv = ({ local, index }) => {
         <div className="info">
           <div className="main">{name}</div>
           <div className="sub">Dir:{address}</div>
-          <div className="sub">Horario:{store_hours}</div>
+          <div className="sub">Horario:{storeHours}</div>
         </div>
       </div>
     </div>
