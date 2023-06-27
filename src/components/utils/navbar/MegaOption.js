@@ -3,7 +3,7 @@ import React from "react";
 import { SubCategLink } from "./SubCategLink";
 
 export const MegaOption = ({ categ }) => {
-  const { name, slug, subCategs } = categ;
+  const { name, slug, subcategories } = categ;
 
   return (
     <div key={categ.name} className="col-lg-3 col-4">
@@ -13,7 +13,7 @@ export const MegaOption = ({ categ }) => {
         </Link>
 
         <ul className="list-unstyled col-12">
-          {subCategs.map((subCateg) => {
+          {subcategories.map((subCateg) => {
             return (
               <SubCategLink
                 key={subCateg.id + subCateg.name}

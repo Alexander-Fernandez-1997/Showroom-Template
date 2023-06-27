@@ -1,24 +1,17 @@
-import React, { useEffect, useState } from "react";
-import useDetails from "../../../store/details";
+import { useEffect, useState } from "react";
 import { MegaOption } from "./MegaOption";
+import { simpleFetch } from "utils/simpleFetch";
 
 export const MegaMenu = (activeLink) => {
-  const { categories, subcategories } = useDetails();
   const [nestedCateg, setNestedCateg] = useState([]);
 
-  const getNestedCateg = (categ, subCateg) => {
-    const nestedCategories = categ.map((categ) => {
-      const subCategs = subCateg.filter((subCateg) => {
-        return subCateg.category_id === categ.id;
-      });
-      return { ...categ, subCategs };
-    });
-    setNestedCateg(nestedCategories);
-  };
-
-  // useEffect(() => {
-  // getNestedCateg(categories, subcategories);
-  // }, [categories]);
+  useEffect(() => {
+    const fetchNestedCateg = async () => {
+      const categories = await simpleFetch("categories/full", "ssr");
+      setNestedCateg(categories);
+    };
+    fetchNestedCateg();
+  }, []);
 
   return (
     <li className={`nav-item dropdown has-megamenu ${activeLink.activeLink()}`}>

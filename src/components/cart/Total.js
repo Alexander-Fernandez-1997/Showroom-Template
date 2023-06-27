@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 import React from "react";
 import { useEffect, useState } from "react";
 import useCart from "../../store/store";
@@ -11,7 +11,7 @@ export const Total = () => {
     setTotal(total);
   }, [total]);
 
-  const router = useRouter();
+  const pathname = usePathname();
 
   return (
     <div className="bor10 p-4 ">
@@ -39,7 +39,7 @@ export const Total = () => {
         </div>
 
         {/* // if current route is /cart then show the button "Ir al Checkout" */}
-        {router.pathname === "/cart" && (
+        {pathname === "/cart" && (
           <Link
             href="/checkout"
             className="flex-c-m stext-101 cl0 size-101 bg3 hov-btn3 p-lr-15 trans-04"

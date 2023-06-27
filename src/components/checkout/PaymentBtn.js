@@ -1,4 +1,4 @@
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import React from "react";
 import useOrderInfo from "../../store/orderInfo";
 import useCart from "../../store/store";
@@ -13,7 +13,7 @@ export const PaymentBtn = () => {
 
   // const reset = useOrderInfo((state) => state.reset);
   // const clearCart = useCart((state) => state.clearCart);
-  // const router = useRouter();
+  const router = useRouter();
 
   const handlePayment = () => {
     const url = `${window.location.origin}/api/orders/create`;

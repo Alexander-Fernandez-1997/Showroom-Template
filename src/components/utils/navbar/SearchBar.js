@@ -1,9 +1,9 @@
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { FiSearch } from "react-icons/fi";
 
 export const SearchBar = () => {
-  // const router = useRouter();
+  const router = useRouter();
 
   const CloseSearch = () => {
     document.querySelector(".bigsearch").classList.remove("show-modal-search");
@@ -12,7 +12,7 @@ export const SearchBar = () => {
   const lfclothes = (e) => {
     e.preventDefault();
     let search = document.querySelector(".plh3");
-    // router.push(`/search/${search.value}`);
+    router.push(`/search/${search.value}`);
     search.value = "";
     CloseSearch();
   };
