@@ -1,4 +1,3 @@
-import React from "react";
 import { MobileLink } from "./MobileLink";
 
 export const MobileBody = ({ directions }) => {

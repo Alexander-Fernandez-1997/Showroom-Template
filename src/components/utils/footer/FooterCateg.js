@@ -1,20 +1,14 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
-import useDetails from "../../../store/details";
+import { simpleFetch } from "utils/simpleFetch";
 import { FooterLink } from "./FooterLink";
 
-export const FooterCateg = () => {
-  const { categories } = useDetails();
-  const [categ, setCateg] = useState([]);
-  useEffect(() => {
-    setCateg(categories);
-  }, [categories]);
+export const FooterCateg = async () => {
+  const categories = await simpleFetch("categories/footer", "isr", "60");
 
   return (
     <div className="col-sm-6 col-lg-3 p-b-50">
       <h4 className="stext-301 cl0 p-b-30">Categorias</h4>
       <ul>
-        {categ.map((categLink, index) => {
+        {categories.map((categLink, index) => {
           if (index < 4) {
             return (
               <FooterLink

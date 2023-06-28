@@ -1,4 +1,3 @@
-import React from "react";
 import { AuthBtn } from "./AuthBtn";
 import { HamburguerIcon } from "./HamburguerIcon";
 import { NavLogo } from "./NavLogo";

@@ -1,4 +1,3 @@
-import React from "react";
 import { AuthBtn } from "./AuthBtn";
 import { MobileLink } from "./MobileLink";
 import { NavLogo } from "./NavLogo";

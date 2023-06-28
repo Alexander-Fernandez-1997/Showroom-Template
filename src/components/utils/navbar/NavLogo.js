@@ -1,15 +1,8 @@
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import useDetails from "../../../store/details";
+import { simpleFetch } from "utils/simpleFetch";
 
-export const NavLogo = () => {
-  const { store } = useDetails();
-  const [logo, setlogo] = useState("");
-  useEffect(() => {
-    console.log("this is the store", store);
-    // setlogo(store.logo);
-  }, [store]);
-
+export const NavLogo = async () => {
+  const logo = await simpleFetch("stores/logo", "isr", "60");
   return (
     <Link href="/" className="logo">
       <img src={logo} alt="IMG-LOGO" />
