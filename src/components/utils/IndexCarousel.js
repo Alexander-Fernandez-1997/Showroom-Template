@@ -26,22 +26,24 @@ export const IndexCarousel = ({ clothes }) => {
                   <Flicking circular={true}>
                     {clothes.map((clothe) => {
                       return clothe.variants.map((variant) => {
-                        <div
-                          key={clothe.id}
-                          style={{ width: "300px", padding: "1rem" }}
-                        >
-                          <div className="wrap-slick2">
-                            <div className="slick2">
-                              <div className="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-                                <ClotheCard
-                                  variant={variant}
-                                  path={clothe.id}
-                                  name={clothe.name}
-                                />
+                        return (
+                          <div
+                            key={variant.id}
+                            style={{ width: "300px", padding: "1rem" }}
+                          >
+                            <div className="wrap-slick2">
+                              <div className="slick2">
+                                <div className="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
+                                  <ClotheCard
+                                    variant={variant}
+                                    path={clothe.id}
+                                    name={clothe.name}
+                                  />
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>;
+                        );
                       });
                     })}
                   </Flicking>
