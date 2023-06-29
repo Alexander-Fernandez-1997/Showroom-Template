@@ -34,7 +34,7 @@ export default function Checkout() {
                     <ShowProviders></ShowProviders>
                   </div>
                   <div className="col-12 bor10 p-5 mt-3">
-                    <h2 className="mb-3">3 - Shipping method</h2>
+                    <h2 className="mb-3 shippingTittle">3 - Shipping method</h2>
                     <div className="d-none shippingList">
                       <ShippingOptions slug={slug}></ShippingOptions>
                       <UnlockPaymentBtn

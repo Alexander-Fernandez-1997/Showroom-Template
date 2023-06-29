@@ -4,8 +4,12 @@ export const ShowProviders = () => {
   const showShippingOptions = () => {
     const cp = document.querySelector(".cp-provider");
     console.log(cp.value);
-    const shippingList = document.querySelector(".shippingList");
-    shippingList.classList.remove("d-none");
+    document.querySelector(".shippingList")?.classList.remove("d-none");
+    document.querySelector(".shippingTittle")?.scrollIntoView({
+      block: "center",
+      behavior: "smooth",
+      inline: "center",
+    });
   };
   return (
     <button

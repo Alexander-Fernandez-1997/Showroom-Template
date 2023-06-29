@@ -39,7 +39,13 @@ export const UnlockPaymentBtn = ({ same, slug, setSlug }) => {
         setSlug(data.slug);
       })
       .then(() => {
-        document.querySelector(".paymentList")?.classList.remove("d-none");
+        const paymentList = document.querySelector(".paymentList");
+        paymentList.classList.remove("d-none");
+        paymentList.scrollIntoView({
+          block: "center",
+          behavior: "smooth",
+          inline: "center",
+        });
       })
       .catch((err) => console.log(err));
   };
