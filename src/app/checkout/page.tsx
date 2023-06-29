@@ -6,6 +6,7 @@ import { SameAddress } from "@/components/checkout/SameAddress";
 import { ShippingForm } from "@/components/checkout/ShippingForm";
 import { ShippingOptions } from "@/components/checkout/ShippingOptions";
 import { ShowProviders } from "@/components/checkout/ShowProviders";
+import { PaymentOptions } from "@/components/checkout/PaymentOptions";
 
 export default function Checkout() {
   const [same, setSame] = useState(false);
@@ -33,6 +34,10 @@ export default function Checkout() {
                   <div className="col-12 bor10 p-5 mt-3">
                     <h2 className="mb-3">3 - Shipping method</h2>
                     <ShippingOptions></ShippingOptions>
+                  </div>
+                  <div className="col-12 bor10 p-5 mt-3">
+                    <h2 className="mb-3">4 - Payment method</h2>
+                    <PaymentOptions></PaymentOptions>
                   </div>
                 </div>
                 <MoneyInfo></MoneyInfo>
