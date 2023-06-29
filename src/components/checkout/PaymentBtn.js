@@ -1,4 +1,3 @@
-import { useRouter } from "next/navigation";
 import React from "react";
 import useOrderInfo from "../../store/orderInfo";
 import useCart from "../../store/store";
@@ -13,7 +12,6 @@ export const PaymentBtn = () => {
 
   // const reset = useOrderInfo((state) => state.reset);
   // const clearCart = useCart((state) => state.clearCart);
-  const router = useRouter();
 
   const handlePayment = () => {
     const url = `${window.location.origin}/api/orders/create`;
@@ -35,11 +33,12 @@ export const PaymentBtn = () => {
     fetch(url, options)
       .then((res) => res.json())
       .then((data) => {
-        const anchor = document.createElement("a");
-        anchor.href = `https://paylinkplus.vercel.app/orders/${data.slug}`;
-        anchor.target = "_blank";
-        anchor.click();
-        anchor.remove();
+        // const anchor = document.createElement("a");
+        // anchor.href = `https://paylinkplus.vercel.app/orders/${data.slug}`;
+        // anchor.target = "_blank";
+        // anchor.click();
+        // anchor.remove();
+        console.log("data 41", data);
       })
       .catch((err) => console.log(err));
   };
