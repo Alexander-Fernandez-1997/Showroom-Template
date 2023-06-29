@@ -1,5 +1,3 @@
-import Link from "next/link";
-import React from "react";
 import useCart from "../../store/store";
 
 export const AddToCartFicha = ({
@@ -24,7 +22,7 @@ export const AddToCartFicha = ({
     }
   };
   return (
-    <Link
+    <button
       onClick={() =>
         addProduct({
           id: id,
@@ -36,10 +34,9 @@ export const AddToCartFicha = ({
           img: img,
         })
       }
-      href="#"
       className="flex-c-m stext-101 cl0 size-101 bg3 hov-btn3 p-lr-15 trans-04"
     >
       Agregar al carrito
-    </Link>
+    </button>
   );
 };

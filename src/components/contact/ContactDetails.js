@@ -1,10 +1,10 @@
 import React from "react";
 
 export const ContactDetails = ({ details }) => {
-  const { email, wp_number, street_number, street, province, city, country } =
+  const { email, wpNumber, streetNumber, street, province, city, country } =
     details;
   const address =
-    `${street} ${street_number}, ${city}, ${province}, ${country}` || "";
+    `${street} ${streetNumber}, ${city}, ${province}, ${country}` || "";
   return (
     <div className="size-210 bor10 flex-w flex-col-m p-lr-93 p-tb-30 p-lr-15-lg w-full-md">
       <div className="flex-w w-full p-b-42">
@@ -22,7 +22,7 @@ export const ContactDetails = ({ details }) => {
         </span>
         <div className="size-212 p-t-2">
           <span className="mtext-110 cl2">Llamanos</span>
-          <p className="stext-115 cl1 size-213 p-t-18">{wp_number}</p>
+          <p className="stext-115 cl1 size-213 p-t-18">{wpNumber}</p>
         </div>
       </div>
       <div className="flex-w w-full">

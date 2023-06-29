@@ -1,13 +1,11 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import useDetails from "../../../store/details";
+import { simpleFetch } from "utils/simpleFetch";
 
-export const FooterContact = () => {
-  const { store } = useDetails();
-  const [storeDetails, setStoreDetails] = useState({});
-  useEffect(() => {
-    setStoreDetails(store);
-  }, [store]);
+export const FooterContact = async () => {
+  const { instagram, wpNumber } = await simpleFetch(
+    "stores/social",
+    "isr",
+    "60"
+  );
 
   return (
     <div className="col-sm-6 col-lg-3 p-b-50">
@@ -20,20 +18,20 @@ export const FooterContact = () => {
           target="_blank"
           rel="noreferrer"
           href={`https://api.whatsapp.com/send?phone=${
-            storeDetails.wp_number || ""
+            wpNumber || ""
           }&text=Me%20interesa%20saber%20mas%20sobre%20los%20productos`}
         >
-          Whatsapp: {storeDetails.wp_number || ""}
+          Whatsapp: {wpNumber || ""}
         </a>{" "}
         <br />
         <a
           className="cl7 hov-cl1 trans-04 m-r-16"
-          href={`https://www.instagram.com/${storeDetails.instagram || ""}/`}
+          href={`https://www.instagram.com/${instagram || ""}/`}
           target="_blank"
           rel="noreferrer"
         >
           <i className="fa fa-instagram" />
-          Insta: {storeDetails.instagram || ""}
+          Insta: {instagram || ""}
         </a>
       </p>
     </div>

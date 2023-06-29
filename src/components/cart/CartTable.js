@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Product } from "./Product";
 import { useEffect, useState } from "react";
