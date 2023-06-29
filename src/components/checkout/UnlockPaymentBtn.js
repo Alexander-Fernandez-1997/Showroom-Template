@@ -3,7 +3,7 @@ import useOrderInfo from "../../store/orderInfo";
 import useCart from "../../store/store";
 import storeKey from "../../utils/storeKey";
 
-export const UnlockPaymentBtn = ({ slug, setSlug }) => {
+export const UnlockPaymentBtn = ({ same, slug, setSlug }) => {
   const shippingAddress = useOrderInfo((state) => state.shipping_address);
   const billingAddress = useOrderInfo((state) => state.billing_address);
   const provider = useOrderInfo((state) => state.provider);
@@ -29,6 +29,7 @@ export const UnlockPaymentBtn = ({ slug, setSlug }) => {
         money: money,
         client: "",
         orderSlug: slug,
+        same: same,
       }),
     };
     fetch(url, options)

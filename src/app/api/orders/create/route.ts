@@ -14,15 +14,10 @@ export async function POST(request: Request) {
       money,
       client,
       orderSlug,
+      same,
     } = await request.json();
 
-    console.log("shipping_address", shipping_address);
-    console.log("billing_adress", billing_adress);
-    console.log("items", items);
-    console.log("provider", provider);
-    console.log("money", money);
-    console.log("client", client);
-    console.log("orderSlug", orderSlug);
+    console.log("same", same);
 
     interface Dire {
       address: string;
@@ -73,8 +68,13 @@ export async function POST(request: Request) {
     const shippingAddressId = await checkAddress(shipping_address);
     console.log("40", shippingAddressId);
 
-    const billingAddressId = await checkAddress(billing_adress);
-    console.log("41", billingAddressId);
+    let billingAddressId: number | null = null;
+    if (same === true) {
+      billingAddressId = shippingAddressId;
+    } else {
+      billingAddressId = await checkAddress(billing_adress);
+    }
+    console.log("46", billingAddressId);
 
     const order_body = {
       storeId: parseInt(key),

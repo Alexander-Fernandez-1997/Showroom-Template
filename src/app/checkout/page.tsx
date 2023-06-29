@@ -38,6 +38,7 @@ export default function Checkout() {
                     <div className="d-none shippingList">
                       <ShippingOptions slug={slug}></ShippingOptions>
                       <UnlockPaymentBtn
+                        same={same}
                         slug={slug}
                         setSlug={setSlug}
                       ></UnlockPaymentBtn>
