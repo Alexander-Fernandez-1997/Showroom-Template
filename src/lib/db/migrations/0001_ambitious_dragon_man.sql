@@ -1,0 +1,1 @@
+ALTER TABLE "orders" ADD COLUMN "payment_status" varchar(255) DEFAULT 'not started';

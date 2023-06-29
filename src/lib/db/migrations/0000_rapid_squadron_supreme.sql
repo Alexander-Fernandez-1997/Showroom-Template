@@ -94,7 +94,10 @@ CREATE TABLE IF NOT EXISTS "orders" (
 	"currency" varchar(255) NOT NULL,
 	"created_at" timestamp DEFAULT now() NOT NULL,
 	"updated_at" timestamp DEFAULT now() NOT NULL,
-	"slug" varchar(255) NOT NULL
+	"slug" varchar(255) NOT NULL,
+	"subtotal" integer NOT NULL,
+	"payment_method" varchar(255),
+	"payment_code" varchar(255)
 );
 
 CREATE TABLE IF NOT EXISTS "orders_items" (

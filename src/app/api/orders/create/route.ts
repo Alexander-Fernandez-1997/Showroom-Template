@@ -6,8 +6,15 @@ import { and, eq } from "drizzle-orm";
 export async function POST(request: Request) {
   try {
     const key = request.headers.get("store-id") || "1";
-    const { shipping_address, billing_adress, items, provider, money, client } =
-      await request.json();
+    const {
+      shipping_address,
+      billing_adress,
+      items,
+      provider,
+      money,
+      client,
+      orderSlug,
+    } = await request.json();
 
     console.log("shipping_address", shipping_address);
     console.log("billing_adress", billing_adress);
@@ -15,6 +22,7 @@ export async function POST(request: Request) {
     console.log("provider", provider);
     console.log("money", money);
     console.log("client", client);
+    console.log("orderSlug", orderSlug);
 
     interface Dire {
       address: string;
@@ -84,55 +92,80 @@ export async function POST(request: Request) {
       shippingPrice: provider.price,
       discounts: 0,
       taxes: 0,
-      total: money,
+      subtotal: money,
+      total: parseInt(money) + parseInt(provider.price),
       currency: "ARS",
-      slug: "",
+      slug: orderSlug,
     };
 
-    const newOrder = await db.insert(orders).values(order_body).returning();
+    if (orderSlug === "") {
+      const newOrder = await db.insert(orders).values(order_body).returning();
 
-    console.log("newOrder", newOrder);
+      console.log("newOrder", newOrder);
 
-    const orderId = newOrder[0].id;
+      const orderId = newOrder[0].id;
 
-    const newOrderItems = items.map(async (item) => {
-      const item_body = {
-        orderId: orderId,
-        name: item.name,
-        variantId: item.id,
-        img: item.img,
-        quantity: item.quantity,
-        price: item.price,
-        currency: order_body.currency,
-      };
-      const newItem = await db
-        .insert(ordersItems)
-        .values(item_body)
+      const newOrderItems = items.map(async (item) => {
+        const item_body = {
+          orderId: orderId,
+          name: item.name,
+          variantId: item.id,
+          img: item.img,
+          quantity: item.quantity,
+          price: item.price,
+          currency: order_body.currency,
+        };
+        const newItem = await db
+          .insert(ordersItems)
+          .values(item_body)
+          .returning();
+        return newItem;
+      });
+
+      await Promise.all(newOrderItems);
+
+      const slug = `${orderId}-${Math.random().toString(36).substr(2, 16)}`;
+
+      const updatedOrder = await db
+        .update(orders)
+        .set({ slug: slug })
+        .where(eq(orders.id, orderId))
         .returning();
-      return newItem;
-    });
 
-    await Promise.all(newOrderItems);
+      //if updatedOrder status is 200 then return slug
 
-    const slug = `${orderId}-${Math.random().toString(36).substr(2, 16)}`;
+      console.log("updatedOrder", updatedOrder);
 
-    const updatedOrder = await db
-      .update(orders)
-      .set({ slug: slug })
-      .where(eq(orders.id, orderId))
-      .returning();
-
-    //if updatedOrder status is 200 then return slug
-
-    console.log("updatedOrder", updatedOrder);
-
-    if (updatedOrder.length > 0) {
-      return NextResponse.json({ slug: slug });
+      if (updatedOrder.length > 0) {
+        return NextResponse.json({ slug: slug });
+      } else {
+        return NextResponse.json(
+          { error: "No se pudo crear la orden" },
+          { status: 400 }
+        );
+      }
+      // End of orderSlug === ""
     } else {
-      return NextResponse.json(
-        { error: "No se pudo crear la orden" },
-        { status: 400 }
-      );
+      // we are going to update the order
+
+      const updatedOrder = await db
+        .update(orders)
+        .set(order_body)
+        .where(
+          and(eq(orders.slug, orderSlug), eq(orders.storeId, parseInt(key)))
+        )
+        .returning();
+
+      console.log("updatedOrder 159", updatedOrder);
+
+      if (updatedOrder.length > 0) {
+        return NextResponse.json({ slug: orderSlug });
+      } else {
+        return NextResponse.json(
+          { error: "No se pudo actualizar la orden" },
+          { status: 400 }
+        );
+      }
     }
   } catch (error) {
     return NextResponse.json({ error: error.message }, { status: 400 });

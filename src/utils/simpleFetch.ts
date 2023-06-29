@@ -86,6 +86,7 @@ export const simplePost = async (route: string, body: any) => {
   const url: string = `${baseUrl}/api/${route}`;
   try {
     const options = generateOptions("POST", body, "no-store");
+    console.log("options", options);
     const data = await fetch(url, options);
     return await data.json();
   } catch (error) {

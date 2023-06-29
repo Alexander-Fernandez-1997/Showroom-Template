@@ -9,7 +9,7 @@
     "lint": "next lint",
     "instrospect": "drizzle-kit introspect:pg --config=drizzle.config.ts",
     "generate-migration": "drizzle-kit generate:pg --out src/lib/db/migrations --schema src/lib/db/schema.ts",
-    "push": "node -r esbuild-register src/lib/db/migrate.ts",
+    "push": "node -r  esbuild-register src/lib/db/migrate.ts",
     "rollback": "drizzle-kit rollback:pg"
   },
   "dependencies": {

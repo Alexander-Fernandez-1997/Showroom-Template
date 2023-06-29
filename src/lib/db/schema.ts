@@ -61,6 +61,12 @@ export const orders = pgTable("orders", {
   createdAt: timestamp("created_at", { mode: "string" }).defaultNow().notNull(),
   updatedAt: timestamp("updated_at", { mode: "string" }).defaultNow().notNull(),
   slug: varchar("slug", { length: 255 }).notNull(),
+  subtotal: integer("subtotal").notNull(),
+  paymentMethod: varchar("payment_method", { length: 255 }),
+  paymentCode: varchar("payment_code", { length: 255 }),
+  paymentStatus: varchar("payment_status", { length: 255 }).default(
+    "not started"
+  ),
 });
 
 export const ordersItems = pgTable("orders_items", {

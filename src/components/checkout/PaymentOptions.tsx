@@ -20,13 +20,12 @@ export const PaymentOptions = () => {
     },
   ];
   return (
-    <div className=" ">
+    <div className="paymentList d-none">
       <div className="row gap-2 ">
         {payment_providers.map((provider) => (
           <PaymentOption key={provider.name} provider={provider} />
         ))}
       </div>
-      {/* <PaymentBtn></PaymentBtn> */}
     </div>
   );
 };

@@ -3,7 +3,7 @@ import useOrderInfo from "../../store/orderInfo";
 import useCart from "../../store/store";
 import storeKey from "../../utils/storeKey";
 
-export const PaymentBtn = () => {
+export const UnlockPaymentBtn = ({ slug, setSlug }) => {
   const shippingAddress = useOrderInfo((state) => state.shipping_address);
   const billingAddress = useOrderInfo((state) => state.billing_address);
   const provider = useOrderInfo((state) => state.provider);
@@ -13,7 +13,7 @@ export const PaymentBtn = () => {
   // const reset = useOrderInfo((state) => state.reset);
   // const clearCart = useCart((state) => state.clearCart);
 
-  const handlePayment = () => {
+  const handleOrder = () => {
     const url = `${window.location.origin}/api/orders/create`;
     const options = {
       method: "POST",
@@ -28,17 +28,17 @@ export const PaymentBtn = () => {
         provider: provider,
         money: money,
         client: "",
+        orderSlug: slug,
       }),
     };
     fetch(url, options)
       .then((res) => res.json())
       .then((data) => {
-        // const anchor = document.createElement("a");
-        // anchor.href = `https://paylinkplus.vercel.app/orders/${data.slug}`;
-        // anchor.target = "_blank";
-        // anchor.click();
-        // anchor.remove();
         console.log("data 41", data);
+        setSlug(data.slug);
+      })
+      .then(() => {
+        document.querySelector(".paymentList")?.classList.remove("d-none");
       })
       .catch((err) => console.log(err));
   };
@@ -46,7 +46,7 @@ export const PaymentBtn = () => {
   return (
     <button
       className="flex-c-m stext-101 cl0 size-101 bg3 hov-btn3 p-lr-15 trans-04 mt-5"
-      onClick={handlePayment}
+      onClick={handleOrder}
     >
       Continuar a metodo de pago
     </button>
