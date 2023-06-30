@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { PaymentOption } from "./PaymentOption";
-import { mercadoFetch } from "utils/mercadoPago/fetch";
-import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
+import { Wallet } from "@mercadopago/sdk-react";
+import { mercadoPagoPayment } from "utils/mercadoPago/view";
 
-interface PaymentOptionsProps {}
+interface PaymentOptionsProps {
+  slug: string;
+}
 
 interface PaymentProvider {
   name: string;
@@ -11,19 +13,8 @@ interface PaymentProvider {
   fn: () => void;
 }
 
-export const PaymentOptions: React.FC<PaymentOptionsProps> = () => {
+export const PaymentOptions: React.FC<PaymentOptionsProps> = ({ slug }) => {
   const [preference, setPreference] = useState(null);
-
-  const key = "TEST-3c5ade5d-fec0-4f11-b82d-a72f07315cfa";
-  initMercadoPago(key, { locale: "es-AR" });
-  // let ml = "203354989-4d171f9f-dc06-4a02-973f-dd3fa67f22c1";
-
-  const mercadoPagoPayment = () => {
-    mercadoFetch("27-l3kpj5ub8r").then((preference) => {
-      console.log(preference.preferenceId);
-      setPreference(preference.preferenceId);
-    });
-  };
 
   const payment_providers: PaymentProvider[] = [
     {
@@ -39,9 +30,7 @@ export const PaymentOptions: React.FC<PaymentOptionsProps> = () => {
     {
       name: "Mercado Pago",
       img: "https://i.imgur.com/ku8Uml9.png",
-      fn: () => {
-        mercadoPagoPayment();
-      },
+      fn: () => mercadoPagoPayment(slug, setPreference),
     },
   ];
 

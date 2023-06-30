@@ -98,6 +98,8 @@ export async function POST(request: Request) {
       slug: orderSlug,
     };
 
+    console.log("order_body", order_body);
+
     if (orderSlug === "") {
       const newOrder = await db.insert(orders).values(order_body).returning();
 

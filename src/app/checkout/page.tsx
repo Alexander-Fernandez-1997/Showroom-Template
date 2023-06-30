@@ -46,7 +46,7 @@ export default function Checkout() {
                   </div>
                   <div className="col-12 bor10 p-5 mt-3">
                     <h2 className="mb-3">4 - Payment method</h2>
-                    <PaymentOptions></PaymentOptions>
+                    <PaymentOptions slug={slug}></PaymentOptions>
                   </div>
                 </div>
                 <MoneyInfo></MoneyInfo>
