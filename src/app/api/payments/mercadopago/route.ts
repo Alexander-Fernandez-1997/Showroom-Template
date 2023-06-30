@@ -40,7 +40,14 @@ export async function POST(request: Request) {
 
     const preferenceId = await getMercadoId(items);
 
-    return NextResponse.json({ preferenceId });
+    const MERCADO_PAGO_KEY = process.env.MERCADO_PAGO_KEY;
+
+    const response = {
+      preferenceId: preferenceId,
+      key: MERCADO_PAGO_KEY,
+    };
+
+    return NextResponse.json(response, { status: 200 });
   } catch (error) {
     console.log(error);
     return NextResponse.json(error.message, { status: 400 });
