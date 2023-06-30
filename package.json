@@ -14,10 +14,12 @@
   },
   "dependencies": {
     "@egjs/react-flicking": "^4.7.0",
+    "@mercadopago/sdk-react": "^0.0.12",
     "@sendgrid/mail": "^7.6.2",
     "bcrypt": "^5.1.0",
     "dotenv": "^16.1.4",
     "drizzle-orm": "^0.26.5",
+    "mercadopago": "^1.5.14",
     "next": "^13.4.4",
     "next-auth": "^4.16.4",
     "pg": "^8.11.0",

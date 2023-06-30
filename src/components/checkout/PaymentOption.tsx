@@ -1,7 +1,16 @@
 import React from "react";
 
-export const PaymentOption = ({ provider }) => {
+interface PaymentOptionProps {
+  provider: {
+    name: string;
+    img: string;
+    fn: () => void;
+  };
+}
+
+export const PaymentOption: React.FC<PaymentOptionProps> = ({ provider }) => {
   const { name, img, fn } = provider;
+
   return (
     <div className="container p-3 mt-4">
       <div className="card" onClick={fn}>
