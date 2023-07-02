@@ -5,7 +5,7 @@ import { Footer } from "./confirmation/Footer";
 
 const OrderConfirmation = () => {
   return (
-    <div className="container mt-5 pt-5 bg-white border border-dark">
+    <div className="container m-2 mt-md-5 pt-2 pt-md-5 bg-white border border-dark">
       <Header></Header>
       <Body></Body>
       <Footer></Footer>
