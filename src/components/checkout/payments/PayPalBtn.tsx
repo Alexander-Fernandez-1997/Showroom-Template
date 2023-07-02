@@ -1,10 +1,37 @@
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 import React from "react";
+import { TbCurrency } from "react-icons/tb";
 
 export const PayPalBtn = ({ total }) => {
   if (total === null) {
     return null;
   }
+
+  // Current currency codes are:
+  // Australian Dollar	AUD
+  // Brazilian real	BRL
+  // Canadian dollar	CAD
+  // Czech koruna	CZK
+  // Danish krone	DKK
+  // Euro	EUR
+  // Hong Kong dollar	HKD
+  // Hungarian forint	HUF
+  // Israeli new shekel	ILS
+  // Japanese yen	JPY
+  // Malaysian ringgit	MYR
+  // Mexican peso	MXN
+  // New Taiwan dollar	TWD
+  // New Zealand dollar	NZD
+  // Norwegian krone	NOK
+  // Philippine peso	PHP
+  // Polish złoty	PLN
+  // Pound sterling	GBP
+  // Russian ruble	RUB
+  // Singapore dollar	SGD
+  // Swedish krona	SEK
+  // Swiss franc	CHF
+  // Thai baht	THB
+  // United States dollar	USD
 
   const createOrder = (data, actions) => {
     return actions.order.create({
