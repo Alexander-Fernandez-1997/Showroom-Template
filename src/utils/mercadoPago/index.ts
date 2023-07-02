@@ -9,7 +9,7 @@ export const getMercadoId = async (items: any[]): Promise<string> => {
   const preference: Preferences = {
     items: items,
     back_urls: {
-      success: "http://localhost:3000/success",
+      success: "http://localhost:3000/order/completed",
       failure: "http://localhost:3000/failure",
       pending: "http://localhost:3000/pending",
     },

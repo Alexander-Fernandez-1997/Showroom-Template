@@ -55,7 +55,7 @@ export const PayPalBtn = ({ total }) => {
         const id = details.id;
         const status = details.status;
         if (status === "COMPLETED") {
-          alert(`Transaction ${id} completed by ${url}`);
+          window.location.href = `/order/completed`;
         }
       })
       .catch((error) => {
