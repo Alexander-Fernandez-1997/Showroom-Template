@@ -45,6 +45,7 @@ export async function POST(request: Request) {
     const response = {
       preferenceId: preferenceId,
       key: MERCADO_PAGO_KEY,
+      total: total,
     };
 
     return NextResponse.json(response, { status: 200 });

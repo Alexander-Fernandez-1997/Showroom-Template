@@ -35,6 +35,7 @@ export const UnlockPaymentBtn = ({ same, slug, setSlug }) => {
     fetch(url, options)
       .then((res) => res.json())
       .then((data) => {
+        setSlug("");
         console.log("data 41", data);
         setSlug(data.slug);
       })

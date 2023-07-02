@@ -4,16 +4,16 @@ interface PaymentOptionProps {
   provider: {
     name: string;
     img: string;
-    fn: () => void;
+    btn: React.ReactNode;
   };
 }
 
 export const PaymentOption: React.FC<PaymentOptionProps> = ({ provider }) => {
-  const { name, img, fn } = provider;
+  const { name, img, btn } = provider;
 
   return (
     <div className="container p-3 mt-4">
-      <div className="card" onClick={fn}>
+      <div className="card">
         <div className="card-body">
           <img
             src={img}
@@ -24,6 +24,8 @@ export const PaymentOption: React.FC<PaymentOptionProps> = ({ provider }) => {
               margin: "auto",
             }}
           />
+          <hr></hr>
+          {btn}
         </div>
       </div>
     </div>
