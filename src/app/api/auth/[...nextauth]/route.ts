@@ -2,7 +2,7 @@ import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { simplePost } from "utils/simpleFetch";
 
-export const authOptions: NextAuthOptions = {
+const authOptions: NextAuthOptions = {
   session: {
     strategy: "jwt",
     maxAge: 30 * 24 * 60 * 60, // 30 days
@@ -42,8 +42,8 @@ export const authOptions: NextAuthOptions = {
         return {
           id: user.id,
           email: user.email,
-          username: user.username,
-          role: user.role,
+          password: user.password,
+          storeId: user.storeId,
         };
       },
     }),
@@ -59,8 +59,8 @@ export const authOptions: NextAuthOptions = {
         user: {
           ...session.user,
           id: token.id,
-          role: token.role,
-          username: token.username,
+          password: token.password,
+          storeId: token.storeId,
           email: token.email,
         },
       };
@@ -73,8 +73,8 @@ export const authOptions: NextAuthOptions = {
         return {
           ...token,
           id: u.id,
-          role: u.role,
-          username: u.username,
+          password: u.password,
+          storeId: u.storeId,
           email: u.email,
         };
       }
