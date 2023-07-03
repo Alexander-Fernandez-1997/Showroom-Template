@@ -35,7 +35,7 @@ export async function POST(
         },
       ],
       mode: "payment",
-      success_url: `${fetchUrl}/order/completed`,
+      success_url: `${fetchUrl}/order/${slug}completed`,
       cancel_url: `${fetchUrl}/?canceled=true`,
     });
 

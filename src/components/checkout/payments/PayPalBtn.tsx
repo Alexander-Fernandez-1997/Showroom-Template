@@ -1,8 +1,7 @@
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 import React from "react";
-import { TbCurrency } from "react-icons/tb";
 
-export const PayPalBtn = ({ total }) => {
+export const PayPalBtn = ({ total, slug }) => {
   if (total === null) {
     return null;
   }
@@ -55,7 +54,7 @@ export const PayPalBtn = ({ total }) => {
         const id = details.id;
         const status = details.status;
         if (status === "COMPLETED") {
-          window.location.href = `/order/completed`;
+          window.location.href = `/order/${slug}/completed`;
         }
       })
       .catch((error) => {

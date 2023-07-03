@@ -1,7 +1,13 @@
 import React from "react";
 import { ItemHeader } from "./ItemHeader";
+import { dateFormat } from "utils/dates";
 
-export const Header = () => {
+export const Header = ({ order }) => {
+  const { id, slug, createdAt, order_items } = order;
+  const formateddate = dateFormat(new Date(createdAt));
+  const items_length = order_items.reduce((acc, item) => {
+    return acc + item.quantity;
+  }, 0);
   const item = {
     id: 1,
     name: "Remera",
@@ -17,12 +23,12 @@ export const Header = () => {
         <span className="text-gray-700 text-small-regular uppercase">
           Thank you, your order was successfully placed
         </span>
-        <h1 className="mt-2 uppercase text-2xl-semi">#ID</h1>
-        <span>SLU: G5646546465454654654FAS</span>
+        <h1 className="mt-2 uppercase text-2xl-semi">#{id}</h1>
+        <span>SLUG: {slug}</span>
         <div className="flex items-center text-gray-700 text-small-regular gap-x-4 mt-4">
-          <span>Fecha: Domingo 2 de julio 2023</span>
+          <span>Fecha: {formateddate}</span>
           <br />
-          <span>Cantidad de items total: 2</span>
+          <span>Cantidad de items total: {items_length}</span>
         </div>
       </div>
       <table
@@ -30,8 +36,9 @@ export const Header = () => {
         className="mt-4 mb-4 table table-condensed table-responsive"
       >
         <tbody>
-          <ItemHeader item={item} />
-          <ItemHeader item={item} />
+          {order_items.map((item) => (
+            <ItemHeader key={item.id} item={item} />
+          ))}
         </tbody>
       </table>
     </>

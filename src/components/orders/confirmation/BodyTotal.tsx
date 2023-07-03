@@ -1,28 +1,34 @@
 import React from "react";
+import { BodyTotalField } from "./BodyTotalField";
+import { formatPrice } from "utils/price";
 
-export const BodyTotal = () => {
+export const BodyTotal = ({ order }) => {
+  const { total, taxes, subtotal, shippingPrice, discounts } = order;
+
+  const fields = [
+    { tittle: "Subtotal", price: formatPrice(subtotal) },
+    { tittle: "Shipping", price: formatPrice(shippingPrice) },
+    { tittle: "Discounts", price: formatPrice(discounts) },
+    { tittle: "Taxes", price: `${taxes}%` },
+  ];
+
   return (
     <div className="col-12 col-md-6">
       <h5 className="">Order Summary</h5>
       <div className="text-small text-secondary my-2">
-        <div className="d-flex justify-between mb-2 gap-2">
-          <span>Subtotal</span>
-          <span>€19.50</span>
-        </div>
-        <div className="text-small text-secondary">
-          <div className="d-flex justify-between mb-2 gap-2">
-            <span>Shipping</span>
-            <span>€10.00</span>
-          </div>
-          <div className="d-flex justify-between mb-2 gap-2">
-            <span>Taxes</span>
-            <span>2%</span>
-          </div>
+        <div>
+          {fields.map((field) => (
+            <BodyTotalField
+              key={field.tittle}
+              tittle={field.tittle}
+              price={field.price}
+            ></BodyTotalField>
+          ))}
         </div>
         <hr />
         <div className="text-small text-dark d-flex justify-between mb-2 gap-2">
           <p>Total</p>
-          <p>€29.50</p>
+          <p>{formatPrice(total)}</p>
         </div>
       </div>
     </div>

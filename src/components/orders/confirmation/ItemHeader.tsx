@@ -1,13 +1,13 @@
 import React from "react";
 
 export const ItemHeader = ({ item }) => {
-  const { id, name, color, size, price, quantity, img } = item;
+  const { name, price, quantity, img } = item;
 
   return (
     <tr className="mt-2  border-top border-top-secondary">
       <td data-th="Product">
         <div className="row">
-          <div className="col-md-4 text-left">
+          <div className="col-md-2 text-left">
             <img
               src={img}
               alt=""
@@ -16,22 +16,20 @@ export const ItemHeader = ({ item }) => {
           </div>
           <div className="col-md-8 text-left mt-sm-2">
             <h5>{name}</h5>
-            <p className="font-weight-light p-color">
-              Color:
-              <span
-                className="colorEsfera"
-                style={{ backgroundColor: `${color}` }}
-              ></span>
-            </p>
-            <p className="font-weight-light">Talle: {size}</p>
+
             <p className="font-weight-light">Cantidad: {quantity}</p>
           </div>
         </div>
       </td>
       <td data-th="Price">
-        <h3 className="mt-2">
-          Precio unitario: <span className="text-muted">${price}</span>
-        </h3>
+        <div className="d-flex flex-column justify-content-between align-items-end flex-grow-1">
+          <h5 className="mt-2">
+            Precio unitario: <span className="text-muted">${price}</span>
+          </h5>
+          <h5 className="mt-2">
+            Precio total: <span className="text-muted">${price}</span>
+          </h5>
+        </div>
       </td>
     </tr>
   );

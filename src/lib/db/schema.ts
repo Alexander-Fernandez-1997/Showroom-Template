@@ -1,3 +1,4 @@
+import { relations } from "drizzle-orm";
 import {
   pgTable,
   pgEnum,
@@ -69,6 +70,10 @@ export const orders = pgTable("orders", {
   ),
 });
 
+export const ordersRelations = relations(orders, ({ many }) => ({
+  ordersItems: many(ordersItems),
+}));
+
 export const ordersItems = pgTable("orders_items", {
   id: serial("id").primaryKey().notNull(),
   orderId: integer("order_id")
@@ -85,6 +90,10 @@ export const ordersItems = pgTable("orders_items", {
   createdAt: timestamp("created_at", { mode: "string" }).defaultNow().notNull(),
   updatedAt: timestamp("updated_at", { mode: "string" }).defaultNow().notNull(),
 });
+
+export const ordersItemsRelations = relations(ordersItems, ({ one }) => ({
+  orders: one(orders),
+}));
 
 export const address = pgTable("address", {
   id: serial("id").primaryKey().notNull(),

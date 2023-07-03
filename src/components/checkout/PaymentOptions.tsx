@@ -29,7 +29,7 @@ export const PaymentOptions: React.FC<PaymentOptionsProps> = ({ slug }) => {
     {
       name: "Paypal",
       img: "https://i.imgur.com/vCxEbYg.png",
-      btn: <PayPalBtn key={`payapal-${total}`} total={total} />,
+      btn: <PayPalBtn key={`payapal-${total}`} total={total} slug={slug} />,
     },
     {
       name: "Stripe",

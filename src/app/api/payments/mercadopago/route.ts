@@ -38,7 +38,7 @@ export async function POST(request: Request) {
       },
     ];
 
-    const preferenceId = await getMercadoId(items);
+    const preferenceId = await getMercadoId(items, slug);
 
     const MERCADO_PAGO_KEY = process.env.MERCADO_PAGO_KEY;
 
