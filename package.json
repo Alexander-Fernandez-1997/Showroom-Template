@@ -23,7 +23,6 @@
     "drizzle-orm": "^0.26.5",
     "mercadopago": "^1.5.14",
     "next": "^13.4.7",
-    "next-auth": "^4.16.4",
     "pg": "^8.11.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -31,7 +30,8 @@
     "stripe": "^12.11.0",
     "sweetalert2": "^11.4.14",
     "uninstall": "^0.0.0",
-    "zustand": "^4.1.4"
+    "zustand": "^4.1.4",
+    "next-auth": "^4.22.1"
   },
   "devDependencies": {
     "@types/node": "^20.2.5",
