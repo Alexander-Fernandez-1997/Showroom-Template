@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-
 import { stores } from "../../../lib/db/schema";
 import { eq } from "drizzle-orm";
 import { db } from "@/lib/db";
