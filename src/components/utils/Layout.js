@@ -7,11 +7,13 @@ import { AuthProvider } from "../auth/AuthProvider";
 export const Layout = ({ children }) => {
   return (
     <>
-      <Navbar></Navbar>
-      <AuthProvider>{children}</AuthProvider>
-      <Footer></Footer>
-      <StickyWp></StickyWp>
-      <BackToTop></BackToTop>
+      <AuthProvider>
+        <Navbar></Navbar>
+        {children}
+        <Footer></Footer>
+        <StickyWp></StickyWp>
+        <BackToTop></BackToTop>
+      </AuthProvider>
     </>
   );
 };

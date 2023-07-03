@@ -48,7 +48,8 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   ],
-  secret: process.env.NEXTAUTH_SECRET,
+  // secret: process.env.NEXTAUTH_SECRET,
+  secret: "qqtXYw4c7CrxaeeK8YuGDo7HYYQhVf0OCdNOSiKfHYo",
 
   callbacks: {
     session: ({ session, token }) => {
