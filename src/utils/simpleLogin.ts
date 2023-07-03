@@ -12,6 +12,7 @@ const simpleLogin = async (client: User, url: string) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ client }),
+      cache: "no-store",
     });
     return res;
   } catch (err) {

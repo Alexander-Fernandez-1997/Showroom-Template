@@ -1,6 +1,11 @@
 import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import TwitterProvider from "next-auth/providers/twitter";
+import FacebookProvider from "next-auth/providers/facebook";
+import GoogleProvider from "next-auth/providers/google";
 import { simplePost } from "utils/simpleFetch";
+import storeKey from "utils/storeKey";
+import { fetchUrl } from "utils/fetchUrl";
 
 const authOptions: NextAuthOptions = {
   session: {
@@ -47,38 +52,56 @@ const authOptions: NextAuthOptions = {
         };
       },
     }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID || "",
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
+    }),
+    FacebookProvider({
+      clientId: process.env.FACEBOOK_CLIENT_ID || "",
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET || "",
+    }),
+    TwitterProvider({
+      clientId: process.env.TWITTER_CLIENT_ID || "",
+      clientSecret: process.env.TWITTER_CLIENT_SECRET || "",
+      version: "2.0",
+    }),
   ],
-  // secret: process.env.NEXTAUTH_SECRET,
-  secret: "qqtXYw4c7CrxaeeK8YuGDo7HYYQhVf0OCdNOSiKfHYo",
+  secret: process.env.NEXTAUTH_SECRET,
 
   callbacks: {
-    session: ({ session, token }) => {
-      // console.log("Session Callback 55", { session, token });
-      return {
-        ...session,
-        user: {
-          ...session.user,
-          id: token.id,
-          password: token.password,
-          storeId: token.storeId,
-          email: token.email,
-        },
-      };
-    },
-    jwt: ({ token, user }) => {
-      // console.log("JWT Callback", { token, user });
-      if (user) {
-        const u = user as unknown as any;
-        // console.log("u 71", u);
-        return {
-          ...token,
-          id: u.id,
-          password: u.password,
-          storeId: u.storeId,
-          email: u.email,
-        };
+    jwt: async ({ token, user, account }) => {
+      if (account) {
+        token.accessToken = account.accessToken;
+
+        switch (account.type) {
+          case "credentials":
+            token.user = user;
+            break;
+          case "oauth":
+            let client = {
+              store_id: storeKey,
+              email: token.email || user.email || "",
+              password: "",
+            };
+            console.log("client", client);
+            console.log("token", token);
+            console.log("account", account);
+            const clientInfo = await simplePost("clients/oauth", client);
+            token.user = await clientInfo;
+            console.log("token.user", token.user);
+            break;
+        }
       }
       return token;
+    },
+
+    session: ({ session, token }) => {
+      console.log("Session Callback 55", { session, token });
+      return {
+        ...session,
+        accessToken: token.accessToken,
+        user: token.user as any,
+      };
     },
   },
 };

@@ -15,6 +15,7 @@ export const AccountSingIn = () => {
       email: formValues.email,
       password: formValues.password,
     });
+    console.log("this is a response", response);
     if (response.error) {
       const errorPass = document.querySelector(".errorPass");
       errorPass.classList.remove("d-none");
