@@ -1,9 +1,6 @@
 import create from "zustand";
 import { persist } from "zustand/middleware";
 
-// {shipping_address, billing_adress,  providert } = order
-// shipping_address is a form , billing_address is a form  provider is a provider , the three other are objects saved with useState
-
 const useOrderInfo = create(
   persist(
     (set, get) => ({
@@ -13,16 +10,14 @@ const useOrderInfo = create(
       setShippingAddress: (params) => set({ shipping_address: params }),
       setBillingAddress: (params) => set({ billing_address: params }),
       setProvider: (params) => set({ provider: params }),
+      reset: () =>
+        set({ shipping_address: {}, billing_address: {}, provider: {} }),
     }),
     {
       name: "orderInfo",
       getStorage: () => localStorage,
-    },
-    // set everything to {}
-    (set, get) => ({
-      reset: () =>
-        set({ shipping_address: {}, billing_address: {}, provider: {} }),
-    })
+    }
   )
 );
+
 export default useOrderInfo;

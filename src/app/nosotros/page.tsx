@@ -4,7 +4,7 @@ import { AboutContent } from "@/components/about/AboutContent";
 import { Faq } from "@/components/about/Faq";
 
 export default async function Home() {
-  const { configuration, notes } = await simpleFetch("about", "ssr");
+  const { configuration, notes } = await simpleFetch("about", "isr", "60");
   const { aboutBanner, aboutSlogan, aboutHtml } = configuration;
 
   return (

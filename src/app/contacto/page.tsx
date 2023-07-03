@@ -4,7 +4,7 @@ import { ContactContent } from "@/components/contact/ContactContent";
 import { ContactMap } from "@/components/contact/ContactMap";
 
 export default async function Home() {
-  const { configuration, store } = await simpleFetch("contact", "ssr");
+  const { configuration, store } = await simpleFetch("contact", "isr", "60");
   const { contactBanner, contactSlogan } = configuration;
 
   return (

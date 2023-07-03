@@ -10,10 +10,10 @@ export const Layout = ({ children }) => {
       <AuthProvider>
         <Navbar></Navbar>
         {children}
-        <Footer></Footer>
-        <StickyWp></StickyWp>
-        <BackToTop></BackToTop>
       </AuthProvider>
+      <Footer></Footer>
+      <StickyWp></StickyWp>
+      <BackToTop></BackToTop>
     </>
   );
 };

@@ -4,7 +4,11 @@ import { LocalesFilter } from "@/components/stores/LocalesFilter";
 import { Locales } from "@/components/stores/Locales";
 
 export default async function Home() {
-  const { configuration, franchises } = await simpleFetch("franchises", "ssr");
+  const { configuration, franchises } = await simpleFetch(
+    "franchises",
+    "isr",
+    "60"
+  );
   const names = franchises.map((franchise) => franchise.name);
   const { storeBanner, storeSlogan } = configuration;
 
