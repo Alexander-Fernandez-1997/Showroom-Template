@@ -5,13 +5,21 @@ import React from "react";
 import { useEffect, useState } from "react";
 import useCart from "../../store/store";
 import { formatPrice } from "utils/price";
+import useOrderInfo from "store/orderInfo";
 
 export const Total = () => {
-  const total = useCart((state) => state.total);
   const [mytotal, setTotal] = useState();
+  const [providerPrice, setProviderPrice] = useState(0);
+
+  const total = useCart((state) => state.total);
+  const shippingProvider = useOrderInfo((state) => state.provider);
+
   useEffect(() => {
     setTotal(total);
-  }, [total]);
+    if (shippingProvider?.price && pathname === "/checkout") {
+      setProviderPrice(shippingProvider.price);
+    }
+  }, [total, shippingProvider]);
 
   const pathname = usePathname();
 
@@ -26,7 +34,7 @@ export const Total = () => {
           <div className="flex flex-col gap-y-1">
             <div className="d-flex justify-content-between mb-2">
               <span>Shipping</span>
-              <span>{formatPrice(0)}</span>
+              <span>{formatPrice(providerPrice)}</span>
             </div>
             <div className="d-flex justify-content-between mb-2">
               <span>Taxes</span>
@@ -36,7 +44,7 @@ export const Total = () => {
           <hr></hr>
           <div className="d-flex justify-content-between mb-2">
             <span>Total</span>
-            <span>{formatPrice(mytotal)}</span>
+            <span>{formatPrice(mytotal + providerPrice)}</span>
           </div>
         </div>
 
