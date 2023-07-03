@@ -4,6 +4,7 @@ import React from "react";
 import useCart from "../../store/store";
 import { useEffect, useState } from "react";
 import { ModalProduct } from "../cart/ModalProduct";
+import { formatPrice } from "utils/price";
 
 export const CartModal = () => {
   const total = useCart((state) => state.total);
@@ -52,7 +53,7 @@ export const CartModal = () => {
         </table>
         <div className="d-flex align-content-center justify-content-between">
           <h5 className="mt-3 mb-4 price">Subtotal:</h5>
-          <h5 className="mt-3 mb-4 price text-dark">${mytotal}</h5>
+          <h5 className="mt-3 mb-4 price text-dark">{formatPrice(mytotal)}</h5>
         </div>
 
         <div className="d-flex flex-column justify-content-center gap-2 align-items-center mt-2">

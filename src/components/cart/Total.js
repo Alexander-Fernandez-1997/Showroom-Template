@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import React from "react";
 import { useEffect, useState } from "react";
 import useCart from "../../store/store";
+import { formatPrice } from "utils/price";
 
 export const Total = () => {
   const total = useCart((state) => state.total);
@@ -20,22 +21,22 @@ export const Total = () => {
         <div className="text-caracteristic ">
           <div className="d-flex justify-content-between mb-2">
             <span>Subtotal</span>
-            <span>${mytotal}</span>
+            <span>{formatPrice(mytotal)}</span>
           </div>
           <div className="flex flex-col gap-y-1">
             <div className="d-flex justify-content-between mb-2">
               <span>Shipping</span>
-              <span>€0.00</span>
+              <span>{formatPrice(0)}</span>
             </div>
             <div className="d-flex justify-content-between mb-2">
               <span>Taxes</span>
-              <span>€0.00</span>
+              <span>{formatPrice(0)}</span>
             </div>
           </div>
           <hr></hr>
           <div className="d-flex justify-content-between mb-2">
             <span>Total</span>
-            <span>${mytotal}</span>
+            <span>{formatPrice(mytotal)}</span>
           </div>
         </div>
 

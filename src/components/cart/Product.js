@@ -1,6 +1,7 @@
 import React from "react";
 import { BiTrash } from "react-icons/bi";
 import useCart from "../../store/store";
+import { formatPrice } from "utils/price";
 
 export const Product = ({ item }) => {
   const { id, name, color, size, price, quantity, img } = item;
@@ -32,7 +33,7 @@ export const Product = ({ item }) => {
         </div>
       </td>
       <td data-th="Price">
-        <h4 className="mt-2">${price}</h4>
+        <h4 className="mt-2">{formatPrice(price)}</h4>
       </td>
       <td data-th="Quantity">
         <input

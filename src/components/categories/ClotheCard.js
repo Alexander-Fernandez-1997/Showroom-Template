@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import useCart from "../../store/store";
+import { formatPrice } from "utils/price";
 
 export const ClotheCard = ({ variant, path, name }) => {
   const { image, price, discount, discountPrice, size, color } = variant;
@@ -38,7 +39,7 @@ export const ClotheCard = ({ variant, path, name }) => {
             {name} {color}-{size}
           </a>
 
-          <span className="stext-105 cl3">${finalPrice}</span>
+          <span className="stext-105 cl3">{formatPrice(finalPrice)}</span>
         </div>
         <div className="block2-txt-child2 flex-r p-t-3">
           <button

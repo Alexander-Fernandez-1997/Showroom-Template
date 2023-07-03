@@ -1,6 +1,7 @@
 import React from "react";
 import useCart from "../../store/store";
 import { BiTrash } from "react-icons/bi";
+import { formatPrice } from "utils/price";
 
 export const ModalProduct = ({ item }) => {
   const { id, name, color, size, price, quantity, img } = item;
@@ -16,7 +17,7 @@ export const ModalProduct = ({ item }) => {
         <br />
         {color}-{size}
       </td>
-      <td>${price}</td>
+      <td>{formatPrice(price)}</td>
       <td className="qty">
         <input
           type="number"
