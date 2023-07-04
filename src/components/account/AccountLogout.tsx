@@ -7,7 +7,7 @@ export const AccountLogout = () => {
     <a
       role="button"
       className="list-group-item text-dark"
-      onClick={() => signOut()}
+      onClick={() => signOut({ callbackUrl: "/" })}
     >
       Logout
     </a>

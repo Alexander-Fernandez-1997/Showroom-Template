@@ -13,7 +13,7 @@ export const StickyWp = async () => {
       <div
         className="wp"
         style={{
-          backgroundImage: "url(images/icons/wp.png)",
+          backgroundImage: "url(/images/icons/wp.png)",
         }}
       ></div>
     </a>

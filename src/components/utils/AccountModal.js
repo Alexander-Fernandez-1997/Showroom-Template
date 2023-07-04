@@ -2,10 +2,12 @@
 import React from "react";
 import { useSession, signOut } from "next-auth/react";
 import { AccountSingIn } from "./AccountSingIn";
+import { getAccountLinks } from "utils/account";
+import Link from "next/link";
 
 export const AccountModal = () => {
   const { data: session } = useSession();
-  console.log("this is a session", session);
+  const links = getAccountLinks(session?.user?.id);
 
   if (useSession().status === "authenticated" && session !== undefined) {
     return (
@@ -17,7 +19,7 @@ export const AccountModal = () => {
       >
         <div className="offcanvas-header">
           <h5 className="offcanvas-title" id="offcanvasExampleLabel">
-            {session.user?.email}
+            Opciones de cuenta
           </h5>
           <button
             type="button"
@@ -27,13 +29,29 @@ export const AccountModal = () => {
           ></button>
         </div>
         <div className="offcanvas-body">
-          <ul className="list-group">
-            <li className="list-group-item">
-              <a role="button" onClick={signOut}>
+          <div className="p-2">
+            {/* <h5 className="mb-4">Bienvenido {session.user?.email} </h5> */}
+            <div className="d-flex flex-column  gap-5">
+              {links.map((link) => (
+                <button
+                  className="btn border-bottom border-bottom-secondary "
+                  key={link.href}
+                >
+                  <Link className="text-dark" href={link.href}>
+                    {link.tittle}
+                  </Link>
+                </button>
+              ))}
+
+              <button
+                className="btn border-bottom border-bottom-secondary "
+                role="button"
+                onClick={() => signOut()}
+              >
                 Cerrar sesión
-              </a>
-            </li>
-          </ul>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -45,9 +63,6 @@ export const AccountModal = () => {
         id="offcanvasExample"
       >
         <div className="offcanvas-header justify-content-end">
-          {/* <h5 className="offcanvas-title" id="offcanvasExampleLabel">
-            Ingresar a la cuenta
-          </h5> */}
           <button
             type="button"
             className="btn-close text-reset"
@@ -56,11 +71,6 @@ export const AccountModal = () => {
           ></button>
         </div>
         <div className="offcanvas-body">
-          {/* <ul className="list-group">
-            <li className="list-group-item">
-              <a onClick={signIn}>Iniciar sesión</a>
-            </li>
-          </ul> */}
           <AccountSingIn></AccountSingIn>
         </div>
       </div>

@@ -11,7 +11,7 @@ export const AccountListItem = ({
   return (
     <li className="list-group-item">
       <Link className="text-dark" href={href}>
-        {tittle}
+        {tittle === "Account" ? <h5>{tittle}</h5> : tittle}
       </Link>
     </li>
   );
