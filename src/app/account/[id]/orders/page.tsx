@@ -10,13 +10,13 @@ interface Props {
 
 export default async function Home({ params }: Props) {
   console.log(params.id);
-  const orders = await simpleFetch(`orders/client/${params.id}/recent`, "ssr");
+  const orders = await simpleFetch(`orders/client/${params.id}`, "ssr");
 
   return (
     <>
       <div className="container mt-5 pt-5">
         <AccountContainer id={params.id}>
-          <AccountRecentOrders tittle={"Recent orders"} orders={orders} />
+          <AccountRecentOrders tittle={"All orders"} orders={orders} />
         </AccountContainer>
       </div>
     </>

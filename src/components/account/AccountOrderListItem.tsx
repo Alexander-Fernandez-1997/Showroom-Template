@@ -1,4 +1,3 @@
-import { orders } from "@/lib/db/schema";
 import Link from "next/link";
 import React from "react";
 import { dateFormat } from "utils/dates";

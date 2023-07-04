@@ -1,6 +1,4 @@
 import { AccountContainer } from "@/components/account/AccountContainer";
-import { AccountRecentOrders } from "@/components/account/AccountRecentOrders";
-import { simpleFetch } from "utils/simpleFetch";
 
 interface Props {
   params: {
@@ -10,13 +8,12 @@ interface Props {
 
 export default async function Home({ params }: Props) {
   console.log(params.id);
-  const orders = await simpleFetch(`orders/client/${params.id}/recent`, "ssr");
 
   return (
     <>
       <div className="container mt-5 pt-5">
         <AccountContainer id={params.id}>
-          <AccountRecentOrders tittle={"Recent orders"} orders={orders} />
+          <h1>Profile</h1>
         </AccountContainer>
       </div>
     </>

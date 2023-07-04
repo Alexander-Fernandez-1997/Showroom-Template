@@ -29,7 +29,9 @@ export const AccountModal = () => {
         <div className="offcanvas-body">
           <ul className="list-group">
             <li className="list-group-item">
-              <a onClick={signOut}>Cerrar sesión</a>
+              <a role="button" onClick={signOut}>
+                Cerrar sesión
+              </a>
             </li>
           </ul>
         </div>
