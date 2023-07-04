@@ -42,7 +42,7 @@ const authOptions: NextAuthOptions = {
           return null;
         }
 
-        console.log("user 40", user);
+        // console.log("user 40", user);
 
         return {
           id: user.id,
@@ -83,12 +83,12 @@ const authOptions: NextAuthOptions = {
               email: token.email || user.email || "",
               password: "",
             };
-            console.log("client", client);
-            console.log("token", token);
-            console.log("account", account);
+            // console.log("client", client);
+            // console.log("token", token);
+            // console.log("account", account);
             const clientInfo = await simplePost("clients/oauth", client);
             token.user = await clientInfo;
-            console.log("token.user", token.user);
+            // console.log("token.user", token.user);
             break;
         }
       }
@@ -96,7 +96,7 @@ const authOptions: NextAuthOptions = {
     },
 
     session: ({ session, token }) => {
-      console.log("Session Callback 55", { session, token });
+      // console.log("Session Callback 55", { session, token });
       return {
         ...session,
         accessToken: token.accessToken,
