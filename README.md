@@ -1,34 +1,99 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Showroom-Template
 
-## Getting Started
+Welcome to the README file of the **Showroom-Template** repository. This repository contains the source code for a multitenant storefront built with Next.js and TypeScript. It enables you to control multiple stores from the [dashboard-template](https://github.com/Alexander-Fernandez-1997/dashboard-template) repository.
 
-First, run the development server:
+## Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+- [Overview](#overview)
+- [Packages Used](#packages-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Overview
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+The **Showroom-Template** is a multitenant storefront application that allows you to manage multiple stores from a centralized dashboard. It is built using Next.js and TypeScript, which provide a powerful and scalable foundation for building modern web applications.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+By utilizing the power of Next.js, you can benefit from server-side rendering, automatic code splitting, and an optimized build process. TypeScript adds static typing to the project, enhancing its maintainability and reducing the chance of introducing bugs.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Packages Used
 
-## Learn More
+The project relies on several packages to provide additional functionality and integrations. Here is an overview of the main packages used:
 
-To learn more about Next.js, take a look at the following resources:
+- **Next.js** (v13.4): Next.js is a React framework that enables server-side rendering, automatic code splitting, and simplified routing. It helps build fast, scalable, and SEO-friendly web applications.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Drizzle ORM**: Drizzle ORM is an Object Relational Mapping library for Node.js. It simplifies working with databases by providing an intuitive API to perform CRUD operations and manage database relationships.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- **pg**: pg is a PostgreSQL client library for Node.js. It allows you to connect to a PostgreSQL database and interact with it using JavaScript or TypeScript.
 
-## Deploy on Vercel
+- **@mercadopago/sdk-react** (v0.0.12): This package provides a React SDK for integrating payment services into your application. It supports the following payment methods:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  - **Mercado Pago**: @mercadopago/sdk-react enables you to handle payment processing and manage transactions using Mercado Pago's APIs.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+  - **PayPal**: @paypal/react-paypal-js (v7.8.2) allows you to integrate PayPal payments into your application. It simplifies the process of accepting payments using PayPal's APIs.
+
+  - **Stripe**: @stripe/stripe-js (v1.54.1) provides a JavaScript library for integrating Stripe payments into your application. It enables you to handle secure payment transactions and manage customer subscriptions.
+
+- **bcrypt** (v5.1.0): bcrypt is a library used for password hashing. It provides a secure way to store user passwords by applying a one-way hash function.
+
+- **dotenv** (v16.1.4): dotenv is a zero-dependency module that loads environment variables from a `.env` file into `process.env`. It is useful for managing sensitive information like API keys and database credentials.
+
+- **react-icons** (v4.6.0): react-icons is a collection of popular icon libraries as React components. It provides a wide range of icons that can be easily used in your application.
+
+- **zustand** (v4.1.4): zustand is a small, fast, and scalable state management library for React applications. It provides a simple API to create and manage stateful stores that can be easily shared across components.
+
+- **next-auth** (v4.22.1): next-auth is an authentication library for Next.js applications. It simplifies the implementation of authentication flows, including OAuth, JWT, and database-based authentication.
+
+Please refer to the documentation of each package for more details on their usage and configuration.
+
+## Installation
+
+To set up the project locally, follow these steps:
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/Alexander-Fernandez-1997/Showroom-Template.git
+   ```
+
+2. Install the project dependencies using npm or yarn:
+
+   ```bash
+   cd Showroom-Template
+   npm install
+   # or
+   yarn install
+   ```
+
+3. Create a `.env` file in the project root directory and add the necessary environment variables. Make sure to provide the required API keys, database credentials, and other configuration options.
+
+4. Build and start the development server:
+
+   ```bash
+   npm run build
+   npm run start
+   # or
+   yarn build
+   yarn start
+   ```
+
+The application should now be running locally on your machine.
+
+## Usage
+
+Once the application is running, you can access it by navigating to [http://localhost:3000](http://localhost:3000) in your web browser. From there, you can explore the multitenant storefront and manage your stores using the [dashboard-template](https://github.com/Alexander-Fernandez-1997/dashboard-template).
+
+The application supports multiple payment options, including Mercado Pago, PayPal, and Stripe. You can configure these payment providers by providing the necessary API keys and credentials in the `.env` file.
+
+Feel free to customize the application to fit your specific requirements and extend its functionality as needed.
+
+## Contributing
+
+Contributions to this project are welcome. If you find any issues or have suggestions for improvements, please create a new issue or submit a pull request on the [GitHub repository](https://github.com/Alexander-Fernandez-1997/Showroom-Template).
+
+When contributing, please follow the existing code style and provide clear and concise commit messages.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE). You are free to modify and distribute the code as per the terms of this license.
