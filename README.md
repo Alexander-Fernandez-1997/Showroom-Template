@@ -27,7 +27,7 @@ The project relies on several packages to provide additional functionality and i
 
 - **pg**: pg is a PostgreSQL client library for Node.js. It allows you to connect to a PostgreSQL database and interact with it using JavaScript or TypeScript.
 
-- **@mercadopago/sdk-react** (v0.0.12): This package provides a React SDK for integrating payment services into your application. It supports the following payment methods:
+- **Payment methods** We supports the following payment methods:
 
   - **Mercado Pago**: @mercadopago/sdk-react enables you to handle payment processing and manage transactions using Mercado Pago's APIs.
 
